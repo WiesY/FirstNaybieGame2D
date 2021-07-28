@@ -7,29 +7,20 @@ public class MainMenuScript : MonoBehaviour
     public GameObject storeMenu;
     public GameObject settingsMenu;
 
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
-
-    public void OnPlayButton()
+    public void OnPlayButton() // Кнопка ИГРАТЬ
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Загрузка сцены с картой уровней
     }
 
-    public void OnMarketButton()
+    public void OnStoreButton() // Кнопка МАГАЗИН
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Загрузка сцены с магазином
+        mainMenu.SetActive(false);
+        storeMenu.SetActive(true);
     }
 
-    public void OnSettingsButton()
+    public void OnSettingsButton() // Кнопка НАСТРОЙКИ
     {
-
+        mainMenu.SetActive(false);
+        settingsMenu.SetActive(true);
     }
 }
