@@ -1127,6 +1127,14 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4200006652989927016, guid: 79bc184595e34b441a68d2e520c69421, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: a4c02fecaa409394e836ea4261fe0a42, type: 2}
+    - target: {fileID: 4416176460733986353, guid: 79bc184595e34b441a68d2e520c69421, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: a4c02fecaa409394e836ea4261fe0a42, type: 2}
     - target: {fileID: 5314430505064953976, guid: 79bc184595e34b441a68d2e520c69421, type: 3}
       propertyPath: m_LocalPosition.y
       value: -1.71
