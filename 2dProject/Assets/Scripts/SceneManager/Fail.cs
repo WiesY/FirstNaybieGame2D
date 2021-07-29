@@ -23,7 +23,8 @@ public class Fail : MonoBehaviour
     {
         if (playerObject.CompareTag(PlayerTag))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
         }
     }
 }
