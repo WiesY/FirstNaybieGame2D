@@ -23,16 +23,4 @@ public class MainMenuScript : MonoBehaviour
         mainMenu.SetActive(false);
         settingsMenu.SetActive(true);
     }
-
-    public void OnQuitButton()
-    {
-        Application.Quit();
-    }
-
-    public void OnBackButton()
-    {
-        mainMenu.SetActive(true);
-        storeMenu.SetActive(false);
-        settingsMenu.SetActive(false);
-    }
 }
