@@ -7,6 +7,11 @@ public class MainMenuScript : MonoBehaviour
     public GameObject storeMenu;
     public GameObject settingsMenu;
 
+    private void Start()
+    {
+        QualitySettings.SetQualityLevel(1);
+    }
+
     public void OnPlayButton() // Кнопка ИГРАТЬ
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Загрузка сцены с картой уровней
@@ -24,15 +29,20 @@ public class MainMenuScript : MonoBehaviour
         settingsMenu.SetActive(true);
     }
 
-    public void OnQuitButton()
+    public void OnQuitButton() // Кнопка ВЫХОД
     {
         Application.Quit();
     }
 
-    public void OnBackButton()
+    public void OnBackButton() // Кнопка НАЗАД
     {
         mainMenu.SetActive(true);
         storeMenu.SetActive(false);
         settingsMenu.SetActive(false);
+    }
+
+    public void OnChangeGraphics(int graphicsIndex) // HIGH MEDIUM LOW
+    {
+        QualitySettings.SetQualityLevel(graphicsIndex);
     }
 }
