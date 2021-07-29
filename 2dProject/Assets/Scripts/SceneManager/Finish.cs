@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Finish : MonoBehaviour
 {
@@ -10,17 +11,12 @@ public class Finish : MonoBehaviour
 
     private bool isFinished = false;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if (isFinished && playerRb.velocity.magnitude > 0)
         {
             var move = playerRb.velocity;
-            move.x = move.x - 0.01f;
+            move.x -= 0.04f;
             playerRb.velocity = move;
             if (move.x < 0)
             {
