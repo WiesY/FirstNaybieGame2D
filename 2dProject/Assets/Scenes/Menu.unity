@@ -234,8 +234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 44, y: -38.5}
-  m_SizeDelta: {x: 55, y: 55}
+  m_AnchoredPosition: {x: 33, y: -36}
+  m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &142420623
 MonoBehaviour:
@@ -728,10 +728,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 295270336}
-  - {fileID: 394780019}
-  - {fileID: 1841399455}
+  m_Children: []
   m_Father: {fileID: 1786595763}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -752,7 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AllowSwitchOff: 1
+  m_AllowSwitchOff: 0
 --- !u!1 &295270335
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,13 +780,13 @@ RectTransform:
   m_Children:
   - {fileID: 1917372634}
   - {fileID: 1388419319}
-  m_Father: {fileID: 294566975}
-  m_RootOrder: 0
+  m_Father: {fileID: 1786595763}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 42.5, y: -1}
-  m_SizeDelta: {x: 85, y: 26.22}
+  m_AnchoredPosition: {x: 219.32, y: 0}
+  m_SizeDelta: {x: 74.58, y: 26.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &295270337
 MonoBehaviour:
@@ -813,10 +810,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 0.36862746, g: 0.99215686, b: 0.3372549, a: 1}
+    m_SelectedColor: {r: 0.36862746, g: 0.99215686, b: 0.3372549, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -838,13 +835,13 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1225980398}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1225980399}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+        m_MethodName: OnHighGraphics
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -881,12 +878,12 @@ RectTransform:
   m_Children:
   - {fileID: 1770105010}
   - {fileID: 195818026}
-  m_Father: {fileID: 294566975}
-  m_RootOrder: 1
+  m_Father: {fileID: 1786595763}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1}
+  m_AnchoredPosition: {x: 96.09999, y: 0}
   m_SizeDelta: {x: 85, y: 26.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &394780020
@@ -911,10 +908,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 0.36862746, g: 0.99215686, b: 0.3372549, a: 1}
+    m_SelectedColor: {r: 0.36862746, g: 0.99215686, b: 0.3372549, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -935,7 +932,19 @@ MonoBehaviour:
   m_Group: {fileID: 294566976}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1225980399}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+        m_MethodName: OnMediumGraphics
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &429425573
 GameObject:
@@ -1558,7 +1567,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 55, y: 55}
+  m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &992055950
 MonoBehaviour:
@@ -1891,7 +1900,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1168217932
 GameObject:
   m_ObjectHideFlags: 0
@@ -2219,6 +2228,12 @@ MonoBehaviour:
   mainMenu: {fileID: 1202065801}
   storeMenu: {fileID: 2021809152}
   settingsMenu: {fileID: 189399290}
+  graphicsObjects:
+  - {fileID: 295270337}
+  - {fileID: 394780020}
+  - {fileID: 1841399456}
+  clr: {r: 0.36862746, g: 0.99215686, b: 0.3372549, a: 1}
+  clrClear: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1225980400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2657,7 +2672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13743496, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2969,7 +2984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.14117648, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3023,6 +3038,9 @@ RectTransform:
   m_Children:
   - {fileID: 250626624}
   - {fileID: 294566975}
+  - {fileID: 295270336}
+  - {fileID: 394780019}
+  - {fileID: 1841399455}
   m_Father: {fileID: 189399293}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3211,13 +3229,13 @@ RectTransform:
   m_Children:
   - {fileID: 1143693582}
   - {fileID: 655574705}
-  m_Father: {fileID: 294566975}
-  m_RootOrder: 2
+  m_Father: {fileID: 1786595763}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -42.500015, y: -1}
-  m_SizeDelta: {x: 85, y: 26.22}
+  m_AnchoredPosition: {x: -25.730026, y: 0}
+  m_SizeDelta: {x: 71.8, y: 26.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1841399456
 MonoBehaviour:
@@ -3241,10 +3259,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 0.36862746, g: 0.99215686, b: 0.3372549, a: 1}
+    m_SelectedColor: {r: 0.36862746, g: 0.99215686, b: 0.3372549, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3265,8 +3283,20 @@ MonoBehaviour:
   m_Group: {fileID: 294566976}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 1
+      m_Calls:
+      - m_Target: {fileID: 1225980399}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+        m_MethodName: OnLowGraphics
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_IsOn: 0
 --- !u!1 &1850765201
 GameObject:
   m_ObjectHideFlags: 0
