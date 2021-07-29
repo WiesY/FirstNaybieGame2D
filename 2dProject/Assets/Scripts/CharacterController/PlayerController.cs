@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetButtonDown("Jump"))
         {
-            Debug.Log("1");
             jump = true;
         }
 
