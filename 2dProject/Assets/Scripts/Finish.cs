@@ -10,12 +10,17 @@ public class Finish : MonoBehaviour
 
     private bool isFinished = false;
 
+    void Start()
+    {
+        
+    }
+
     void Update()
     {
         if (isFinished && playerRb.velocity.magnitude > 0)
         {
             var move = playerRb.velocity;
-            move.x -= 0.04f;
+            move.x = move.x - 0.01f;
             playerRb.velocity = move;
             if (move.x < 0)
             {
