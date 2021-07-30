@@ -10,4 +10,8 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(3);
     }
     
+    public void back()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
