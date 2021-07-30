@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Fail : MonoBehaviour
 {
-
+    public GameObject FailMenu;
     public string PlayerTag;
     // Start is called before the first frame update
     void Start()
@@ -23,8 +23,7 @@ public class Fail : MonoBehaviour
     {
         if (playerObject.CompareTag(PlayerTag))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            
+            FailMenu.SetActive(true);
         }
     }
 }
