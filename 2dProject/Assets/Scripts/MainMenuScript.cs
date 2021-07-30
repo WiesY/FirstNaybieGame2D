@@ -8,13 +8,9 @@ public class MainMenuScript : MonoBehaviour
     public GameObject storeMenu;
     public GameObject settingsMenu;
 
-    public Toggle[] graphicsObjects;
-    public Color clr;
-    public Color clrClear;
-
     private void Start()
     {
-        QualitySettings.SetQualityLevel(1);
+        QualitySettings.SetQualityLevel(0);
     }
 
     public void OnPlayButton() //  ÌÓÔÍ‡ »√–¿“‹
@@ -46,43 +42,8 @@ public class MainMenuScript : MonoBehaviour
         settingsMenu.SetActive(false);
     }
 
-    public void OnHighGraphics(bool graphics)
+    public void OnChangeGraphics(int graphicIndex)
     {
-        if (graphics)
-        {
-            var tmpColor = graphicsObjects[0].colors;
-            tmpColor.normalColor = clr;
-            graphicsObjects[0].colors = tmpColor;
-
-            QualitySettings.SetQualityLevel(2);
-        }
-        else
-        {
-            var tmpColor = graphicsObjects[0].colors;
-            tmpColor.normalColor = clrClear;
-            graphicsObjects[0].colors = tmpColor;
-        }
-    }
-
-    public void OnMediumGraphics(bool graphics)
-    {
-        if (graphics)
-        {
-            graphicsObjects[1].transform.GetChild(0).GetComponent<Image>().color = new Color(94, 253, 87);
-            QualitySettings.SetQualityLevel(1);
-        }
-        else
-        {
-
-        }
-    }
-
-    public void OnLowGraphics(bool graphics)
-    {
-        if (graphics)
-        {
-            graphicsObjects[2].transform.GetChild(0).GetComponent<Image>().color = new Color(94, 253, 87);
-            QualitySettings.SetQualityLevel(0);
-        }
+        QualitySettings.SetQualityLevel(graphicIndex);
     }
 }
