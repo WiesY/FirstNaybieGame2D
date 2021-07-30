@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour
 {
-
     public void PauseGame()
     {
 
@@ -21,9 +20,9 @@ public class PauseScript : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void Settings()
+    public void OnChangeGraphics(int graphicIndex)
     {
-        SceneManager.LoadScene(1);
+        QualitySettings.SetQualityLevel(graphicIndex);
     }
 
     public void Store()
@@ -34,5 +33,5 @@ public class PauseScript : MonoBehaviour
     public void NextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+    }    
 }
