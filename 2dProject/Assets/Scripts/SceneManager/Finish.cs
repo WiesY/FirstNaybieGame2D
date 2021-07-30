@@ -8,6 +8,7 @@ public class Finish : MonoBehaviour
     public string playerTag;
     public Rigidbody2D playerRb;
     public PlayerController playerScript;
+    public Canvas canvas;
 
     private bool isFinished = false;
 
@@ -16,7 +17,7 @@ public class Finish : MonoBehaviour
         if (isFinished && playerRb.velocity.magnitude > 0)
         {
             var move = playerRb.velocity;
-            move.x -= 0.04f;
+            move.x -= 0.1f;
             playerRb.velocity = move;
             if (move.x < 0)
             {
@@ -33,6 +34,7 @@ public class Finish : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             isFinished = true;
+            canvas.enabled = true;
         }
     }
 }
