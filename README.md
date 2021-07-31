@@ -10,3 +10,6 @@ PlayerPrefs key:
 -Money - количество денег
 -SelectedSkin - выбранный скин
 -PurchasedSkins - массив купленных скинов
+
+Пройденные уровни:
+-SummerLevels - летние уровни(первые 8)
