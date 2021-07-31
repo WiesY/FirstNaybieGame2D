@@ -5,19 +5,16 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class LoadingScreen : MonoBehaviour
 {
-    public Animator animator;
-
     public Slider slider;
+    public GameObject loadMenu;
 
-    public int sceneID;
-    void Start()
+    public void LoadNewScene(int sceneID)
     {
-        //animator = GetComponent<Animator>();
-        //animator.SetTrigger("loading");
-        StartCoroutine(LoadingScr());
+        loadMenu.SetActive(true);
+        StartCoroutine(LoadingScr(sceneID));
     }
 
-    IEnumerator LoadingScr()
+    IEnumerator LoadingScr(int sceneID)
     {
         AsyncOperation load = SceneManager.LoadSceneAsync(sceneID);
         while(!load.isDone)
