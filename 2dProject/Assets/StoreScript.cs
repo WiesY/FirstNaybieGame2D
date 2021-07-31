@@ -56,6 +56,8 @@ public class StoreScript : MonoBehaviour
             skins[i].buyButton[2] = skins[i].skinObject.transform.Find("Choose Button").gameObject;
             skins[i].buyButton[3] = skins[i].skinObject.transform.Find("Chosen Button").gameObject;
 
+            skins[i].priceObject = skins[i].skinObject.transform.Find("Price Info").gameObject;
+
             skins[i].skinPrice = int.Parse(skins[i].skinObject.transform.Find("Price Info").Find("Price Text").GetComponent<TextMeshProUGUI>().text);
             skins[i].purchased = purchased[i];
 
@@ -79,6 +81,7 @@ public class StoreScript : MonoBehaviour
                 skins[i].buyButton[1].SetActive(false);
                 skins[i].buyButton[2].SetActive(false);
                 skins[i].buyButton[3].SetActive(true);
+                skins[i].priceObject.SetActive(false);
             }
             if (skins[i].purchased && !skins[i].choose)
             {
@@ -86,6 +89,7 @@ public class StoreScript : MonoBehaviour
                 skins[i].buyButton[1].SetActive(false);
                 skins[i].buyButton[2].SetActive(true);
                 skins[i].buyButton[3].SetActive(false);
+                skins[i].priceObject.SetActive(false);
             }
             if (!skins[i].purchased && !skins[i].choose && int.Parse(currentMoney.text) >= skins[i].skinPrice)
             {
@@ -93,6 +97,7 @@ public class StoreScript : MonoBehaviour
                 skins[i].buyButton[1].SetActive(false);
                 skins[i].buyButton[2].SetActive(false);
                 skins[i].buyButton[3].SetActive(false);
+                skins[i].priceObject.SetActive(true);
             }
             if (!skins[i].purchased && !skins[i].choose && int.Parse(currentMoney.text) < skins[i].skinPrice)
             {
@@ -100,6 +105,7 @@ public class StoreScript : MonoBehaviour
                 skins[i].buyButton[1].SetActive(true);
                 skins[i].buyButton[2].SetActive(false);
                 skins[i].buyButton[3].SetActive(false);
+                skins[i].priceObject.SetActive(true);
             }
         }
     }
@@ -144,6 +150,7 @@ public class Skin
     public GameObject skinObject;
 
     protected internal GameObject[] buyButton; // Кнопки покупки и тд
+    protected internal GameObject priceObject; // Объект с иконкой и цифрой цены
 
     protected internal int skinPrice;
     protected internal bool purchased; // Куплен(true) / Не куплен(false)
