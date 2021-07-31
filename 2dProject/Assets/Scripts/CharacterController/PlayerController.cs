@@ -12,14 +12,14 @@ public class PlayerController : MonoBehaviour
 
     private float move = 0f;
     public float moveSpeed = 40f;
-    private static float GroundedRadius = 0.4f;
+    //private static float GroundedRadius = 0.4f;
 
     bool jump = false;
     bool crouch = false;
 
-    static Transform GroundCheck;
+    //static Transform GroundCheck;
 
-    static LayerMask WhatIsGround;
+    //static LayerMask WhatIsGround;
 
     Rigidbody2D Rb;
 
@@ -32,9 +32,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //move = joystick.Horizontal * moveSpeed; // - движения с помощью джостика
+        move = joystick.Horizontal * moveSpeed; // - движения с помощью джостика
 
-        move = (Input.GetAxis("Horizontal")) * moveSpeed; // - движения с помощью клавиатуры
+        //move = (Input.GetAxis("Horizontal")) * moveSpeed; // - движения с помощью клавиатуры
         
         if (move != 0 && jump == false)
         {
@@ -48,20 +48,24 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Idle", true);
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (joystick.Vertical > 0.5)
+        //if (Input.GetButtonDown("Jump"))
         {
             jump = true;
         }
 
 
-        if (Input.GetButtonDown("Crouch"))
+        //if (Input.GetButtonDown("Crouch"))
+        if (joystick.Vertical < -0.5)
         {
             crouch = true;
             animator.SetBool("Move", false);
             animator.SetBool("Idle", false);
             animator.SetBool("Crouch", true);
         }
-        if (Input.GetButtonUp("Crouch"))
+        
+        else
+        //if (Input.GetButtonUp("Crouch"))
         {
             crouch = false;
             animator.SetBool("Crouch", false);
