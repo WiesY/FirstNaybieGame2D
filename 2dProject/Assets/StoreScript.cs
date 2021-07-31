@@ -1,151 +1,151 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class StoreScript : MonoBehaviour
 {
     public Skin[] skins;
-    public Image[] imageForViewSkins;
+    private bool[] purchased;
 
     public TextMeshProUGUI currentMoney; // Количество монет
 
-    public GameObject[] buyButton; // Купить / Не купить / Выбрать / Выбран
-
-    public GameObject priceObject;
-    public TextMeshProUGUI priceText;
-
-    private int currSkinIndex = 0;
-
     private void Awake()
     {
-        if (PlayerPrefs.HasKey("SelectedSkin"))
+        purchased = new bool[skins.Length];
+        if (PlayerPrefs.HasKey("PurchasedSkins")) // Проверка на купленные скины
         {
-            skins[PlayerPrefs.GetInt("SelectedSkin")].choose = true;
+            purchased = PlayerPrefsX.GetBoolArray("PurchasedSkins");
         }
         else
         {
-            skins[0].choose = true;
+            purchased[0] = true;
+        }
+
+        if (PlayerPrefs.HasKey("SelectedSkin")) // Если есть выбранный скин
+        {
+            if (purchased[PlayerPrefs.GetInt("SelectedSkin")]) // Если этот выбранный скин куплен
+            {
+                skins[PlayerPrefs.GetInt("SelectedSkin")].choose = true;
+            }
+            else
+            {
+                PlayerPrefs.SetInt("SelectedSkin", 0);
+                skins[0].choose = true;
+            }
+        }
+        else // Если нет - выбираем первый скин
+        {
             PlayerPrefs.SetInt("SelectedSkin", 0);
+            skins[0].choose = true;
         }
-    }
 
-    void Start()
-    {
-        UpdateSkinsMenu(skins.Length - 1, 0, 1);
-    }
-
-    public void OnPrevSkins()
-    {
-        if (currSkinIndex - 1 < 0)
+        if (PlayerPrefs.HasKey("Money"))
         {
-            currSkinIndex = skins.Length - 1;
-            UpdateSkinsMenu(currSkinIndex - 1, currSkinIndex, 0);
+            currentMoney.text = PlayerPrefs.GetInt("Money").ToString();
         }
         else
         {
-            currSkinIndex--;
-            UpdateSkinsMenu((currSkinIndex == 0) ? skins.Length - 1 : currSkinIndex - 1, currSkinIndex, currSkinIndex + 1);
+            PlayerPrefs.SetInt("Money", 0);
+            currentMoney.text = "0";
+        }
+
+        for (int i = 0; i < skins.Length; i++)
+        {
+            skins[i].buyButton = new GameObject[4];
+            skins[i].buyButton[0] = skins[i].skinObject.transform.Find("Buy Button").gameObject;
+            skins[i].buyButton[1] = skins[i].skinObject.transform.Find("Cant Buy Button").gameObject;
+            skins[i].buyButton[2] = skins[i].skinObject.transform.Find("Choose Button").gameObject;
+            skins[i].buyButton[3] = skins[i].skinObject.transform.Find("Chosen Button").gameObject;
+
+            skins[i].skinPrice = int.Parse(skins[i].skinObject.transform.Find("Price Info").Find("Price Text").GetComponent<TextMeshProUGUI>().text);
+            skins[i].purchased = purchased[i];
+
+            if (PlayerPrefs.GetInt("SelectedSkin") == i)
+            {
+                skins[i].choose = true;
+            }
+        }
+        UpdateStore();
+    }
+
+    private void UpdateStore()
+    {
+        skins[PlayerPrefs.GetInt("SelectedSkin")].choose = true;
+
+        for (int i = 0; i < skins.Length; i++)
+        {
+            if (skins[i].purchased && skins[i].choose)
+            {
+                skins[i].buyButton[0].SetActive(false);
+                skins[i].buyButton[1].SetActive(false);
+                skins[i].buyButton[2].SetActive(false);
+                skins[i].buyButton[3].SetActive(true);
+            }
+            if (skins[i].purchased && !skins[i].choose)
+            {
+                skins[i].buyButton[0].SetActive(false);
+                skins[i].buyButton[1].SetActive(false);
+                skins[i].buyButton[2].SetActive(true);
+                skins[i].buyButton[3].SetActive(false);
+            }
+            if (!skins[i].purchased && !skins[i].choose && int.Parse(currentMoney.text) >= skins[i].skinPrice)
+            {
+                skins[i].buyButton[0].SetActive(true);
+                skins[i].buyButton[1].SetActive(false);
+                skins[i].buyButton[2].SetActive(false);
+                skins[i].buyButton[3].SetActive(false);
+            }
+            if (!skins[i].purchased && !skins[i].choose && int.Parse(currentMoney.text) < skins[i].skinPrice)
+            {
+                skins[i].buyButton[0].SetActive(false);
+                skins[i].buyButton[1].SetActive(true);
+                skins[i].buyButton[2].SetActive(false);
+                skins[i].buyButton[3].SetActive(false);
+            }
         }
     }
 
-    public void OnNextSkins()
+    public void BuySkin(int indexSkin)
     {
-        if (currSkinIndex + 1 >= skins.Length)
+        if (int.Parse(currentMoney.text) >= skins[indexSkin].skinPrice && !skins[indexSkin].purchased && !skins[indexSkin].choose)
         {
-            currSkinIndex = 0;
-            UpdateSkinsMenu(skins.Length - 1, currSkinIndex, currSkinIndex + 1);
-        }
-        else
-        {
-            currSkinIndex++;
-            UpdateSkinsMenu(currSkinIndex - 1, currSkinIndex, (currSkinIndex + 1 >= skins.Length) ? 0 : currSkinIndex + 1);
+            purchased[indexSkin] = true;
+            skins[indexSkin].purchased = true;
+
+            currentMoney.text = (int.Parse(currentMoney.text) - skins[indexSkin].skinPrice).ToString();
+
+            PlayerPrefsX.SetBoolArray("PurchasedSkins", purchased);
+            PlayerPrefs.SetInt("Money", int.Parse(currentMoney.text));
+
+            UpdateStore();
         }
     }
 
-    private void UpdateSkinsMenu(int first, int second, int third)
+    public void ChooseSkin(int indexSkin)
     {
-        imageForViewSkins[0].GetComponent<Image>().sprite = skins[first].skinSprite.GetComponent<SpriteRenderer>().sprite;
-        imageForViewSkins[1].GetComponent<Image>().sprite = skins[second].skinSprite.GetComponent<SpriteRenderer>().sprite;
-        imageForViewSkins[2].GetComponent<Image>().sprite = skins[third].skinSprite.GetComponent<SpriteRenderer>().sprite;
+        skins[PlayerPrefs.GetInt("SelectedSkin")].choose = false;
 
-        if (skins[second].purchased && skins[second].choose)
-        {
-            priceObject.SetActive(false);
-            foreach (var item in buyButton)
-            {
-                if (item.name == "Chosen Text")
-                {
-                    item.SetActive(true);
-                    continue;
-                }
-                item.SetActive(false);
-            }
-            return;
-        }
-        if (skins[second].purchased && !skins[second].choose)
-        {
-            priceObject.SetActive(false);
-            foreach (var item in buyButton)
-            {
-                if (item.name == "Choose Image")
-                {
-                    item.SetActive(true);
-                    continue;
-                }
-                item.SetActive(false);
-            }
-            return;
-        }
-        if (!skins[second].purchased && !skins[second].choose && skins[second].skinPrice > int.Parse(currentMoney.text))
-        {
-            priceObject.SetActive(true);
-            foreach (var item in buyButton)
-            {
-                if (item.name == "Cant Buy Image")
-                {
-                    item.SetActive(true);
-                    continue;
-                }
-                item.SetActive(false);
-            }
-            return;
-        }
-        if (!skins[second].purchased && !skins[second].choose && skins[second].skinPrice <= int.Parse(currentMoney.text))
-        {
-            priceObject.SetActive(true);
-            foreach (var item in buyButton)
-            {
-                if (item.name == "Buy Image")
-                {
-                    item.SetActive(true);
-                    continue;
-                }
-                item.SetActive(false);
-            }
-            return;
-        }
-    }
+        skins[indexSkin].choose = true;
+        PlayerPrefs.SetInt("SelectedSkin", indexSkin);
 
-    private void UpdatePlayerPrefs()
-    {
-
+        UpdateStore();
     }
 }
 
 /// <summary>
 /// Массив экземпляров классов, состоящий из информации о скине.
 /// </summary>
-/// <param name="skinSprite">Спрайт(скин) персонажа</param>
+/// <param name="skinObject">Объект со всеми дочерними объектами скина(скин, цена, кнопки)</param>
 /// <param name="skinPrice">Цена персонажа</param>
 /// <param name="purchased">Куплен(true) или не куплен(false) персонаж</param>
 /// <param name="choose">Выбран(true) или не выбран(false) персонаж</param>
 [System.Serializable]
 public class Skin
 {
-    public GameObject skinSprite;
-    public int skinPrice;
-    public bool purchased; // Куплен(true) / Не куплен(false)
-    public bool choose; // Выбран(true) / Не выбран(false)
+    public GameObject skinObject;
+
+    protected internal GameObject[] buyButton; // Кнопки покупки и тд
+
+    protected internal int skinPrice;
+    protected internal bool purchased; // Куплен(true) / Не куплен(false)
+    protected internal bool choose; // Выбран(true) / Не выбран(false)
 }
