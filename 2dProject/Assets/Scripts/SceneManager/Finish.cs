@@ -27,7 +27,6 @@ public class Finish : MonoBehaviour
             }
             FinishMenu.SetActive(true);        
         }
-
     }
 
 
@@ -35,8 +34,7 @@ public class Finish : MonoBehaviour
     {
         if (other.CompareTag(playerTag))
         {
-            isFinished = true;
-            
+            isFinished = true;            
         }
     }
 }
