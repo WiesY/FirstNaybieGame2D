@@ -32,9 +32,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        move = joystick.Horizontal * moveSpeed; // - движения с помощью джостика
+        //move = joystick.Horizontal * moveSpeed; // - движения с помощью джостика
 
-        //move = (Input.GetAxis("Horizontal")) * moveSpeed; // - движения с помощью клавиатуры
+        move = (Input.GetAxis("Horizontal")) * moveSpeed; // - движения с помощью клавиатуры
         
         if (move != 0 && jump == false)
         {
@@ -48,15 +48,15 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Idle", true);
         }
 
-        if (joystick.Vertical > 0.5)
-        //if (Input.GetButtonDown("Jump"))
+        //if (joystick.Vertical > 0.5)  //- движения с помощью джостика
+        if (Input.GetButtonDown("Jump")) // - движения с помощью клавиатуры
         {
             jump = true;
         }
 
 
-        //if (Input.GetButtonDown("Crouch"))
-        if (joystick.Vertical < -0.5)
+        if (Input.GetButtonDown("Crouch")) // - движения с помощью клавиатуры
+        //if (joystick.Vertical < -0.5)  //- движения с помощью джостика
         {
             crouch = true;
             animator.SetBool("Move", false);
@@ -64,8 +64,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Crouch", true);
         }
         
-        else
-        //if (Input.GetButtonUp("Crouch"))
+        if (Input.GetButtonUp("Crouch"))
         {
             crouch = false;
             animator.SetBool("Crouch", false);
