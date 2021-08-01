@@ -38,14 +38,12 @@ public class PlayerController : MonoBehaviour
         
         if (move != 0 && jump == false)
         {
-            animator.SetBool("Idle", false);
             animator.SetBool("Move", true);
         }
 
-        if (move == 0 && jump == false)
+        if (move == 0)
         {
             animator.SetBool("Move", false);
-            animator.SetBool("Idle", true);
         }
 
         //if (joystick.Vertical > 0.5)  //- движения с помощью джостика
@@ -55,12 +53,11 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Crouch")) // - движения с помощью клавиатуры
         //if (joystick.Vertical < -0.5)  //- движения с помощью джостика
+        if (Input.GetButtonDown("Crouch")) // - движения с помощью клавиатуры
         {
             crouch = true;
             animator.SetBool("Move", false);
-            animator.SetBool("Idle", false);
             animator.SetBool("Crouch", true);
         }
         
@@ -70,17 +67,14 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Crouch", false);
         }
 
-        if (Rb.velocity.y != 0)
+        if (Rb.velocity.y >= 0.05)
         {
             animator.SetBool("Move", false);
-            animator.SetBool("Idle", false);
             animator.SetBool("Jump", true);
         }
         else
         {
-
             animator.SetBool("Jump", false);
-
         }
     }
     private void FixedUpdate()
@@ -90,6 +84,5 @@ public class PlayerController : MonoBehaviour
         jump = false;
 
     }
-
     //Collider2D collider = Physics2D.OverlapCircle(GroundCheck.position, GroundedRadius, WhatIsGround);
 }
