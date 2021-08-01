@@ -32,9 +32,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // move = joystick.Horizontal * moveSpeed; // - движения с помощью джостика
+        move = joystick.Horizontal * moveSpeed; // - движения с помощью джостика
 
-        move = (Input.GetAxis("Horizontal")) * moveSpeed; // - движения с помощью клавиатуры
+        //move = (Input.GetAxis("Horizontal")) * moveSpeed; // - движения с помощью клавиатуры
         
         if (move != 0 && jump == false)
         {
@@ -48,15 +48,15 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Idle", true);
         }
 
-        //if (joystick.Vertical > 0.5)
-        if (Input.GetButtonDown("Jump"))
+        if (joystick.Vertical > 0.5)
+        //if (Input.GetButtonDown("Jump"))
         {
             jump = true;
         }
 
 
-        //if (joystick.Vertical < -0.5)
-        if (Input.GetButtonDown("Crouch"))
+        //if (Input.GetButtonDown("Crouch"))
+        if (joystick.Vertical < -0.5)
         {
             crouch = true;
             animator.SetBool("Move", false);
@@ -64,7 +64,8 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Crouch", true);
         }
         
-        else if (Input.GetButtonUp("Crouch"))
+        else
+        //if (Input.GetButtonUp("Crouch"))
         {
             crouch = false;
             animator.SetBool("Crouch", false);
@@ -78,7 +79,9 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+
             animator.SetBool("Jump", false);
+
         }
     }
     private void FixedUpdate()
@@ -88,5 +91,6 @@ public class PlayerController : MonoBehaviour
         jump = false;
 
     }
+
     //Collider2D collider = Physics2D.OverlapCircle(GroundCheck.position, GroundedRadius, WhatIsGround);
 }
