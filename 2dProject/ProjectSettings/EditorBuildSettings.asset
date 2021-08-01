@@ -9,11 +9,32 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuSettingsStore/Menu.unity
     guid: 07315a7c5a6ce4943b497d84e3c01242
   - enabled: 1
+    path: Assets/Scenes/MenuSettingsStore/Store.unity
+    guid: 757a27fa9a8a4c04c9bd2f75ab98e695
+  - enabled: 1
     path: Assets/Scenes/Worlds.unity
     guid: a30e43c89efb1ae4e9d3e3b93d4a9699
   - enabled: 1
     path: Assets/Scenes/Worlds/SummerLevels.unity
+    guid: 7a12122f16d54d449979c6b482a42430
+  - enabled: 1
+    path: Assets/Scenes/Worlds/AutumnLevels.unity
+    guid: 59ab6873e11700641ace5557b8617c8d
+  - enabled: 1
+    path: Assets/Scenes/Worlds/SomeLevels 1.unity
+    guid: be6dca309f3a7974b9935affbf843218
+  - enabled: 1
+    path: Assets/Scenes/Worlds/CastleLevels.unity
+    guid: 488fab17bb286eb4b87a0cf69da7e0e5
+  - enabled: 1
+    path: Assets/Scenes/Worlds/CosmoLevels.unity
     guid: fb18ce747f609f9498545f7ede7d40fa
+  - enabled: 1
+    path: Assets/Scenes/Worlds/SomeLevels.unity
+    guid: b680ced15be7e33448265eb0428e2efe
+  - enabled: 1
+    path: Assets/Scenes/Worlds/SomeLevels 2.unity
+    guid: a62deb40dbb5b6344a35739b4cf39412
   - enabled: 1
     path: Assets/Scenes/Worlds/SummerLevels/SummerLevel1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
