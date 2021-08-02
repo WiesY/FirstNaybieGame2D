@@ -6,10 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScreen : MonoBehaviour
 {
-    public GameObject loadMenu;
+    [SerializeField] private GameObject loadMenu;
+    [SerializeField] private StoreScript storeScript;
+
+    private int lastScene = 0;
+
+    public void LoadPreviousScene()
+    {
+        LoadNewScene(lastScene);
+    }
 
     public void LoadNewScene(int sceneID)
     {
+        lastScene = SceneManager.GetActiveScene().buildIndex;
         loadMenu.SetActive(true);
         StartCoroutine(LoadingScr(sceneID));
     }
