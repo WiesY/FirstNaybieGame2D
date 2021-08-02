@@ -3,7 +3,10 @@ using UnityEngine.UI;
 
 public class SetJumpButtonScript : MonoBehaviour
 {
-    [SerializeField] public Sprite[] jumpSpritesForButton;
+    [SerializeField] private Sprite[] jumpSpritesForButton;
+    [SerializeField] private GameObject mainCharacter;
+
+    private PlayerController _playerController;
 
     private void Awake()
     {
@@ -15,5 +18,13 @@ public class SetJumpButtonScript : MonoBehaviour
         {
             transform.Find("Jump Button").Find("Jump Image").GetComponent<Image>().sprite = jumpSpritesForButton[0];
         }
+    }
+
+    public void OnJumpButton()
+    {
+        if (_playerController != null)
+            _playerController.Jump();
+        else
+            _playerController = mainCharacter.transform.GetChild(0).gameObject.GetComponent<PlayerController>();
     }
 }

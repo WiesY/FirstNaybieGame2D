@@ -8,33 +8,33 @@ public class PlayerController : MonoBehaviour
 
     public CharacterController2D playerObject;
 
-    public Animator animator;
-
-    private float move = 0f;
     public float moveSpeed = 40f;
+
+    private Animator animator;
+    private float move = 0f;
     //private static float GroundedRadius = 0.4f;
 
-    bool jump = false;
-    bool crouch = false;
+    private bool jump = false;
+    private bool crouch = false;
 
     //static Transform GroundCheck;
 
     //static LayerMask WhatIsGround;
 
-    Rigidbody2D Rb;
+    private Rigidbody2D rb;
 
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        Rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
         //move = joystick.Horizontal * moveSpeed; // - движения с помощью джостика
 
-        move = (Input.GetAxis("Horizontal")) * moveSpeed; // - движения с помощью клавиатуры
+        move = Input.GetAxis("Horizontal") * moveSpeed; // - движения с помощью клавиатуры
         
         if (move != 0 && jump == false)
         {
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Crouch", false);
         }
 
-        if (Rb.velocity.y >= 0.05)
+        if (rb.velocity.y >= 0.05)
         {
             animator.SetBool("Move", false);
             animator.SetBool("Jump", true);
@@ -83,6 +83,12 @@ public class PlayerController : MonoBehaviour
        
         jump = false;
 
+    }
+
+    public void Jump()
+    {
+        Debug.Log(1);
+        jump = true;
     }
     //Collider2D collider = Physics2D.OverlapCircle(GroundCheck.position, GroundedRadius, WhatIsGround);
 }
