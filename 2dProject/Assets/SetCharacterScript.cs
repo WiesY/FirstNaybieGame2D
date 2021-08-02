@@ -7,6 +7,7 @@ public class SetCharacterScript : MonoBehaviour
 {
     [SerializeField] private GameObject[] allSkins;
     [SerializeField] private CinemachineVirtualCamera cinemachineCamera;
+    [SerializeField] private Finish finish;
 
     private void Awake()
     {
@@ -25,5 +26,6 @@ public class SetCharacterScript : MonoBehaviour
         var character = Instantiate(allSkins[indexSkin], transform);
 
         cinemachineCamera.Follow = character.transform;
+        finish.player = character;
     }
 }

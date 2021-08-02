@@ -10,6 +10,11 @@ public class LoadingScreen : MonoBehaviour
 
     private int lastScene = 0;
 
+    public void ReloadCurrentScene()
+    {
+        LoadNewScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void LoadPreviousScene()
     {
         LoadNewScene(lastScene);
