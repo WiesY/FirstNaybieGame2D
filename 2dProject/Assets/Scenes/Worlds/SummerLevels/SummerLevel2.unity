@@ -5630,6 +5630,7 @@ MonoBehaviour:
   - {fileID: 96294634192980404, guid: 48ef4558b47caca49be5689ba934e43c, type: 3}
   - {fileID: 239153451060649421, guid: 6807c73b5ba1d6240b7142e05f50f240, type: 3}
   - {fileID: 3323538844743899258, guid: f84b1726dfdc8284b8b256ac7e04605b, type: 3}
+  cinemachineCamera: {fileID: 168811946}
 --- !u!4 &1179414751 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 360442858292783608, guid: eed409393698fab46be34bee0ddefc3c, type: 3}
