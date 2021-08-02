@@ -6,16 +6,17 @@ using UnityEngine.SceneManagement;
 public class Finish : MonoBehaviour
 {
     public string playerTag;
-    public GameObject player;
     public GameObject pauseButton;
     public GameObject finishMenu;
+
+    protected internal GameObject player;
 
     private Rigidbody2D playerRb;
     private PlayerController playerScript;    
 
     private bool isFinished = false;
 
-    private void Awake()
+    private void Start()
     {
         playerRb = player.GetComponent<Rigidbody2D>();
         playerScript = player.GetComponent<PlayerController>();
