@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class LoadingScreen : MonoBehaviour
 {
     [SerializeField] private GameObject loadMenu;
-    [SerializeField] private StoreScript storeScript;
 
     private int lastScene = 0;
 
