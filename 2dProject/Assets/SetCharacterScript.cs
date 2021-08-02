@@ -1,20 +1,29 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SetCharacterScript : MonoBehaviour
 {
-    public GameObject[] allSkins;
+    [SerializeField] private GameObject[] allSkins;
+    [SerializeField] private CinemachineVirtualCamera cinemachineCamera;
 
     private void Awake()
     {
         if (PlayerPrefs.HasKey("SelectedSkin"))
         {
-            Instantiate(allSkins[PlayerPrefs.GetInt("SelectedSkin")], transform);
+            SelectSkin(PlayerPrefs.GetInt("SelectedSkin"));
         }
         else
         {
-            Instantiate(allSkins[0], transform);
+            SelectSkin(0);
         }
+    }
+
+    private void SelectSkin(int indexSkin)
+    {
+        var character = Instantiate(allSkins[indexSkin], transform);
+
+        cinemachineCamera.Follow = character.transform;
     }
 }
