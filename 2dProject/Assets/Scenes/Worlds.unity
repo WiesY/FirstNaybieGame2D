@@ -778,7 +778,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.453918, y: 26.682175}
+  m_AnchoredPosition: {x: -12.453857, y: 26.68219}
   m_SizeDelta: {x: -207.4303, y: -103.58099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &853556047
@@ -920,14 +920,14 @@ RectTransform:
   m_GameObject: {fileID: 1410746735}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -3.9628408, y: -22.123785, z: -2.0994074}
+  m_LocalScale: {x: -1.5358782, y: -8.574515, z: -0.8136673}
   m_Children: []
   m_Father: {fileID: 1779106019}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 284.11, y: 293.93}
+  m_AnchoredPosition: {x: 111, y: 106}
   m_SizeDelta: {x: 143.39, y: 26.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1410746737
@@ -974,14 +974,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1779106021}
+        m_TargetAssemblyTypeName: LoadingScreen, Assembly-CSharp
+        m_MethodName: LoadNewScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
