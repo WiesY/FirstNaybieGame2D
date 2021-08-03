@@ -12,10 +12,10 @@ public class EnemyWalkScript : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D enemyRigidbody;
+    private NavMeshAgent navMeshAgent;
 
     private float speed = 1.5f;
     private bool moveToLeftPoint = true;
-    private bool pigIsAngry = false;
 
 
     private void Awake()
@@ -23,71 +23,86 @@ public class EnemyWalkScript : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    private void Update()
-    {
-        if (targetPlayer != null)
-        {
-            pigIsAngry = true;
-        }
-        else
-        {
-            pigIsAngry = false;
-            PatrulZone();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (targetPlayer != null)
+    //    {
+    //        pigIsAngry = true;
+    //    }
+    //    else
+    //    {
+    //        pigIsAngry = false;
+    //        PatrulZone();
+    //    }
+    //}
 
     private void FixedUpdate()
-    {
-        if (pigIsAngry)
+    {        
+        if (targetPlayer != null)
         {
-            TargetToPlayer();
+            //TargetToPlayer();
+            navMeshAgent.SetDestination(targetPlayer.transform.GetChild(0).gameObject.transform.position);
         }
         else
         {
-            animator.SetBool("Walk", true);
-            animator.SetBool("Run", false);
-            if (moveToLeftPoint)
-            {
-                enemyRigidbody.velocity = new Vector2(-3.5f, 0);
-            }
-            else
-            {
-                enemyRigidbody.velocity = new Vector2(3.5f, 0);
-            }            
+            //PatrulZone();        
         }
     }
 
-    private void PatrulZone()
-    {
-        if (transform.localPosition.x >= movePoints[1].transform.localPosition.x)
-        {
-            spriteRenderer.flipX = false;
-            moveToLeftPoint = true;
-        }
-        if (transform.localPosition.x <= movePoints[0].transform.localPosition.x)
-        {
-            spriteRenderer.flipX = true;
-            moveToLeftPoint = false;
-        }
-    }
+    //private void PatrulZone()
+    //{
+    //    if (transform.localPosition.x <= movePoints[0].transform.localPosition.x)
+    //    {
+    //        spriteRenderer.flipX = true;
+    //        moveToLeftPoint = false;
+    //    }
+    //    else if (transform.localPosition.x >= movePoints[1].transform.localPosition.x)
+    //    {
+    //        spriteRenderer.flipX = false;
+    //        moveToLeftPoint = true;
+    //    }
 
-    private void TargetToPlayer()
-    {
-        animator.SetBool("Run", true);
-        animator.SetBool("Walk", false);
-        if (transform.position.x > targetPlayer.transform.position.x)
-        {
-            spriteRenderer.flipX = false;
-            enemyRigidbody.velocity = new Vector2(-3.5f, 0);
-            moveToLeftPoint = true;
-        }
-        else if (transform.position.x < targetPlayer.transform.position.x)
-        {
-            spriteRenderer.flipX = true;
-            enemyRigidbody.velocity = new Vector2(3.5f, 0);
-            moveToLeftPoint = false;
-        }
-    }
+    //    if (transform.localPosition.x >= movePoints[0].transform.localPosition.x && moveToLeftPoint)
+    //    {            
+    //        enemyRigidbody.velocity = new Vector2(-3.5f, 0);
+    //    }
+    //    if (transform.localPosition.x <= movePoints[1].transform.localPosition.x && !moveToLeftPoint)
+    //    {            
+    //        enemyRigidbody.velocity = new Vector2(3.5f, 0);
+    //    }
+    //}
+
+    //private void TargetToPlayer()
+    //{        
+    //    if (transform.position.x > targetPlayer.transform.position.x)
+    //    {
+    //        spriteRenderer.flipX = false;
+    //        enemyRigidbody.velocity = new Vector2(-3.5f, 0);
+    //        moveToLeftPoint = true;
+    //    }
+    //    else if (transform.position.x < targetPlayer.transform.position.x)
+    //    {
+    //        spriteRenderer.flipX = true;
+    //        enemyRigidbody.velocity = new Vector2(3.5f, 0);
+    //        moveToLeftPoint = false;
+    //    }
+    //}
+
+    //public void SetTriggerPlayer(GameObject trigger)
+    //{
+    //    targetPlayer = trigger;
+    //    if (trigger != null)
+    //    {
+    //        animator.SetBool("Walk", false);
+    //        animator.SetBool("Run", true);
+    //    }
+    //    else
+    //    {
+    //        animator.SetBool("Run", false);
+    //        animator.SetBool("Walk", true);
+    //    }
+    //}
 }
