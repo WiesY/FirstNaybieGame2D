@@ -5,23 +5,30 @@ using UnityEngine;
 public class Trampoline : MonoBehaviour
 {
     [SerializeField] private string playerTag = "Player";
+    private bool isPlayerOn;
     
-    private Animator animator;
-    private Collision2D trampoline;
+    public Animator animator;
     void Start()
     {
         animator = GetComponent<Animator>();
     }
-    private void OnCollisionEnter2D(Collision2D trampoline)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (CompareTag(playerTag))
+        if (other.CompareTag(playerTag))
         {
-            animator.SetBool("isPlayerOn", true);
+            isPlayerOn = true;
         }
     }
     private void Update()
     {
-        OnCollisionEnter2D(trampoline);
-        animator.SetBool("isPlayerOn", false);
+        if (isPlayerOn)
+        {
+            animator.SetBool("isPlayerOn", true);
+        }
+        if(!isPlayerOn)
+        {
+            animator.SetBool("isPlayerOn", false);
+        }
+        
     }
 }
