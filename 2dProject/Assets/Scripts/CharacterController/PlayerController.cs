@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //if (joystick.Vertical > 0.5)  //- движения с помощью джостика
-        if (Input.GetButtonDown("Jump") && rb.velocity.y <= 0.01) // - движения с помощью клавиатуры
+        if (Input.GetButtonDown("Jump")) // - движения с помощью клавиатуры
         {
             jump = true;
         }

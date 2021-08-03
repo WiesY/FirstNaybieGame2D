@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemyWalkScript : MonoBehaviour
 {
@@ -12,7 +11,6 @@ public class EnemyWalkScript : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D enemyRigidbody;
-    private NavMeshAgent navMeshAgent;
 
     private float speed = 1.5f;
     private bool moveToLeftPoint = true;
@@ -23,7 +21,6 @@ public class EnemyWalkScript : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
-        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     //private void Update()
@@ -44,7 +41,6 @@ public class EnemyWalkScript : MonoBehaviour
         if (targetPlayer != null)
         {
             //TargetToPlayer();
-            navMeshAgent.SetDestination(targetPlayer.transform.GetChild(0).gameObject.transform.position);
         }
         else
         {
