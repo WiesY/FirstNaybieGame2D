@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
-    private string playerTag = "Player";
+    [SerializeField] private string playerTag = "Player";
     private bool isPlayerOn;
-    
+
     public Animator animator;
     void Start()
     {
@@ -16,20 +16,19 @@ public class Trampoline : MonoBehaviour
     {
         if (other.CompareTag(playerTag))
         {
+            //other.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
+            animator.SetBool("IsPlayerOn", true);
+            var JumpSpeed = other.GetComponent<Rigidbody2D>().velocity;
+            JumpSpeed.y = 30f;
+            other.GetComponent<Rigidbody2D>().velocity = JumpSpeed;
 
-            isPlayerOn = true;
         }
+
     }
-    private void Update()
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (isPlayerOn)
-        {
-            animator.SetBool("isPlayerOn", true);
-        }
-        if(!isPlayerOn)
-        {
-            animator.SetBool("isPlayerOn", false);
-        }
-        
+        animator.SetBool("IsPlayerOn", false);
     }
+
 }
