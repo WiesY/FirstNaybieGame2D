@@ -4,21 +4,19 @@ public class EnemyTargetScript : MonoBehaviour
 {
     [SerializeField] private EnemyWalkScript enemyWalkScript;
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(1);
         if (collision.CompareTag("Player"))
         {
-            //enemyWalkScript.SetTriggerPlayer(collision.gameObject);
+            enemyWalkScript.SetTriggerPlayer(collision.gameObject);
         }
     }
 
-    private void OnTriggerExit(Collider collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log(1);
         if (collision.CompareTag("Player"))
         {
-            //enemyWalkScript.SetTriggerPlayer(null);
+            enemyWalkScript.SetTriggerPlayer(null);
         }
     }
 }

@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_JumpForce: 1000
   m_CrouchSpeed: 0.36
-  m_MovementSmoothing: 0.1
+  m_MovementSmoothing: 0
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
@@ -213,7 +213,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystick: {fileID: 0}
   playerObject: {fileID: 7730192090701362918}
-  animator: {fileID: 6578695020533369341}
   moveSpeed: 1.5
 --- !u!95 &6578695020533369341
 Animator:
