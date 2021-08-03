@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
-    [SerializeField] private string playerTag = "Player";
+    private string playerTag = "Player";
     private bool isPlayerOn;
     
     public Animator animator;
@@ -16,6 +16,7 @@ public class Trampoline : MonoBehaviour
     {
         if (other.CompareTag(playerTag))
         {
+
             isPlayerOn = true;
         }
     }
