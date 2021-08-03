@@ -2,13 +2,18 @@ using UnityEngine;
 
 public class EnemyTargetScript : MonoBehaviour
 {
-    [SerializeField] private EnemyWalkScript enemyWalkScript;
+    private PigScript pigScript;
+
+    private void Awake()
+    {
+        pigScript = transform.GetChild(0).GetComponent<PigScript>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            enemyWalkScript.SetTriggerPlayer(collision.gameObject);
+            pigScript.SetTriggerPlayer(collision.gameObject);
         }
     }
 
@@ -16,7 +21,7 @@ public class EnemyTargetScript : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            enemyWalkScript.SetTriggerPlayer(null);
+            pigScript.SetTriggerPlayer(null);
         }
     }
 }
