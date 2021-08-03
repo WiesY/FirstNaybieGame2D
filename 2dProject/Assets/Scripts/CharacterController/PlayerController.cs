@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //if (joystick.Vertical > 0.5)  //- движения с помощью джостика
-        if (Input.GetButtonDown("Jump") && rb.velocity.y <= 0.01) // - движения с помощью клавиатуры
+        if (Input.GetButtonDown("Jump")) // - движения с помощью клавиатуры
         {
             jump = true;
         }
@@ -60,14 +60,14 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Move", false);
             animator.SetBool("Crouch", true);
         }
-        
+
         if (Input.GetButtonUp("Crouch"))
         {
             crouch = false;
             animator.SetBool("Crouch", false);
         }
 
-        if (rb.velocity.y >= 0.05)
+        if (rb.velocity.y >= 0.01)
         {
             animator.SetBool("Move", false);
             animator.SetBool("Jump", true);
