@@ -7,7 +7,10 @@ public class SetCharacterScript : MonoBehaviour
 {
     [SerializeField] private GameObject[] allSkins;
     [SerializeField] private CinemachineVirtualCamera cinemachineCamera;
+    [SerializeField] private GameObject canvas;
     [SerializeField] private Finish finish;
+
+    protected internal GameObject hp;
 
     private void Awake()
     {
@@ -19,6 +22,8 @@ public class SetCharacterScript : MonoBehaviour
         {
             SelectSkin(0);
         }
+
+        hp = canvas.transform.Find("HealthPoints").gameObject;
     }
 
     private void SelectSkin(int indexSkin)

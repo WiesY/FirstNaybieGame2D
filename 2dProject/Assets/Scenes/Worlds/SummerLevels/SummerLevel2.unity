@@ -14918,6 +14918,7 @@ MonoBehaviour:
   - {fileID: 239153451060649421, guid: 6807c73b5ba1d6240b7142e05f50f240, type: 3}
   - {fileID: 3323538844743899258, guid: f84b1726dfdc8284b8b256ac7e04605b, type: 3}
   cinemachineCamera: {fileID: 1344383444}
+  canvas: {fileID: 275009374}
   finish: {fileID: 1496877595}
 --- !u!1 &1206815253
 GameObject:
