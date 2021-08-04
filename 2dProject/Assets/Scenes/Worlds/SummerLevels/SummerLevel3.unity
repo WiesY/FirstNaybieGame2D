@@ -3388,7 +3388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8623076465962310416, guid: 23a673c65c305c74084fe18b9ecc3999, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8623076465962310416, guid: 23a673c65c305c74084fe18b9ecc3999, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7310,6 +7310,7 @@ MonoBehaviour:
   - {fileID: 96294634192980404, guid: 48ef4558b47caca49be5689ba934e43c, type: 3}
   - {fileID: 3323538844743899258, guid: f84b1726dfdc8284b8b256ac7e04605b, type: 3}
   cinemachineCamera: {fileID: 384065661}
+  canvas: {fileID: 0}
   finish: {fileID: 977575414}
 --- !u!4 &1786743634
 Transform:
@@ -7323,7 +7324,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1791441315
 GameObject:
