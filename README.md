@@ -20,14 +20,14 @@
 
 
 Цены фруктов:
-Apple - 5
-Bananas - 10
-Orange - 10
-Cherries - 15
-Qiwi - 15
-Strawberry - 25
-PineApple - 50
-Melon - 100
+- Apple - 5
+- Bananas - 10
+- Orange - 10
+- Cherries - 15
+- Qiwi - 15
+- Strawberry - 25
+- PineApple - 50
+- Melon - 100
 
 
 Индексы сцен:
