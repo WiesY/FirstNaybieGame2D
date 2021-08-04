@@ -46,4 +46,10 @@ public class SnailScript : MonoBehaviour
             enemyRigidbody.velocity = new Vector2(enemySpeed, 0);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+            CharacterHealth.characterHealthInstance.EnemyHit(); 
+    }
 }

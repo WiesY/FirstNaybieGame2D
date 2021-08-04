@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2837774149593945320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2837774150335038842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2837774150338438287}
   - component: {fileID: 2837774150338438286}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Snail Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 1512444527221696243}
   - component: {fileID: 7896650493524719718}
   - component: {fileID: 7896650493524719715}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Snail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

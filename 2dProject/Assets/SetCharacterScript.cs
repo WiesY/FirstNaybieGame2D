@@ -11,6 +11,7 @@ public class SetCharacterScript : MonoBehaviour
     [SerializeField] private Finish finish;
 
     protected internal GameObject hp;
+    protected internal GameObject failMenu;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class SetCharacterScript : MonoBehaviour
         }
 
         hp = canvas.transform.Find("HealthPoints").gameObject;
+        failMenu = canvas.transform.Find("Fail Menu").gameObject;
     }
 
     private void SelectSkin(int indexSkin)
