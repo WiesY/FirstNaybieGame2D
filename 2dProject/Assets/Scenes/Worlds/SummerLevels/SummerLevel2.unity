@@ -4810,13 +4810,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800455523}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48226ce77d2ee7b4f8d45731f6279728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainCharacter: {fileID: 1167052998}
-  characterHealth: {fileID: 0}
 --- !u!66 &800455528
 CompositeCollider2D:
   m_ObjectHideFlags: 0

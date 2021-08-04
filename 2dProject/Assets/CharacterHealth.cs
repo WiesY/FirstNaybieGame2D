@@ -6,28 +6,24 @@ public class CharacterHealth : MonoBehaviour
 { 
     [SerializeField] private int healthPoints = 3;
 
-    private bool OnTrap = false;
-    private string trap = "Trap";
-
     private Rigidbody2D rb;
     private GameObject healthPanel;
-    private GameObject[] healthSprite;
+    private Image[] healthSprite;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();        
+        rb = GetComponent<Rigidbody2D>();  
     }
 
     private void Start()
     {
         healthPanel = transform.parent.GetComponent<SetCharacterScript>().hp;
-        Debug.Log(healthPanel);
 
-        healthSprite = new GameObject[healthPanel.transform.childCount];
+        healthSprite = new Image[healthPanel.transform.childCount];
 
         for (int i = 0; i < healthSprite.Length; i++)
         {
-            healthSprite[i] = healthPanel.transform.GetChild(i).gameObject;
+            healthSprite[i] = healthPanel.transform.GetChild(i).GetComponent<Image>();
         }
     }
 
@@ -36,11 +32,16 @@ public class CharacterHealth : MonoBehaviour
         if (healthPoints > 0)
         {
             healthSprite[3 - healthPoints].GetComponent<Animator>().SetTrigger("Trigger");
+            healthSprite[3 - healthPoints].enabled = false;
             var hitAnim = rb.velocity;
             hitAnim.y = 3;
             rb.velocity = hitAnim;
 
             healthPoints--;
+        }
+        else
+        {
+            Debug.Log("Lose");
         }
     }
 }
