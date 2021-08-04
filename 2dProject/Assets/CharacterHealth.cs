@@ -71,8 +71,8 @@ public class CharacterHealth : MonoBehaviour
             Invoke("HitReload", 0.35f);
             if (healthPoints == 0)
             {
-                GetComponent<PlayerController>().enabled = false;
-                rb.velocity = new Vector2(0, 0);
+                //GetComponent<PlayerController>().enabled = false;
+                //rb.velocity = new Vector2(0, 0);
                 failPanel.SetActive(true);
             }
         }
