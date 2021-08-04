@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Joystick joystick;
     public CharacterController2D playerObject;
-    public float moveSpeed = 40f;
+    public float moveSpeed = 0.5f;
 
+    private Joystick joystick;
     private Animator animator;
 
     private float move = 0f;
@@ -20,13 +20,26 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        joystick = transform.parent.GetComponent<SetCharacterScript>().joystick;
     }
 
     void Update()
     {
-        //move = joystick.Horizontal * moveSpeed; // - движения с помощью джостика
+        if (joystick.Horizontal > 0.1f)
+        {
+            move = moveSpeed;
+        }
+        else if(joystick.Horizontal < -0.1f)
+        {
+            move = -moveSpeed;
+        }
+        else
+        {
+            move = 0;
+        }
+        // move = joystick.Horizontal * moveSpeed; // - движения с помощью джостика
 
-        move = Input.GetAxis("Horizontal") * moveSpeed; // - движения с помощью клавиатуры
+        // move = Input.GetAxis("Horizontal") * moveSpeed; // - движения с помощью клавиатуры
         
         if (move != 0 && jump == false)
         {
@@ -38,13 +51,11 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Move", false);
         }
 
-        //if (joystick.Vertical > 0.5)  //- движения с помощью джостика
         if (Input.GetButtonDown("Jump")) // - движения с помощью клавиатуры
         {
             jump = true;
         }
 
-        //if (joystick.Vertical < -0.5)  //- движения с помощью джостика
         if (Input.GetButtonDown("Crouch")) // - движения с помощью клавиатуры
         {
             crouch = true;
@@ -79,5 +90,4 @@ public class PlayerController : MonoBehaviour
     {
         jump = true;
     }
-    //Collider2D collider = Physics2D.OverlapCircle(GroundCheck.position, GroundedRadius, WhatIsGround);
 }

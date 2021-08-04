@@ -44,10 +44,10 @@ public class CharacterHealth : MonoBehaviour
             Invoke("RemoveHeart", 0.3f);
             var hitAnim = rb.velocity;
             hitAnim.x = 25f;
-            hitAnim.y = 13f;
+            hitAnim.y = 12f;
             rb.velocity = hitAnim;
             canHit = false;
-            Invoke("HitReload", 0.35f);
+            Invoke("HitReload", 0.5f);
             if (healthPoints == 0)
             {
                 GetComponent<PlayerController>().enabled = false;
@@ -65,14 +65,14 @@ public class CharacterHealth : MonoBehaviour
             healthSprite[healthPoints].GetComponent<Animator>().SetTrigger("Trigger");
             Invoke("RemoveHeart", 0.3f);
             var hitAnim = rb.velocity;
-            hitAnim.y = 10f;
+            hitAnim.y = 12f;
             rb.velocity = hitAnim;
             canHit = false;
-            Invoke("HitReload", 0.35f);
+            Invoke("HitReload", 1f);
             if (healthPoints == 0)
             {
-                //GetComponent<PlayerController>().enabled = false;
-                //rb.velocity = new Vector2(0, 0);
+                GetComponent<PlayerController>().enabled = false;
+                rb.velocity = new Vector2(0, 0);
                 failPanel.SetActive(true);
             }
         }
@@ -89,4 +89,3 @@ public class CharacterHealth : MonoBehaviour
         canHit = true;
     }
 }
-

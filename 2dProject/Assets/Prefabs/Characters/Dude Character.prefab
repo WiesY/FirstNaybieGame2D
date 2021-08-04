@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 6578695020533369341}
   - component: {fileID: 6578695020533369343}
   - component: {fileID: 6578695020533369340}
+  - component: {fileID: 864303623124239912}
   m_Layer: 3
   m_Name: Dude Character
   m_TagString: Player
@@ -211,7 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e16f5f24f7394a4093aedf8f4837def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystick: {fileID: 0}
   playerObject: {fileID: 7730192090701362918}
   moveSpeed: 1.5
 --- !u!95 &6578695020533369341
@@ -285,3 +285,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0221314, y: 0.87057805}
   m_EdgeRadius: 0
+--- !u!114 &864303623124239912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578695020533369339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386556e34c78bb34f9f6bb4782a6f52d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 3

@@ -23,7 +23,6 @@ public class Trampoline : MonoBehaviour
             other.GetComponent<Rigidbody2D>().velocity = JumpSpeed;
 
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)
