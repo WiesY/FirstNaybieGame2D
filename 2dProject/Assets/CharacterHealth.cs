@@ -31,13 +31,13 @@ public class CharacterHealth : MonoBehaviour
     {
         if (healthPoints > 0)
         {
-            healthSprite[3 - healthPoints].GetComponent<Animator>().SetTrigger("Trigger");
-            healthSprite[3 - healthPoints].enabled = false;
+            healthPoints--;
+            healthSprite[healthPoints].GetComponent<Animator>().SetTrigger("Trigger");
+            healthSprite[healthPoints].enabled = false;
             var hitAnim = rb.velocity;
             hitAnim.y = 3;
             rb.velocity = hitAnim;
 
-            healthPoints--;
         }
         else
         {
