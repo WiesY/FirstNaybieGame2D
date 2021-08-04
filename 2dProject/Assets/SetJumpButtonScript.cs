@@ -18,20 +18,16 @@ public class SetJumpButtonScript : MonoBehaviour
         {
             transform.Find("Jump Button").Find("Jump Image").GetComponent<Image>().sprite = jumpSpritesForButton[0];
         }
-
-        
     }
 
     private void Start()
     {
-        _playerController = _playerController = mainCharacter.transform.GetChild(0).gameObject.GetComponent<PlayerController>();
+        _playerController = mainCharacter.transform.GetChild(0).gameObject.GetComponent<PlayerController>();
     }
 
     public void OnJumpButton()
     {
         if (_playerController != null)
             _playerController.Jump();
-        else
-            _playerController = mainCharacter.transform.GetChild(0).gameObject.GetComponent<PlayerController>();
     }
 }

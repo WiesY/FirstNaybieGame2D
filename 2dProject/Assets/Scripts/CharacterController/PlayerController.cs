@@ -5,24 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Joystick joystick;
-
     public CharacterController2D playerObject;
-
     public float moveSpeed = 40f;
 
     private Animator animator;
-    private float move = 0f;
-    //private static float GroundedRadius = 0.4f;
 
+    private float move = 0f;
     private bool jump = false;
     private bool crouch = false;
 
-    //static Transform GroundCheck;
-
-    //static LayerMask WhatIsGround;
-
     private Rigidbody2D rb;
-
 
     void Start()
     {
@@ -52,7 +44,6 @@ public class PlayerController : MonoBehaviour
             jump = true;
         }
 
-
         //if (joystick.Vertical < -0.5)  //- движения с помощью джостика
         if (Input.GetButtonDown("Crouch")) // - движения с помощью клавиатуры
         {
@@ -77,17 +68,15 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Jump", false);
         }
     }
+
     private void FixedUpdate()
     {
         playerObject.Move(move, crouch, jump);
        
         jump = false;
-
     }
-
     public void Jump()
     {
-        Debug.Log(1);
         jump = true;
     }
     //Collider2D collider = Physics2D.OverlapCircle(GroundCheck.position, GroundedRadius, WhatIsGround);
