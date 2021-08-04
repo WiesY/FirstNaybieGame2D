@@ -33,16 +33,20 @@ public class CharacterHealth : MonoBehaviour
         {
             healthPoints--;
             healthSprite[healthPoints].GetComponent<Animator>().SetTrigger("Trigger");
-            healthSprite[healthPoints].enabled = false;
+            Invoke("RemoveHeart", 0.3f);
             var hitAnim = rb.velocity;
-            hitAnim.y = 3;
+            hitAnim.y = 10f;
             rb.velocity = hitAnim;
-
         }
         else
         {
             Debug.Log("Lose");
         }
+    }
+
+    private void RemoveHeart()
+    {
+        healthSprite[healthPoints].enabled = false;
     }
 }
 
