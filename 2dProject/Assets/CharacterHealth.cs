@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class CharacterHealth : MonoBehaviour
 { 
     [SerializeField] private int healthPoints = 3;
 
     public static CharacterHealth characterHealthInstance;
 
+    private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private Image[] healthSprite;
     private GameObject healthPanel;
@@ -24,6 +26,7 @@ public class CharacterHealth : MonoBehaviour
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         healthPanel = transform.parent.GetComponent<SetCharacterScript>().hp;
         failPanel = transform.parent.GetComponent<SetCharacterScript>().failMenu;
 
@@ -47,7 +50,7 @@ public class CharacterHealth : MonoBehaviour
             hitAnim.y = 12f;
             rb.velocity = hitAnim;
             canHit = false;
-            Invoke("HitReload", 0.5f);
+            StartCoroutine(TakeHit());
             if (healthPoints == 0)
             {
                 GetComponent<PlayerController>().enabled = false;
@@ -68,7 +71,7 @@ public class CharacterHealth : MonoBehaviour
             hitAnim.y = 12f;
             rb.velocity = hitAnim;
             canHit = false;
-            Invoke("HitReload", 1f);
+            StartCoroutine(TakeHit());
             if (healthPoints == 0)
             {
                 GetComponent<PlayerController>().enabled = false;
@@ -76,7 +79,6 @@ public class CharacterHealth : MonoBehaviour
                 failPanel.SetActive(true);
             }
         }
-       
     }
 
     private void RemoveHeart()
@@ -84,8 +86,32 @@ public class CharacterHealth : MonoBehaviour
         healthSprite[healthPoints].enabled = false;
     }
 
-    private void HitReload()
+    //private void HitReload()
+    //{
+    //    canHit = true;
+    //}
+
+    private IEnumerator TakeHit()
     {
+
+        while (spriteRenderer.material.color.a > 0)
+        {
+            var tempColor = spriteRenderer.material.color;
+            tempColor.a -= 0.001f;
+            spriteRenderer.material.color = tempColor;
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        while (spriteRenderer.material.color.a < 1)
+        {
+            var tempColor = spriteRenderer.material.color;
+            tempColor.a += 0.001f;
+            spriteRenderer.material.color = tempColor;
+        }
+
+        yield return new WaitForSeconds(0.7f);
+
         canHit = true;
     }
 }
