@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BatScript : MonoBehaviour
 {
-    public GameObject targetPlayer;
-
+    private GameObject targetPlayer;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D enemyRigidbody;
@@ -56,24 +55,29 @@ public class BatScript : MonoBehaviour
 
         if (transform.localPosition.x > -1 && transform.localPosition.x < 1 && transform.localPosition.y > -1 && transform.localPosition.y < 1)
         {
-            animator.SetBool("IsFlying", false);
             StartCoroutine(ChangeSimulated(false));
+            animator.SetBool("IsFlying", false);
+            enemyRigidbody.velocity = new Vector2(0, 0);
         }
     }
 
     private void TargetToPlayer()
     {
-        if (transform.position.x > targetPlayer.transform.position.x)
+        if (transform.position.x > targetPlayer.transform.position.x + 1)
         {
             spriteRenderer.flipX = false;
             enemyRigidbody.velocity = new Vector2(-enemySpeed * 2, 0);
             moveToLeftPoint = true;
         }
-        else if (transform.position.x < targetPlayer.transform.position.x)
+        else if (transform.position.x < targetPlayer.transform.position.x - 1)
         {
             spriteRenderer.flipX = true;
             enemyRigidbody.velocity = new Vector2(enemySpeed * 2, 0);
             moveToLeftPoint = false;
+        }
+        else
+        {
+            enemyRigidbody.velocity = new Vector2(0, 0);
         }
 
         if (transform.position.y > targetPlayer.transform.position.y)
@@ -95,8 +99,8 @@ public class BatScript : MonoBehaviour
         targetPlayer = trigger;
         if (trigger != null)
         {
-            animator.SetBool("IsFlying", true);
             StartCoroutine(ChangeSimulated(true));
+            animator.SetBool("IsFlying", true);
         }
     }
 
@@ -104,5 +108,13 @@ public class BatScript : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         enemyRigidbody.simulated = simulated;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            CharacterHealth.characterHealthInstance.EnemyHit();
+        }
     }
 }

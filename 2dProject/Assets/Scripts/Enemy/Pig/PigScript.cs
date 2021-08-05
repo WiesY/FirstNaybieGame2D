@@ -4,8 +4,7 @@ public class PigScript : MonoBehaviour
 {
     [SerializeField] private GameObject[] movePoints;
 
-    public GameObject targetPlayer;
-
+    private GameObject targetPlayer;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D enemyRigidbody;
