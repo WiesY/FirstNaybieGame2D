@@ -10,7 +10,7 @@ public class ChameleonScript : MonoBehaviour
     private Rigidbody2D enemyRigidbody;
 
     private float enemySpeed = 2.5f; // Patrul speed
-    private bool outOfInvis = true;
+    private bool canMove = true;
 
 
     private void Awake()
@@ -22,7 +22,7 @@ public class ChameleonScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (targetPlayer != null && outOfInvis)
+        if (targetPlayer != null)
         {
             TargetToPlayer();
         }
@@ -30,15 +30,23 @@ public class ChameleonScript : MonoBehaviour
 
     private void TargetToPlayer()
     {
-        if (transform.position.x > targetPlayer.transform.position.x + 2)
+        if (transform.position.x > targetPlayer.transform.position.x + 1 && canMove)
         {
             spriteRenderer.flipX = false;
             enemyRigidbody.velocity = new Vector2(-enemySpeed * 2, 0);
         }
-        else if (transform.position.x < targetPlayer.transform.position.x + 2)
+        else if (transform.position.x < targetPlayer.transform.position.x + 1 && canMove)
         {
             spriteRenderer.flipX = true;
             enemyRigidbody.velocity = new Vector2(enemySpeed * 2, 0);
+        }
+
+        if (Vector2.Distance(transform.position, targetPlayer.transform.position) < 2f)
+        {
+            enemyRigidbody.velocity = new Vector2(0, 0);
+            StartCoroutine(OutOfInvisible());
+            canMove = false;
+            animator.SetTrigger("CanHitPlayer");
         }
     }
 
@@ -50,11 +58,25 @@ public class ChameleonScript : MonoBehaviour
             StartCoroutine(OutOfInvisible());
             animator.SetBool("TargetToPlayer", true);
         }
+        else
+        {
+            enemyRigidbody.velocity = new Vector2(0, 0);
+            animator.SetBool("TargetToPlayer", false);
+            canMove = false;
+        }
     }
 
     private IEnumerator OutOfInvisible()
     {
         yield return new WaitForSeconds(1);
-        outOfInvis = true;
+        canMove = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            CharacterHealth.characterHealthInstance.EnemyHit();
+        }
     }
 }

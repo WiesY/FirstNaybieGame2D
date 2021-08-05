@@ -8,7 +8,7 @@ public class ChameleonTargetScript : MonoBehaviour
 
     private void Awake()
     {
-        chameleonScript = transform.GetChild(0).GetComponent<chameleonScript>();
+        chameleonScript = transform.GetChild(0).GetComponent<ChameleonScript>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -16,6 +16,14 @@ public class ChameleonTargetScript : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             chameleonScript.SetTriggerPlayer(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            chameleonScript.SetTriggerPlayer(null);
         }
     }
 }
