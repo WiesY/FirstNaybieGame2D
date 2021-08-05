@@ -10,7 +10,7 @@ public class PigScript : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D enemyRigidbody;
 
-    private float enemySpeed = 2.5f;
+    private float enemySpeed = 2.5f; // Patrul speed
     private bool moveToLeftPoint = true;
 
 
@@ -61,13 +61,13 @@ public class PigScript : MonoBehaviour
         if (transform.position.x > targetPlayer.transform.position.x)
         {
             spriteRenderer.flipX = false;
-            enemyRigidbody.velocity = new Vector2(-enemySpeed * 1.5f, 0);
+            enemyRigidbody.velocity = new Vector2(-enemySpeed * 2, 0);
             moveToLeftPoint = true;
         }
         else if (transform.position.x < targetPlayer.transform.position.x)
         {
             spriteRenderer.flipX = true;
-            enemyRigidbody.velocity = new Vector2(enemySpeed * 1.5f, 0);
+            enemyRigidbody.velocity = new Vector2(enemySpeed * 2, 0);
             moveToLeftPoint = false;
         }
     }

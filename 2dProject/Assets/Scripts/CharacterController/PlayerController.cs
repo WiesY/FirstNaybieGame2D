@@ -25,21 +25,21 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (joystick.Horizontal > 0.1f)
-        {
-            move = moveSpeed;
-        }
-        else if(joystick.Horizontal < -0.1f)
-        {
-            move = -moveSpeed;
-        }
-        else
-        {
-            move = 0;
-        }
+        //if (joystick.Horizontal > 0.1f)
+        //{
+        //    move = moveSpeed;
+        //}
+        //else if(joystick.Horizontal < -0.1f)
+        //{
+        //    move = -moveSpeed;
+        //}
+        //else
+        //{
+        //    move = 0;
+        //}
         // move = joystick.Horizontal * moveSpeed; // - движения с помощью джостика
 
-        // move = Input.GetAxis("Horizontal") * moveSpeed; // - движения с помощью клавиатуры
+        move = Input.GetAxis("Horizontal") * moveSpeed; // - движения с помощью клавиатуры
         
         if (move != 0 && jump == false)
         {

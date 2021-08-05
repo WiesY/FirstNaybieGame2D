@@ -1,19 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTargetScript : MonoBehaviour
+public class BatTriggerScript : MonoBehaviour
 {
-    private PigScript pigScript;
+    private BatScript batScript;
 
     private void Awake()
     {
-        pigScript = transform.GetChild(0).GetComponent<PigScript>();
+        batScript = transform.GetChild(0).GetComponent<BatScript>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            pigScript.SetTriggerPlayer(collision.gameObject);
+            batScript.SetTriggerPlayer(collision.gameObject);
         }
     }
 
@@ -21,7 +23,7 @@ public class EnemyTargetScript : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            pigScript.SetTriggerPlayer(null);
+            batScript.SetTriggerPlayer(null);
         }
     }
 }
