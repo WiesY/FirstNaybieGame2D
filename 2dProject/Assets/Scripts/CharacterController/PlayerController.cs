@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("Jump") && rb.velocity.y <= 0.1f) // - движения с помощью клавиатуры
         {
+            
             jump = true;
             animator.SetTrigger("Jump");
         }
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerObject.Move(move, crouch, jump);
+        playerObject.Move(move, crouch, false);
 
         jump = false;
     }
@@ -73,6 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         if (rb.velocity.y <= 0.1f)
         {
+            rb.velocity = new Vector2(0, 25f);
             jump = true;
             animator.SetTrigger("Jump");
         }
