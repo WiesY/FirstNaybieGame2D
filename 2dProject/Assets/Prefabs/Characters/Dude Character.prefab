@@ -186,9 +186,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkGroundObject: {fileID: 4989370501800971944}
   checkRadius: 0.1
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 65
   playerSpeed: 11.5
   playerForceJump: 20.5
 --- !u!95 &6578695020533369341
@@ -223,7 +220,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03815198, y: 0.21289563}
+  m_Offset: {x: 0.04191929, y: 0.17522246}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -234,7 +231,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3996453, y: 1.3631186}
+  m_Size: {x: 1.3921107, y: 1.2877723}
   m_EdgeRadius: 0
 --- !u!61 &6578695020533369340
 BoxCollider2D:
@@ -288,7 +285,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0070807636, y: -1.1213936}
+  m_Offset: {x: 0.03910303, y: -1.1213936}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -299,5 +296,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0858386, y: 0.10859132}
+  m_Size: {x: 1.1875563, y: 0.10859132}
   m_EdgeRadius: 0
