@@ -77,7 +77,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ecb041d9049d648a8d4ac07cdc0b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyWalkScript: {fileID: 5030927184744410957}
 --- !u!61 &1091618072534102951
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -231,7 +230,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8a8aae132e86dc447ad28444c6846c21, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -280,7 +279,6 @@ MonoBehaviour:
   movePoints:
   - {fileID: 1091618072537485905}
   - {fileID: 1091618071919625155}
-  targetPlayer: {fileID: 0}
 --- !u!50 &5030927184744410956
 Rigidbody2D:
   serializedVersion: 4
