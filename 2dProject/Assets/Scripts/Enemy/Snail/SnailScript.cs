@@ -8,7 +8,7 @@ public class SnailScript : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D enemyRigidbody;
 
-    private float enemySpeed = 0.15f;
+    private float enemySpeed = 0.35f;
     private bool moveToLeftPoint = true;
 
 
@@ -47,9 +47,11 @@ public class SnailScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (other.gameObject.tag == "Player")
-            CharacterHealth.characterHealthInstance.EnemyHit(); 
+        if (collision.gameObject.tag == "Player")
+        {
+            CharacterHealth.characterHealthInstance.EnemyHit();
+        }
     }
 }

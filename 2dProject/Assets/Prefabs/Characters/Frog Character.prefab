@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 3323538844743899259}
   - component: {fileID: 3323538844743899256}
   - component: {fileID: 6548216523520306365}
-  - component: {fileID: 2167502990617880423}
   - component: {fileID: 1045678361847066610}
   - component: {fileID: 3323538844743899260}
   - component: {fileID: 3323538844743899262}
   - component: {fileID: 3323538844743899261}
   - component: {fileID: 7262629300066663772}
+  - component: {fileID: 2129231756492782114}
   m_Layer: 3
   m_Name: Frog Character
   m_TagString: Player
@@ -112,34 +112,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2167502990617880423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3323538844743899258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36dd5675acef01349944ffd35c9eeb60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_JumpForce: 1000
-  m_CrouchSpeed: 0.36
-  m_MovementSmoothing: 0
-  m_AirControl: 1
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 103
-  m_GroundCheck: {fileID: 3489835291760467753}
-  m_CeilingCheck: {fileID: 6870605890887693070}
-  m_CrouchDisableCollider: {fileID: 3323538844743899262}
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCrouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1045678361847066610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,8 +124,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e16f5f24f7394a4093aedf8f4837def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 2167502990617880423}
-  moveSpeed: 1.5
+  checkGroundObject: {fileID: 0}
+  checkRadius: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  playerSpeed: 5
+  playerForceJump: 25
 --- !u!95 &3323538844743899260
 Animator:
   serializedVersion: 3
@@ -238,6 +215,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 3
+--- !u!61 &2129231756492782114
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3323538844743899258}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -1.121394}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.1333334, y: 2.1333334}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.1085913}
+  m_EdgeRadius: 0
 --- !u!1 &4556770296095516732
 GameObject:
   m_ObjectHideFlags: 0

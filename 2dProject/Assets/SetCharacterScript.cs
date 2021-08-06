@@ -27,7 +27,7 @@ public class SetCharacterScript : MonoBehaviour
 
         hp = canvas.transform.Find("HealthPoints").gameObject;
         failMenu = canvas.transform.Find("Fail Menu").gameObject;
-        joystick = canvas.transform.GetChild(canvas.transform.childCount - 1).GetComponent<Joystick>();
+        joystick = canvas.transform.GetChild(canvas.transform.childCount - 2).GetComponent<Joystick>();
     }
 
     private void SelectSkin(int indexSkin)

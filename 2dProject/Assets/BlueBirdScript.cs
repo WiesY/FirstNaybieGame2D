@@ -31,4 +31,12 @@ public class BlueBirdScript : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, patrulPoints[pointNumber].transform.position, speed * Time.fixedDeltaTime);
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            CharacterHealth.characterHealthInstance.EnemyHit();
+        }
+    }
 }

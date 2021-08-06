@@ -91,7 +91,7 @@ public class StoreScript : MonoBehaviour
                 skins[i].buyButton[3].SetActive(false);
                 skins[i].priceObject.SetActive(false);
             }
-            if (!skins[i].purchased && !skins[i].choose && int.Parse(currentMoney.text) >= skins[i].skinPrice)
+            if (!skins[i].purchased && !skins[i].choose && PlayerPrefs.GetInt("Money") >= skins[i].skinPrice)
             {
                 skins[i].buyButton[0].SetActive(true);
                 skins[i].buyButton[1].SetActive(false);
@@ -99,7 +99,7 @@ public class StoreScript : MonoBehaviour
                 skins[i].buyButton[3].SetActive(false);
                 skins[i].priceObject.SetActive(true);
             }
-            if (!skins[i].purchased && !skins[i].choose && int.Parse(currentMoney.text) < skins[i].skinPrice)
+            if (!skins[i].purchased && !skins[i].choose && PlayerPrefs.GetInt("Money") < skins[i].skinPrice)
             {
                 skins[i].buyButton[0].SetActive(false);
                 skins[i].buyButton[1].SetActive(true);
@@ -112,12 +112,12 @@ public class StoreScript : MonoBehaviour
 
     public void BuySkin(int indexSkin)
     {
-        if (int.Parse(currentMoney.text) >= skins[indexSkin].skinPrice && !skins[indexSkin].purchased && !skins[indexSkin].choose)
+        if (PlayerPrefs.GetInt("Money") >= skins[indexSkin].skinPrice && !skins[indexSkin].purchased && !skins[indexSkin].choose)
         {
             purchased[indexSkin] = true;
             skins[indexSkin].purchased = true;
 
-            currentMoney.text = (int.Parse(currentMoney.text) - skins[indexSkin].skinPrice).ToString();
+            currentMoney.text = (PlayerPrefs.GetInt("Money") - skins[indexSkin].skinPrice).ToString();
 
             PlayerPrefsX.SetBoolArray("PurchasedSkins", purchased);
             PlayerPrefs.SetInt("Money", int.Parse(currentMoney.text));
@@ -134,6 +134,12 @@ public class StoreScript : MonoBehaviour
         PlayerPrefs.SetInt("SelectedSkin", indexSkin);
 
         UpdateStore();
+    }
+
+    public void CheatOnMoney()
+    {
+        PlayerPrefs.SetInt("Money", 5000);
+        currentMoney.text = PlayerPrefs.GetInt("Money").ToString();
     }
 }
 

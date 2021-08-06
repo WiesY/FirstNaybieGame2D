@@ -10,7 +10,6 @@ public class BatScript : MonoBehaviour
     private Rigidbody2D enemyRigidbody;
 
     private float enemySpeed = 2.5f;
-    private bool moveToLeftPoint = true;
 
     private void Awake()
     {
@@ -37,13 +36,11 @@ public class BatScript : MonoBehaviour
         {
             spriteRenderer.flipX = false;
             enemyRigidbody.velocity = new Vector2(-enemySpeed, 0);
-            moveToLeftPoint = true;
         }
         else if (transform.localPosition.x < -1)
         {
             spriteRenderer.flipX = true;
             enemyRigidbody.velocity = new Vector2(enemySpeed, 0);
-            moveToLeftPoint = false;
         }
 
         if (transform.localPosition.x > -1 && transform.localPosition.x < 1 && transform.localPosition.y < 0)
@@ -67,13 +64,11 @@ public class BatScript : MonoBehaviour
         {
             spriteRenderer.flipX = false;
             enemyRigidbody.velocity = new Vector2(-enemySpeed * 2, 0);
-            moveToLeftPoint = true;
         }
         else if (transform.position.x < targetPlayer.transform.position.x - 1)
         {
             spriteRenderer.flipX = true;
             enemyRigidbody.velocity = new Vector2(enemySpeed * 2, 0);
-            moveToLeftPoint = false;
         }
         else
         {

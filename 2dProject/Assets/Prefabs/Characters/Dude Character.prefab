@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4989370501800971944
 Transform:
   m_ObjectHideFlags: 0
@@ -45,7 +45,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3029487805609337487
 Transform:
   m_ObjectHideFlags: 0
@@ -71,12 +71,12 @@ GameObject:
   - component: {fileID: 6578695020533369338}
   - component: {fileID: 6578695020533369337}
   - component: {fileID: 3426215153869045052}
-  - component: {fileID: 7730192090701362918}
   - component: {fileID: 8922002850777480819}
   - component: {fileID: 6578695020533369341}
   - component: {fileID: 6578695020533369343}
   - component: {fileID: 6578695020533369340}
   - component: {fileID: 864303623124239912}
+  - component: {fileID: 304245874009339364}
   m_Layer: 3
   m_Name: Dude Character
   m_TagString: Player
@@ -172,34 +172,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &7730192090701362918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6578695020533369339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36dd5675acef01349944ffd35c9eeb60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_JumpForce: 1000
-  m_CrouchSpeed: 0.36
-  m_MovementSmoothing: 0
-  m_AirControl: 1
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 103
-  m_GroundCheck: {fileID: 4989370501800971944}
-  m_CeilingCheck: {fileID: 3029487805609337487}
-  m_CrouchDisableCollider: {fileID: 6578695020533369343}
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCrouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &8922002850777480819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,8 +184,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e16f5f24f7394a4093aedf8f4837def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 7730192090701362918}
-  moveSpeed: 1.5
+  checkGroundObject: {fileID: 4989370501800971944}
+  checkRadius: 0.1
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 65
+  playerSpeed: 11.5
+  playerForceJump: 20.5
 --- !u!95 &6578695020533369341
 Animator:
   serializedVersion: 3
@@ -246,7 +223,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.042209268, y: 0.21289563}
+  m_Offset: {x: 0.03815198, y: 0.21289563}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -257,7 +234,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4077599, y: 1.3631186}
+  m_Size: {x: 1.3996453, y: 1.3631186}
   m_EdgeRadius: 0
 --- !u!61 &6578695020533369340
 BoxCollider2D:
@@ -272,7 +249,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04203266, y: -0.77196765}
+  m_Offset: {x: 0.036368072, y: -0.77196765}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -283,7 +260,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4074029, y: 0.58598137}
+  m_Size: {x: 1.3960737, y: 0.58598137}
   m_EdgeRadius: 0
 --- !u!114 &864303623124239912
 MonoBehaviour:
@@ -298,3 +275,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 3
+--- !u!61 &304245874009339364
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578695020533369339}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0070807636, y: -1.1213936}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.1333334, y: 2.1333334}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0858386, y: 0.10859132}
+  m_EdgeRadius: 0

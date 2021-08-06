@@ -83,4 +83,12 @@ public class PigScript : MonoBehaviour
             animator.SetBool("Run", false);
         }
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            CharacterHealth.characterHealthInstance.EnemyHit();
+        }
+    }
 }
