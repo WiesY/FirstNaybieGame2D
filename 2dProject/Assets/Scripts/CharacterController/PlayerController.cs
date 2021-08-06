@@ -115,8 +115,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movement = Input.GetAxis("Horizontal");
-        // movement = joystick.Horizontal; // joystick
+        // movement = Input.GetAxis("Horizontal");
+        movement = joystick.Horizontal; // joystick
         playerRigidbody.velocity = new Vector2(movement * playerSpeed / speedInWater, playerRigidbody.velocity.y);
 
         if (!facingRight && movement > 0)
