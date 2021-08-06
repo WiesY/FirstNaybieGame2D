@@ -27,7 +27,6 @@ public class SetJumpButtonScript : MonoBehaviour
 
     public void OnJumpButton()
     {
-        if (_playerController != null)
-            _playerController.Jump();
+        _playerController.Jump();
     }
 }
