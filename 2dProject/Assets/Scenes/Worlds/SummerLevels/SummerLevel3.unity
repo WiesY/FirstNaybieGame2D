@@ -32512,6 +32512,10 @@ MonoBehaviour:
   pointsToTeleport:
   - point1: {fileID: 352691066}
     point2: {fileID: 1172805005}
+  - point1: {fileID: 917911173}
+    point2: {fileID: 1049445428}
+  - point1: {fileID: 2086272849}
+    point2: {fileID: 1108110082}
 --- !u!95 &1318587814
 Animator:
   serializedVersion: 3
