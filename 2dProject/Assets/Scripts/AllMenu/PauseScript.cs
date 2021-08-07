@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour
 {
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void PauseGame()
     {
         // StopCoroutine(TimerScript.timerScriptInstance.coroutineTimer);
