@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class TimerScript : MonoBehaviour
 {
+    public static TimerScript TimerScriptIntance;
+
     private TextMeshProUGUI timerText;
 
     private int timer = 0;
@@ -12,6 +14,7 @@ public class TimerScript : MonoBehaviour
     private void Awake()
     {
         timerText = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        TimerScriptIntance = this;
     }
 
     private void Start()
