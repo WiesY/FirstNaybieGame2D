@@ -76,7 +76,6 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        Debug.Log(1);
         if (isGrounded)
         {
             playerRigidbody.velocity = Vector2.up * playerForceJump / speedInWater;
@@ -97,7 +96,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Default"))
         {
             isGrounded = true;
-            Debug.Log("On Ground");
         }
     }
 
