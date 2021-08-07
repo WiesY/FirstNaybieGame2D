@@ -4,12 +4,14 @@ public class FruitTriggerScript : MonoBehaviour
 {
     [SerializeField] private int priceFruit = 5;
 
+    private Sprite spriteFruit;
     private Animator fruitAnimator;
 
     private bool isTrigger = false;
 
     private void Awake()
     {
+        spriteFruit = GetComponent<SpriteRenderer>().sprite;
         fruitAnimator = GetComponent<Animator>();
     }
 
@@ -19,8 +21,8 @@ public class FruitTriggerScript : MonoBehaviour
         {
             isTrigger = true;
             fruitAnimator.SetTrigger("Collect");
-            FruitsScript.fruitScriptInstance.PickUpFruit(priceFruit);
-            Destroy(gameObject, 0.1f);
+            FruitsScript.fruitScriptInstance.PickUpFruit(priceFruit, spriteFruit);
+            Destroy(gameObject, 0.25f);
         }
     }
 }

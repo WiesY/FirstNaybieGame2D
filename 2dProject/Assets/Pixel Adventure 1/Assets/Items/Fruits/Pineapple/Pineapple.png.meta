@@ -1,60 +1,60 @@
 fileFormatVersion: 2
-guid: ffc9f271fad56c243a45f100b9dc6778
+guid: 131e485692e27e84c86170dad18cda85
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4121880872312635667
-    second: Orange_0
+      213: 837517196756356485
+    second: Pineapple_0
   - first:
-      213: 2344270669467322306
-    second: Orange_1
+      213: 5853685913921513280
+    second: Pineapple_1
   - first:
-      213: 4308106298786891140
-    second: Orange_2
+      213: -9203941944909886899
+    second: Pineapple_2
   - first:
-      213: 7874291611447793305
-    second: Orange_3
+      213: 9123128501793527533
+    second: Pineapple_3
   - first:
-      213: 3285381865569172166
-    second: Orange_4
+      213: -2070215502844823636
+    second: Pineapple_4
   - first:
-      213: 7043855894265817204
-    second: Orange_5
+      213: 9146190884484061983
+    second: Pineapple_5
   - first:
-      213: 3988426822137034836
-    second: Orange_6
+      213: -3927142802335889705
+    second: Pineapple_6
   - first:
-      213: -2229105888306426895
-    second: Orange_7
+      213: -6132574039448135999
+    second: Pineapple_7
   - first:
-      213: 6008893271325792001
-    second: Orange_8
+      213: 7735609222263424191
+    second: Pineapple_8
   - first:
-      213: -7876212812653781381
-    second: Orange_9
+      213: -5292735610519781750
+    second: Pineapple_9
   - first:
-      213: 3515071814446350068
-    second: Orange_10
+      213: 3138868963988263443
+    second: Pineapple_10
   - first:
-      213: -7989559414504384385
-    second: Orange_11
+      213: -2586699502257965134
+    second: Pineapple_11
   - first:
-      213: -5807639670500276790
-    second: Orange_12
+      213: -308233894513228991
+    second: Pineapple_12
   - first:
-      213: 6847284126642719973
-    second: Orange_13
+      213: -3572505572473984507
+    second: Pineapple_13
   - first:
-      213: -7248848098583867319
-    second: Orange_14
+      213: 2685796208498767467
+    second: Pineapple_14
   - first:
-      213: 4913402539735777752
-    second: Orange_15
+      213: -5727045457883989075
+    second: Pineapple_15
   - first:
-      213: -3526668604636205124
-    second: Orange_16
+      213: 2286579587875889941
+    second: Pineapple_16
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -74,6 +74,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -83,8 +84,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -96,7 +97,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,9 +106,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -133,11 +138,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Orange_0
+      name: Pineapple_0
       rect:
         serializedVersion: 2
         x: 0
@@ -151,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55143e6280f536849b6658c969386ccc
-      internalID: 4121880872312635667
+      spriteID: 9d642b0eb8ae68641a691554507e034c
+      internalID: 837517196756356485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_1
+      name: Pineapple_1
       rect:
         serializedVersion: 2
         x: 32
@@ -172,14 +189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab25a43d098bdae499a36607f6c7c685
-      internalID: 2344270669467322306
+      spriteID: 79ad15565bb411f428cb8867bcbe9fc0
+      internalID: 5853685913921513280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_2
+      name: Pineapple_2
       rect:
         serializedVersion: 2
         x: 64
@@ -193,14 +210,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a00eb127219f7d14fb4482572c1616d7
-      internalID: 4308106298786891140
+      spriteID: 49166742d32a284428c37aca9f55a445
+      internalID: -9203941944909886899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_3
+      name: Pineapple_3
       rect:
         serializedVersion: 2
         x: 96
@@ -214,14 +231,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e5a1d552929d5443b825137029a7b35
-      internalID: 7874291611447793305
+      spriteID: 1d65045350d4b5d41a21d52325acb46e
+      internalID: 9123128501793527533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_4
+      name: Pineapple_4
       rect:
         serializedVersion: 2
         x: 128
@@ -235,14 +252,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 123bf90c47274714e91f003fff738ad1
-      internalID: 3285381865569172166
+      spriteID: cca51d3666e18fd4fad560635fab800d
+      internalID: -2070215502844823636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_5
+      name: Pineapple_5
       rect:
         serializedVersion: 2
         x: 160
@@ -256,14 +273,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65955cada2a93b946a7a909c6d2d0e09
-      internalID: 7043855894265817204
+      spriteID: b035631efdb302f449988a910b43afea
+      internalID: 9146190884484061983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_6
+      name: Pineapple_6
       rect:
         serializedVersion: 2
         x: 192
@@ -277,14 +294,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 899c68a99c5566442bf5d749647e2749
-      internalID: 3988426822137034836
+      spriteID: b1887a5f70b69ac4b8dd51c28c84a1a3
+      internalID: -3927142802335889705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_7
+      name: Pineapple_7
       rect:
         serializedVersion: 2
         x: 224
@@ -298,14 +315,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75d65e7d97efc2c4da13fbe2e84163e0
-      internalID: -2229105888306426895
+      spriteID: 7be312e9dfd483a49aa068463058f31c
+      internalID: -6132574039448135999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_8
+      name: Pineapple_8
       rect:
         serializedVersion: 2
         x: 256
@@ -319,14 +336,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db799e54d75cb74479c7843de3a9ed77
-      internalID: 6008893271325792001
+      spriteID: 261e0d1faa9b0db4d91b6c1a69fda0d1
+      internalID: 7735609222263424191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_9
+      name: Pineapple_9
       rect:
         serializedVersion: 2
         x: 288
@@ -340,14 +357,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70df20ac49f141341b8cc02b9d6161db
-      internalID: -7876212812653781381
+      spriteID: 9f696b9f63accf4478945815c95f2342
+      internalID: -5292735610519781750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_10
+      name: Pineapple_10
       rect:
         serializedVersion: 2
         x: 320
@@ -361,14 +378,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 782faec4bc7078a4d968eea55b5251d5
-      internalID: 3515071814446350068
+      spriteID: 020aa40501fbcf8478c0617bf57691e6
+      internalID: 3138868963988263443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_11
+      name: Pineapple_11
       rect:
         serializedVersion: 2
         x: 352
@@ -382,14 +399,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fe5d58cb5a47254b89bc3cf75c404ce
-      internalID: -7989559414504384385
+      spriteID: 38bd3175aecbb1647b6d1d0b960c75f1
+      internalID: -2586699502257965134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_12
+      name: Pineapple_12
       rect:
         serializedVersion: 2
         x: 384
@@ -403,14 +420,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43c5b826505ec084899c0e80b3ad2ae8
-      internalID: -5807639670500276790
+      spriteID: c349b73e2750cf8499dca4540666994f
+      internalID: -308233894513228991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_13
+      name: Pineapple_13
       rect:
         serializedVersion: 2
         x: 416
@@ -424,14 +441,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95ea884470ab0b046ac1f4b2c8dbe037
-      internalID: 6847284126642719973
+      spriteID: d217660546245f94c9fff64ace0c10df
+      internalID: -3572505572473984507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_14
+      name: Pineapple_14
       rect:
         serializedVersion: 2
         x: 448
@@ -445,14 +462,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cd04943bc22e484f96a38e3dfb6a8b1
-      internalID: -7248848098583867319
+      spriteID: 1a004801ebdca7e42b12ef0ee2c0476c
+      internalID: 2685796208498767467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_15
+      name: Pineapple_15
       rect:
         serializedVersion: 2
         x: 480
@@ -466,14 +483,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8f75c9623b3fb14bad5d36124aba4c8
-      internalID: 4913402539735777752
+      spriteID: 20eb912761e0a03458404a528f97d049
+      internalID: -5727045457883989075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orange_16
+      name: Pineapple_16
       rect:
         serializedVersion: 2
         x: 512
@@ -487,8 +504,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7c445767bc6e854692fa2bbc0f17c92
-      internalID: -3526668604636205124
+      spriteID: 3e482dfda1af3e746a457bb0b274ebb8
+      internalID: 2286579587875889941
       vertices: []
       indices: 
       edges: []

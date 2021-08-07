@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Transform checkGroundObject;
-    [SerializeField] private float checkRadius;
+    // [SerializeField] private Transform checkGroundObject;
+    // [SerializeField] private float checkRadius;
     [SerializeField] private float playerSpeed = 5f;
     [SerializeField] private float playerForceJump = 25f;
 
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private float movement;
     private bool facingRight = true;
     private bool isGrounded = false;
-    private int speedInWater = 1;
+    // private int speedInWater = 1;
 
     private void Awake()
     {
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         //    movement = 0;
         //}
         
-        playerRigidbody.velocity = new Vector2(movement / speedInWater, playerRigidbody.velocity.y);
+        playerRigidbody.velocity = new Vector2(movement, playerRigidbody.velocity.y);
 
         if (!facingRight && movement > 0)
         {
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded)
         {
-            playerRigidbody.velocity = Vector2.up * playerForceJump / speedInWater;
+            playerRigidbody.velocity = Vector2.up * playerForceJump;
             playerAnimator.SetTrigger("Jump");
         }
     }
