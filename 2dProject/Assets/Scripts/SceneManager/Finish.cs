@@ -46,7 +46,8 @@ public class Finish : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             Time.timeScale = 0f;
-            isFinished = true;            
+            isFinished = true;
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + FruitsScript.fruitScriptInstance.totalAmountOfFruits);
         }
     }
 }

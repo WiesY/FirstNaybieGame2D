@@ -9,7 +9,7 @@ public class FruitsScript : MonoBehaviour
     private Image fruitsImage;
     private TextMeshProUGUI fruitsCountText;
 
-    private int totalAmountOfFruits = 0;
+    protected internal int totalAmountOfFruits = 0;
 
     private void Awake()
     {
