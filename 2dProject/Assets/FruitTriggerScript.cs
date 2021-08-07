@@ -6,6 +6,8 @@ public class FruitTriggerScript : MonoBehaviour
 
     private Animator fruitAnimator;
 
+    private bool isTrigger = false;
+
     private void Awake()
     {
         fruitAnimator = GetComponent<Animator>();
@@ -13,8 +15,9 @@ public class FruitTriggerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !isTrigger)
         {
+            isTrigger = true;
             fruitAnimator.SetTrigger("Collect");
             FruitsScript.fruitScriptInstance.PickUpFruit(priceFruit);
             Destroy(gameObject, 0.1f);
