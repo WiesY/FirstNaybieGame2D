@@ -53,8 +53,7 @@ public class CharacterHealth : MonoBehaviour
             StartCoroutine(TakeHit());
             if (healthPoints == 0)
             {
-                GetComponent<PlayerController>().enabled = false;
-                rb.velocity = new Vector2(0, 0);
+                Time.timeScale = 0f;
                 failPanel.SetActive(true);
             }
         }
@@ -74,8 +73,7 @@ public class CharacterHealth : MonoBehaviour
             StartCoroutine(TakeHit());
             if (healthPoints == 0)
             {
-                GetComponent<PlayerController>().enabled = false;
-                rb.velocity = new Vector2(0, 0);
+                Time.timeScale = 0f;
                 failPanel.SetActive(true);
             }
         }

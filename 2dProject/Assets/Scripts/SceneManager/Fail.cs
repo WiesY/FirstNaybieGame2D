@@ -12,6 +12,7 @@ public class Fail : MonoBehaviour
     {
         if (playerObject.CompareTag(PlayerTag))
         {
+            Time.timeScale = 0f;
             FailMenu.SetActive(true);
         }
     }

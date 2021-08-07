@@ -45,6 +45,7 @@ public class Finish : MonoBehaviour
     {
         if (other.CompareTag(playerTag))
         {
+            Time.timeScale = 0f;
             isFinished = true;            
         }
     }

@@ -5,22 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour
 {
-    private IEnumerator coroutineTimer;
-
-    private void Start()
-    {
-        coroutineTimer = TimerScript.timerScriptInstance.Timer();
-    }
-
     public void PauseGame()
     {
-        StopCoroutine(coroutineTimer);
+        // StopCoroutine(TimerScript.timerScriptInstance.coroutineTimer);
+        // TimerScript.timerScriptInstance.gameIsPaused = true;
         Time.timeScale = 0f;
     }
 
     public void UnpauseGame()
     {
-        StartCoroutine(coroutineTimer);
+        // StartCoroutine(TimerScript.timerScriptInstance.coroutineTimer);
+        // TimerScript.timerScriptInstance.gameIsPaused = false;
         Time.timeScale = 1f;
     }
 

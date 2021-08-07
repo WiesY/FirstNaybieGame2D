@@ -7,7 +7,12 @@ public class TimerScript : MonoBehaviour
 {
     public static TimerScript timerScriptInstance;
 
+    protected internal IEnumerator coroutineTimer;
+
     private TextMeshProUGUI timerText;
+
+    protected internal bool gameIsPaused = false;
+    protected internal bool gameIsEnd = false;
 
     private int timer = 0;
 
@@ -19,16 +24,26 @@ public class TimerScript : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Timer());
+        coroutineTimer = Timer();
+        StartCoroutine(coroutineTimer);
     }
 
-    protected internal IEnumerator Timer()
+    private IEnumerator Timer()
     {
         while (true)
         {
             yield return new WaitForSeconds(1);
             timer++;
-            timerText.text = timer.ToString();
+            timerText.text = $"{timer / 60}:{(timer % 60) / 10}{timer % 10}";
+            //if (gameIsEnd)
+            //{
+            //    yield break;
+            //}
+            //if (!gameIsPaused)
+            //{
+            //    timer++;
+            //    timerText.text = $"{timer / 60}:{(timer % 60) / 10}{timer % 10}";
+            //}
         }
     }
 }
