@@ -32,6 +32,7 @@ public class GhostScript : MonoBehaviour
             if (!ghostAnimator.GetBool("StartTP"))
             {
                 ghostAnimator.SetBool("StartTP", true);
+                canHit = false;
             }
             yield return new WaitForSeconds(1f);
             transform.position = new Vector2(Random.Range(pointsToTeleport[randomPointToTeleport].point1.position.x, pointsToTeleport[randomPointToTeleport].point2.position.x), pointsToTeleport[randomPointToTeleport].point1.position.y);
