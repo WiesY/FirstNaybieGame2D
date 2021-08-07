@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,10 +19,41 @@ public class FruitsScript : MonoBehaviour
         fruitScriptInstance = this;
     }
 
+    private void Start()
+    {
+        StartCoroutine(AnimationPickUpFruits());
+    }
+
     protected internal void PickUpFruit(int amountFruit, Sprite spriteFruit)
     {
         totalAmountOfFruits += amountFruit;
-        fruitsCountText.text = totalAmountOfFruits.ToString();
-        fruitsImage.sprite = spriteFruit;
+        fruitsImage.sprite = spriteFruit;        
+    }
+
+    private IEnumerator AnimationPickUpFruits()
+    {
+        while (true)
+        {
+            if (totalAmountOfFruits > int.Parse(fruitsCountText.text))
+            {
+                fruitsCountText.fontSize = 50;
+
+                while (int.Parse(fruitsCountText.text) < totalAmountOfFruits)
+                {
+                    fruitsCountText.text = (int.Parse(fruitsCountText.text) + 1).ToString();
+                    yield return new WaitForSeconds(0.045f);
+                }
+
+                yield return new WaitForSeconds(0.4f);
+
+                while (fruitsCountText.fontSize > 36)
+                {
+                    fruitsCountText.fontSize -= 0.5f;
+                    yield return null;
+                }
+            }
+
+            yield return new WaitForSeconds(0.15f);
+        }
     }
 }
