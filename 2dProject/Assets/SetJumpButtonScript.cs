@@ -7,6 +7,7 @@ public class SetJumpButtonScript : MonoBehaviour
     [SerializeField] private GameObject mainCharacter;
 
     private PlayerController _playerController;
+    private bool buttonDown;
 
     private void Awake()
     {
@@ -25,8 +26,19 @@ public class SetJumpButtonScript : MonoBehaviour
         _playerController = mainCharacter.transform.GetChild(0).gameObject.GetComponent<PlayerController>();
     }
 
-    public void OnJumpButton()
+    private void Update()
     {
-        _playerController.Jump();
+        if (buttonDown)
+            _playerController.Jump();
+    }
+
+    public void OnJumpButtonDown()
+    {
+        buttonDown = true;
+    }
+
+    public void OnJumpButtonUp()
+    {
+        buttonDown = false;
     }
 }
