@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // movement = Input.GetAxis("Horizontal") * playerSpeed; // Keyboard
+        movement = Input.GetAxis("Horizontal") * playerSpeed; // Keyboard
         //if (joystick.Horizontal > 0.1f) // Joystick
         //{
         //    movement = playerSpeed;
@@ -59,18 +59,18 @@ public class PlayerController : MonoBehaviour
         //{
         //    movement = 0;
         //}
-        if (leftMove)
-        {
-            movement = -playerSpeed;
-        }
-        else if(rightMove)
-        {
-            movement = playerSpeed;
-        }
-        else
-        {
-            movement = 0;
-        }
+        //if (leftMove)
+        //{
+        //    movement = -playerSpeed;
+        //}
+        //else if(rightMove)
+        //{
+        //    movement = playerSpeed;
+        //}
+        //else
+        //{
+        //    movement = 0;
+        //}
 
         playerRigidbody.velocity = new Vector2(movement, playerRigidbody.velocity.y);
 
