@@ -29,30 +29,30 @@ public class PlayerController : MonoBehaviour
         joystick = transform.parent.GetComponent<SetCharacterScript>().joystick;
     }
 
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.W))
-        {
-            Jump();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKey(KeyCode.W))
+    //    {
+    //        Jump();
+    //    }
+    //}
 
     private void FixedUpdate()
     {
-        movement = Input.GetAxis("Horizontal") * playerSpeed; // Keyboard
-        //if (joystick.Horizontal > 0.1f) // Joystick
-        //{
-        //    movement = playerSpeed;
-        //}
-        //else if(joystick.Horizontal < -0.1f)
-        //{
-        //    movement = -playerSpeed;
-        //}
-        //else
-        //{
-        //    movement = 0;
-        //}
-        
+        // movement = Input.GetAxis("Horizontal") * playerSpeed; // Keyboard
+        if (joystick.Horizontal > 0.1f) // Joystick
+        {
+            movement = playerSpeed;
+        }
+        else if (joystick.Horizontal < -0.1f)
+        {
+            movement = -playerSpeed;
+        }
+        else
+        {
+            movement = 0;
+        }
+
         playerRigidbody.velocity = new Vector2(movement, playerRigidbody.velocity.y);
 
         if (!facingRight && movement > 0)
