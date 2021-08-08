@@ -72220,7 +72220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2837774150338438287, guid: 7b486b4afa6acf44ebd10b0f881681cf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.25
+      value: 20.97
       objectReference: {fileID: 0}
     - target: {fileID: 2837774150338438287, guid: 7b486b4afa6acf44ebd10b0f881681cf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -72481,7 +72481,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 46.870106, y: 43.814713}
+  m_Size: {x: 46.870106, y: 38.926117}
   m_AdaptiveModeThreshold: 0
   m_SpriteTileMode: 1
   m_WasSpriteAssigned: 1
@@ -72495,7 +72495,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408377768}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 109.0819, y: -9.3851, z: 1}
+  m_LocalPosition: {x: 109.0819, y: -15.693, z: 1}
   m_LocalScale: {x: 7.741616, y: 2.5806434, z: 0.39855}
   m_Children: []
   m_Father: {fileID: 0}
@@ -72514,7 +72514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9210444997189316725, guid: fe9ef42528e6d4049b930ede49e7ce4e, type: 3}
       propertyPath: m_BreakTorque
-      value: 21
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9210444997189316725, guid: fe9ef42528e6d4049b930ede49e7ce4e, type: 3}
       propertyPath: m_ConnectedAnchor.x
