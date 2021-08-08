@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController playerController;
+
     // [SerializeField] private Transform checkGroundObject;
     // [SerializeField] private float checkRadius;
     [SerializeField] private float playerSpeed = 5f;
@@ -16,10 +18,15 @@ public class PlayerController : MonoBehaviour
     private float movement;
     private bool facingRight = true;
     private bool isGrounded = false;
+
+    protected internal bool leftMove = false;
+    protected internal bool rightMove = false;
     // private int speedInWater = 1;
 
     private void Awake()
     {
+        playerController = this;
+
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
     }
@@ -40,13 +47,25 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // movement = Input.GetAxis("Horizontal") * playerSpeed; // Keyboard
-        if (joystick.Horizontal > 0.1f) // Joystick
-        {
-            movement = playerSpeed;
-        }
-        else if (joystick.Horizontal < -0.1f)
+        //if (joystick.Horizontal > 0.1f) // Joystick
+        //{
+        //    movement = playerSpeed;
+        //}
+        //else if (joystick.Horizontal < -0.1f)
+        //{
+        //    movement = -playerSpeed;
+        //}
+        //else
+        //{
+        //    movement = 0;
+        //}
+        if (leftMove)
         {
             movement = -playerSpeed;
+        }
+        else if(rightMove)
+        {
+            movement = playerSpeed;
         }
         else
         {

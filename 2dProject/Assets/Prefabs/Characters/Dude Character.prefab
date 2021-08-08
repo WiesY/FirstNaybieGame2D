@@ -77,7 +77,6 @@ GameObject:
   - component: {fileID: 864303623124239912}
   - component: {fileID: 304245874009339364}
   - component: {fileID: 5684967212725028143}
-  - component: {fileID: 831978182773865649}
   m_Layer: 3
   m_Name: Dude Character
   m_TagString: Player
@@ -185,8 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e16f5f24f7394a4093aedf8f4837def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkGroundObject: {fileID: 4989370501800971944}
-  checkRadius: 0.1
   playerSpeed: 11.5
   playerForceJump: 20.5
 --- !u!95 &6578695020533369341
@@ -260,7 +257,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.022040188, y: -1.2296381}
+  m_Offset: {x: 0.03278196, y: -1.1974131}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -271,7 +268,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.98094285, y: 0.34063625}
+  m_Size: {x: 1.2111213, y: 0.34370542}
   m_EdgeRadius: 0
 --- !u!70 &5684967212725028143
 CapsuleCollider2D:
@@ -288,20 +285,4 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.033220682, y: -0.76507944}
   m_Size: {x: 1.2943677, y: 0.59984106}
-  m_Direction: 1
---- !u!70 &831978182773865649
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6578695020533369339}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: a4c02fecaa409394e836ea4261fe0a42, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.050805394, y: -0.008271493}
-  m_Size: {x: 1.3825665, y: 0.9127428}
   m_Direction: 1
