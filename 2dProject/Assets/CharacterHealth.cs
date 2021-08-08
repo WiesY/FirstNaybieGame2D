@@ -97,7 +97,6 @@ public class CharacterHealth : MonoBehaviour
             var tempColor = spriteRenderer.material.color;
             tempColor.a -= 0.1f;
             spriteRenderer.material.color = tempColor;
-            yield return null;
         }
 
         yield return new WaitForSeconds(0.1f);
@@ -107,7 +106,6 @@ public class CharacterHealth : MonoBehaviour
             var tempColor = spriteRenderer.material.color;
             tempColor.a += 0.001f;
             spriteRenderer.material.color = tempColor;
-            yield return null;
         }
 
         yield return new WaitForSeconds(0.7f);

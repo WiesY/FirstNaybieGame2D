@@ -21,7 +21,7 @@ public class FruitTriggerScript : MonoBehaviour
         {
             isTrigger = true;
             fruitAnimator.SetTrigger("Collect");
-            FruitsScript.fruitScriptInstance.PickUpFruit(priceFruit, spriteFruit);
+            FruitsScript.fruitScriptInstance.PickUpFruit(priceFruit);//, spriteFruit);
             Destroy(gameObject, 0.25f);
         }
     }
