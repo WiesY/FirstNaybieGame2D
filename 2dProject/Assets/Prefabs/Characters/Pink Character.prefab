@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 239153451060649420}
   - component: {fileID: 239153451060649423}
   - component: {fileID: 8615878704535316746}
-  - component: {fileID: 3700468299294532304}
-  - component: {fileID: 2579664137648843333}
   - component: {fileID: 239153451060649419}
   - component: {fileID: 239153451060649417}
-  - component: {fileID: 239153451060649418}
+  - component: {fileID: 7931503722754045402}
+  - component: {fileID: 1434375219747214912}
+  - component: {fileID: 2579664137648843333}
   - component: {fileID: 2123401635617605614}
   m_Layer: 3
   m_Name: Pink Character
@@ -112,48 +112,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3700468299294532304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 239153451060649421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36dd5675acef01349944ffd35c9eeb60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_JumpForce: 1000
-  m_CrouchSpeed: 0.36
-  m_MovementSmoothing: 0
-  m_AirControl: 1
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 103
-  m_GroundCheck: {fileID: 2098768164608957086}
-  m_CeilingCheck: {fileID: 8221175521472050873}
-  m_CrouchDisableCollider: {fileID: 239153451060649417}
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCrouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &2579664137648843333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 239153451060649421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e16f5f24f7394a4093aedf8f4837def, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerObject: {fileID: 3700468299294532304}
-  moveSpeed: 1.5
 --- !u!95 &239153451060649419
 Animator:
   serializedVersion: 3
@@ -186,7 +144,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.039420605, y: 0.06910813}
+  m_Offset: {x: 0.04242313, y: 0.0483703}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -197,10 +155,10 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4104829, y: 1.0755435}
+  m_Size: {x: 1.2948244, y: 1.0278128}
   m_EdgeRadius: 0
---- !u!61 &239153451060649418
-BoxCollider2D:
+--- !u!70 &7931503722754045402
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -212,7 +170,23 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.040781647, y: -0.76912165}
+  m_Offset: {x: 0.033220682, y: -0.76507944}
+  m_Size: {x: 1.2943677, y: 0.59984106}
+  m_Direction: 1
+--- !u!61 &1434375219747214912
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239153451060649421}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03278196, y: -1.0757204}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -223,8 +197,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.409905, y: 0.6030574}
+  m_Size: {x: 1.2111213, y: 0.04305291}
   m_EdgeRadius: 0
+--- !u!114 &2579664137648843333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239153451060649421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e16f5f24f7394a4093aedf8f4837def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 11.5
+  playerForceJump: 20.5
 --- !u!114 &2123401635617605614
 MonoBehaviour:
   m_ObjectHideFlags: 0

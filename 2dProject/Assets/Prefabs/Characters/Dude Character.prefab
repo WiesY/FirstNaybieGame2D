@@ -71,12 +71,12 @@ GameObject:
   - component: {fileID: 6578695020533369338}
   - component: {fileID: 6578695020533369337}
   - component: {fileID: 3426215153869045052}
-  - component: {fileID: 8922002850777480819}
   - component: {fileID: 6578695020533369341}
   - component: {fileID: 6578695020533369343}
-  - component: {fileID: 864303623124239912}
-  - component: {fileID: 304245874009339364}
   - component: {fileID: 5684967212725028143}
+  - component: {fileID: 304245874009339364}
+  - component: {fileID: 8922002850777480819}
+  - component: {fileID: 864303623124239912}
   m_Layer: 3
   m_Name: Dude Character
   m_TagString: Player
@@ -172,20 +172,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &8922002850777480819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6578695020533369339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e16f5f24f7394a4093aedf8f4837def, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 11.5
-  playerForceJump: 20.5
 --- !u!95 &6578695020533369341
 Animator:
   serializedVersion: 3
@@ -231,19 +217,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1880269, y: 1.1382971}
   m_EdgeRadius: 0
---- !u!114 &864303623124239912
-MonoBehaviour:
+--- !u!70 &5684967212725028143
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6578695020533369339}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 386556e34c78bb34f9f6bb4782a6f52d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPoints: 3
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: a4c02fecaa409394e836ea4261fe0a42, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.033220682, y: -0.76507944}
+  m_Size: {x: 1.2943677, y: 0.59984106}
+  m_Direction: 1
 --- !u!61 &304245874009339364
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -270,19 +259,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2111213, y: 0.04305291}
   m_EdgeRadius: 0
---- !u!70 &5684967212725028143
-CapsuleCollider2D:
+--- !u!114 &8922002850777480819
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6578695020533369339}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: a4c02fecaa409394e836ea4261fe0a42, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.033220682, y: -0.76507944}
-  m_Size: {x: 1.2943677, y: 0.59984106}
-  m_Direction: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e16f5f24f7394a4093aedf8f4837def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 11.5
+  playerForceJump: 20.5
+--- !u!114 &864303623124239912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578695020533369339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386556e34c78bb34f9f6bb4782a6f52d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 3

@@ -43,8 +43,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movement = Input.GetAxis("Horizontal") * playerSpeed; // Keyboard
-        //if (joystick.Horizontal > 0.1f) // Joystick
+        movement = Input.GetAxis("Horizontal") * playerSpeed; // Keyboard move(desktop)
+        //if (joystick.Horizontal > 0.1f) // Joystick move(telephone)
         //{
         //    movement = playerSpeed;
         //}
@@ -56,7 +56,8 @@ public class PlayerController : MonoBehaviour
         //{
         //    movement = 0;
         //}
-        //if (leftMove)
+
+        //if (leftMove) // Buttons move(telephone)
         //{
         //    movement = -playerSpeed;
         //}
@@ -80,13 +81,19 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if (movement != 0)
+        if (movement != 0 && playerRigidbody.velocity.y < 0.1f)
         {
             playerAnimator.SetBool("Move", true);
+        }
+        else if (playerRigidbody.velocity.y >= 0.1f)
+        {
+            playerAnimator.SetBool("Move", false);
+            playerAnimator.SetBool("Jump", true);
         }
         else
         {
             playerAnimator.SetBool("Move", false);
+            playerAnimator.SetBool("Jump", false);
         }
     }
 
@@ -96,7 +103,8 @@ public class PlayerController : MonoBehaviour
         {
             canOneJump = false;
             playerRigidbody.velocity = Vector2.up * playerForceJump;
-            playerAnimator.SetTrigger("Jump");
+            playerAnimator.SetBool("Move", false);
+            playerAnimator.SetBool("Jump", true);
         }
     }
 
@@ -129,7 +137,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator OutGround()
     {
-        yield return new WaitForSeconds(0.077f);
+        yield return new WaitForSeconds(0.071f);
         canOneJump = false;
     }
 }

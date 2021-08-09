@@ -140,6 +140,8 @@ public class StoreScript : MonoBehaviour
     {
         PlayerPrefs.SetInt("Money", 5000);
         currentMoney.text = PlayerPrefs.GetInt("Money").ToString();
+
+        UpdateStore();
     }
 }
 

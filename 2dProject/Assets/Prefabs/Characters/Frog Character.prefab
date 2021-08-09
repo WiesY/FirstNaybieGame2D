@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 3323538844743899259}
   - component: {fileID: 3323538844743899256}
   - component: {fileID: 6548216523520306365}
-  - component: {fileID: 1045678361847066610}
   - component: {fileID: 3323538844743899260}
   - component: {fileID: 3323538844743899262}
-  - component: {fileID: 3323538844743899261}
-  - component: {fileID: 7262629300066663772}
+  - component: {fileID: 5528795603177403549}
   - component: {fileID: 2129231756492782114}
+  - component: {fileID: 1045678361847066610}
+  - component: {fileID: 7262629300066663772}
   m_Layer: 3
   m_Name: Frog Character
   m_TagString: Player
@@ -112,25 +112,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &1045678361847066610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3323538844743899258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e16f5f24f7394a4093aedf8f4837def, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkGroundObject: {fileID: 0}
-  checkRadius: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  playerSpeed: 5
-  playerForceJump: 25
 --- !u!95 &3323538844743899260
 Animator:
   serializedVersion: 3
@@ -163,7 +144,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03418359, y: 0.1829775}
+  m_Offset: {x: 0.041410208, y: 0.0071579516}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -174,10 +155,10 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4284937, y: 1.3032826}
+  m_Size: {x: 1.2753189, y: 0.9440715}
   m_EdgeRadius: 0
---- !u!61 &3323538844743899261
-BoxCollider2D:
+--- !u!70 &5528795603177403549
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -189,32 +170,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0350042, y: -0.77481353}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.1333334, y: 2.1333334}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.4033755, y: 0.59167314}
-  m_EdgeRadius: 0
---- !u!114 &7262629300066663772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3323538844743899258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 386556e34c78bb34f9f6bb4782a6f52d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPoints: 3
+  m_Offset: {x: 0.033220682, y: -0.76507944}
+  m_Size: {x: 1.2943677, y: 0.59984106}
+  m_Direction: 1
 --- !u!61 &2129231756492782114
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -228,7 +186,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.121394}
+  m_Offset: {x: 0.03278196, y: -1.0757204}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -239,8 +197,35 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.1085913}
+  m_Size: {x: 1.2111213, y: 0.04305291}
   m_EdgeRadius: 0
+--- !u!114 &1045678361847066610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3323538844743899258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e16f5f24f7394a4093aedf8f4837def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 11.5
+  playerForceJump: 20.5
+--- !u!114 &7262629300066663772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3323538844743899258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386556e34c78bb34f9f6bb4782a6f52d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 3
 --- !u!1 &4556770296095516732
 GameObject:
   m_ObjectHideFlags: 0
