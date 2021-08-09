@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D playerRigidbody;
     private Animator playerAnimator;
-    private Joystick joystick;
+    // private Joystick joystick;
 
     private float movement;
     private bool facingRight = true;
@@ -28,10 +28,10 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
     }
 
-    private void Start()
-    {
-        joystick = transform.parent.GetComponent<SetCharacterScript>().joystick;
-    }
+    //private void Start()
+    //{
+    //    joystick = transform.parent.GetComponent<SetCharacterScript>().joystick;
+    //}
 
     //private void Update()
     //{
@@ -94,9 +94,9 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded || canOneJump)
         {
+            canOneJump = false;
             playerRigidbody.velocity = Vector2.up * playerForceJump;
             playerAnimator.SetTrigger("Jump");
-            canOneJump = false;
         }
     }
 
@@ -112,8 +112,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Default"))
         {
-            StopCoroutine(OutGround());
             isGrounded = true;
+            StopCoroutine(OutGround());
         }
     }
 
