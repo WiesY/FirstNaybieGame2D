@@ -30,7 +30,6 @@ public class JumpTipScript : MonoBehaviour
 
         if (jumpTipIsActive)
         {
-            Debug.Log(1);
             jumpTip.SetActive(false);
             yield break;
         }

@@ -1,13 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController playerController;
 
-    // [SerializeField] private Transform checkGroundObject;
-    // [SerializeField] private float checkRadius;
     [SerializeField] private float playerSpeed = 5f;
     [SerializeField] private float playerForceJump = 25f;
 
@@ -18,10 +15,10 @@ public class PlayerController : MonoBehaviour
     private float movement;
     private bool facingRight = true;
     private bool isGrounded = false;
+    private bool canOneJump = false;
 
     protected internal bool leftMove = false;
     protected internal bool rightMove = false;
-    // private int speedInWater = 1;
 
     private void Awake()
     {
@@ -95,10 +92,11 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        if (isGrounded)
+        if (isGrounded || canOneJump)
         {
             playerRigidbody.velocity = Vector2.up * playerForceJump;
             playerAnimator.SetTrigger("Jump");
+            canOneJump = false;
         }
     }
 
@@ -114,6 +112,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Default"))
         {
+            StopCoroutine(OutGround());
             isGrounded = true;
         }
     }
@@ -123,25 +122,14 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Default"))
         {
             isGrounded = false;
+            canOneJump = true;
+            StartCoroutine(OutGround());
         }
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    Debug.Log(collision.gameObject.layer);
-    //    if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
-    //    {
-    //        speedInWater = 2;
-    //        isGrounded = true;
-    //    }
-    //}
-
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
-    //    {
-    //        speedInWater = 1;
-    //        isGrounded = false;
-    //    }
-    //}
+    private IEnumerator OutGround()
+    {
+        yield return new WaitForSeconds(0.077f);
+        canOneJump = false;
+    }
 }
