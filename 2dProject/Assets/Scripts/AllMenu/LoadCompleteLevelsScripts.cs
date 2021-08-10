@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoadCompleteLevelsScripts : MonoBehaviour
 {
@@ -21,15 +22,17 @@ public class LoadCompleteLevelsScripts : MonoBehaviour
         }
 
         var allLevels = transform.Find("All Levels").gameObject;
-        for (int i = 0; i < allLevels.transform.childCount; i++)
+        for (int i = 0; i < allLevels.transform.childCount; i++) // Замок на уровни
         {
             if (isCompleteLevels[i])
             {
                 allLevels.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
+                allLevels.transform.GetChild(i).GetComponent<Button>().interactable = true;
             }
             else
             {
                 allLevels.transform.GetChild(i).GetChild(1).gameObject.SetActive(true);
+                allLevels.transform.GetChild(i).GetComponent<Button>().interactable = false;
             }
         }
     }
