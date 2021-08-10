@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.72797966, g: 0.7869577, b: 0.85057503, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -38470,8 +38470,8 @@ MonoBehaviour:
   allSkins:
   - {fileID: 3323538844743899258, guid: 2c6e4ae9b553e3642b24dcc7ef291500, type: 3}
   - {fileID: 6578695020533369339, guid: f168f2a50b7f0f9418c3fe6cfb8c0c20, type: 3}
-  - {fileID: 96294634192980404, guid: 48ef4558b47caca49be5689ba934e43c, type: 3}
   - {fileID: 239153451060649421, guid: 6807c73b5ba1d6240b7142e05f50f240, type: 3}
+  - {fileID: 96294634192980404, guid: 48ef4558b47caca49be5689ba934e43c, type: 3}
   - {fileID: 3323538844743899258, guid: f84b1726dfdc8284b8b256ac7e04605b, type: 3}
   cinemachineCamera: {fileID: 1344383444}
   canvas: {fileID: 862583649}
