@@ -5,15 +5,12 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController playerController;
 
-    [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
     [SerializeField] private float playerSpeed = 5f;
     [SerializeField] private float playerForceJump = 25f;
 
     private Rigidbody2D playerRigidbody;
     private Animator playerAnimator;
     // private Joystick joystick;
-
-    private Vector3 m_Velocity = Vector3.zero;
 
     private float movement;
     private bool facingRight = true;
@@ -74,7 +71,6 @@ public class PlayerController : MonoBehaviour
         //}
 
         Vector3 targetVelocity = new Vector2(movement, playerRigidbody.velocity.y);
-        playerRigidbody.velocity = Vector3.SmoothDamp(playerRigidbody.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
         if (!facingRight && movement > 0)
         {
