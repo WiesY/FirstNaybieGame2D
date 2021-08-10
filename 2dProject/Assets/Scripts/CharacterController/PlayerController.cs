@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         //    movement = 0;
         //}
 
-        Vector3 targetVelocity = new Vector2(movement, playerRigidbody.velocity.y);
+        playerRigidbody.velocity = new Vector2(movement, playerRigidbody.velocity.y);
 
         if (!facingRight && movement > 0)
         {
