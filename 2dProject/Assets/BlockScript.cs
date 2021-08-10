@@ -14,7 +14,7 @@ public class BlockScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (blockRigidbody.velocity.x > 5f || blockRigidbody.velocity.x < -1.75f)
+        if (blockRigidbody.velocity.x > 5f || blockRigidbody.velocity.x < -1.95f)
         {
             Instantiate(destoyedObjects[0], new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             Instantiate(destoyedObjects[1], new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
