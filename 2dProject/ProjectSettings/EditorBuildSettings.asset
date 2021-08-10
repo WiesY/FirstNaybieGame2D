@@ -17,12 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Worlds/AutumnLevels.unity
     guid: 59ab6873e11700641ace5557b8617c8d
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Worlds/SummerLevels/SummerLevel1.unity
+    guid: 20747efbfa321a649a0f6234f272bc51
   - enabled: 1
     path: Assets/Scenes/Worlds/SummerLevels/SummerLevel2.unity
     guid: 3935a1532247c9c48a2fe9f39015e7ab
