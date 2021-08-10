@@ -72809,7 +72809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9210444997189316725, guid: fe9ef42528e6d4049b930ede49e7ce4e, type: 3}
       propertyPath: m_BreakTorque
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9210444997189316725, guid: fe9ef42528e6d4049b930ede49e7ce4e, type: 3}
       propertyPath: m_ConnectedAnchor.x

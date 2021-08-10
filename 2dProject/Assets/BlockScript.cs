@@ -25,15 +25,6 @@ public class BlockScript : MonoBehaviour
             //destoyedObjects[1].SetActive(true);
             destoyedObjects[0].GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)) * blockRigidbody.velocity.x * 10);
             destoyedObjects[1].GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)) * blockRigidbody.velocity.x * 10);
-            StartCoroutine(DeleteDestoyedObjects(destoyedObjects[0], destoyedObjects[1]))
         }
-    }
-
-    private IEnumerator DeleteDestoyedObjects(GameObject destoyOne, GameObject destroyTwo)
-    {
-        yield return new WaitForSeconds(3.5f);
-
-        Destroy(destoyOne);
-        Destroy(destroyTwo);
     }
 }
