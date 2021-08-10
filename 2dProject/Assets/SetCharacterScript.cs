@@ -16,6 +16,10 @@ public class SetCharacterScript : MonoBehaviour
 
     private void Awake()
     {
+        hp = canvas.transform.Find("HealthPoints").gameObject;
+        failMenu = canvas.transform.Find("Fail Menu").gameObject;
+        joystick = canvas.transform.GetChild(canvas.transform.childCount - 1).GetComponent<Joystick>();
+
         if (PlayerPrefs.HasKey("SelectedSkin"))
         {
             SelectSkin(PlayerPrefs.GetInt("SelectedSkin"));
@@ -24,10 +28,6 @@ public class SetCharacterScript : MonoBehaviour
         {
             SelectSkin(0);
         }
-
-        hp = canvas.transform.Find("HealthPoints").gameObject;
-        failMenu = canvas.transform.Find("Fail Menu").gameObject;
-        joystick = canvas.transform.GetChild(canvas.transform.childCount - 1).GetComponent<Joystick>();
     }
 
     private void SelectSkin(int indexSkin)

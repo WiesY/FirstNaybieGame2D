@@ -7,7 +7,7 @@ public class BlockScript : MonoBehaviour
     [SerializeField] private GameObject[] destoyedObjects;
     private Rigidbody2D blockRigidbody;
 
-    private void Awake()
+    private void Start()
     {
         blockRigidbody = GetComponent<Rigidbody2D>();
     }
