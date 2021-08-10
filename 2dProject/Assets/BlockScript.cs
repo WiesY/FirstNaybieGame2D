@@ -23,8 +23,8 @@ public class BlockScript : MonoBehaviour
             gameObject.SetActive(false);
             destoyedObjects[0].SetActive(true);
             destoyedObjects[1].SetActive(true);
-            destoyedObjects[0].GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)) * blockRigidbody.velocity.x * 10);
-            destoyedObjects[1].GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)) * blockRigidbody.velocity.x * 10);
+            destoyedObjects[0].GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)) * blockRigidbody.velocity.x * 430);
+            destoyedObjects[1].GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)) * blockRigidbody.velocity.x * 430);
         }
     }
 }
