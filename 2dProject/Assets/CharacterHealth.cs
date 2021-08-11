@@ -44,7 +44,7 @@ public class CharacterHealth : MonoBehaviour
         {
             healthPoints--;
             healthSprite[healthPoints].GetComponent<Animator>().SetTrigger("Trigger");
-            Invoke("RemoveHeart", 0.3f);
+            Invoke("RemoveHeart", 0.5f);
             var hitAnim = rb.velocity;
             hitAnim.x = 25f;
             hitAnim.y = 12f;
@@ -65,33 +65,52 @@ public class CharacterHealth : MonoBehaviour
         {
             healthPoints--;
             healthSprite[healthPoints].GetComponent<Animator>().SetTrigger("Trigger");
-            Invoke("RemoveHeart", 0.3f);
+            Invoke("RemoveHeart", 0.5f);
             var hitAnim = rb.velocity;
             hitAnim.y = 12f;
             rb.velocity = hitAnim;
             canHit = false;
             StartCoroutine(TakeHit());
-            if (healthPoints == 0)
-            {
-                Time.timeScale = 0f;
-                failPanel.SetActive(true);
-            }
+        }
+        if (healthPoints == 0)
+        {
+            Time.timeScale = 0f;
+            failPanel.SetActive(true);
+        }
+    }
+
+    public void HitWithMaxDamage()
+    {
+        if (healthPoints > 0)
+        {
+            healthSprite[healthPoints - 1]?.GetComponent<Animator>().SetTrigger("Trigger");
+            healthSprite[healthPoints - 2]?.GetComponent<Animator>().SetTrigger("Trigger");
+            healthSprite[healthPoints - 3]?.GetComponent<Animator>().SetTrigger("Trigger");
+            healthPoints = 0;
+            Invoke("RemoveAllHeart", 0.5f);
+            //var hitAnim = rb.velocity;
+            //hitAnim.y = 12f;
+            //rb.velocity = hitAnim;
+            //StartCoroutine(TakeHit());
         }
     }
 
     private void RemoveHeart()
     {
-        healthSprite[healthPoints].enabled = false;
+        Destroy(healthSprite[healthPoints]);
+        // healthSprite[healthPoints].enabled = false;
     }
 
-    //private void HitReload()
-    //{
-    //    canHit = true;
-    //}
+    private void RemoveAllHeart()
+    {
+        Destroy(healthSprite?[2]);
+        Destroy(healthSprite?[1]);
+        Destroy(healthSprite?[0]);
+        // healthSprite[healthPoints].enabled = false;
+    }
 
     private IEnumerator TakeHit()
     {
-
         while (spriteRenderer.material.color.a > 0)
         {
             var tempColor = spriteRenderer.material.color;
