@@ -78,6 +78,7 @@ public class CharacterHealth : MonoBehaviour
             healthSprite[healthPoints - 3]?.GetComponent<Animator>().SetTrigger("Trigger");
             healthPoints = 0;
             Invoke("RemoveAllHeart", 0.35f);
+            gameObject.transform.localScale = new Vector2(0.001f, 0.001f);
         }
     }
 
@@ -98,6 +99,7 @@ public class CharacterHealth : MonoBehaviour
         Destroy(healthSprite?[2]);
         Destroy(healthSprite?[1]);
         Destroy(healthSprite?[0]);
+        //Destroy(gameObject);
         Time.timeScale = 0f;
         failPanel.SetActive(true);
         // healthSprite[healthPoints].enabled = false;
