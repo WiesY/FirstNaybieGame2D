@@ -143,10 +143,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8513139632435215773}
   - component: {fileID: 4488079360031486831}
+  - component: {fileID: 5030927184744410956}
   - component: {fileID: 3152114490039557351}
   - component: {fileID: 4376003636341748185}
   - component: {fileID: 5030927184744410957}
-  - component: {fileID: 5030927184744410956}
   m_Layer: 0
   m_Name: AngryPig
   m_TagString: Untagged
@@ -219,6 +219,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &5030927184744410956
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030927184744410954}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!95 &3152114490039557351
 Animator:
   serializedVersion: 3
@@ -279,24 +300,3 @@ MonoBehaviour:
   movePoints:
   - {fileID: 1091618072537485905}
   - {fileID: 1091618071919625155}
---- !u!50 &5030927184744410956
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5030927184744410954}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4

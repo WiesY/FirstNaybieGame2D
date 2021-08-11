@@ -89,7 +89,6 @@ public class CharacterHealth : MonoBehaviour
         {
             Time.timeScale = 0f;
             failPanel.SetActive(true);
-
         }
         // healthSprite[healthPoints].enabled = false;
     }
