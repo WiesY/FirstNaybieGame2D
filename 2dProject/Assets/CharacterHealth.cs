@@ -44,18 +44,13 @@ public class CharacterHealth : MonoBehaviour
         {
             healthPoints--;
             healthSprite[healthPoints].GetComponent<Animator>().SetTrigger("Trigger");
-            Invoke("RemoveHeart", 0.5f);
+            Invoke("RemoveHeart", 0.35f);
             var hitAnim = rb.velocity;
             hitAnim.x = 25f;
             hitAnim.y = 12f;
             rb.velocity = hitAnim;
             canHit = false;
             StartCoroutine(TakeHit());
-            if (healthPoints == 0)
-            {
-                Time.timeScale = 0f;
-                failPanel.SetActive(true);
-            }
         }
     }
 
@@ -65,17 +60,12 @@ public class CharacterHealth : MonoBehaviour
         {
             healthPoints--;
             healthSprite[healthPoints].GetComponent<Animator>().SetTrigger("Trigger");
-            Invoke("RemoveHeart", 0.5f);
+            Invoke("RemoveHeart", 0.35f);
             var hitAnim = rb.velocity;
             hitAnim.y = 12f;
             rb.velocity = hitAnim;
             canHit = false;
             StartCoroutine(TakeHit());
-        }
-        if (healthPoints == 0)
-        {
-            Time.timeScale = 0f;
-            failPanel.SetActive(true);
         }
     }
 
@@ -87,17 +77,19 @@ public class CharacterHealth : MonoBehaviour
             healthSprite[healthPoints - 2]?.GetComponent<Animator>().SetTrigger("Trigger");
             healthSprite[healthPoints - 3]?.GetComponent<Animator>().SetTrigger("Trigger");
             healthPoints = 0;
-            Invoke("RemoveAllHeart", 0.5f);
-            //var hitAnim = rb.velocity;
-            //hitAnim.y = 12f;
-            //rb.velocity = hitAnim;
-            //StartCoroutine(TakeHit());
+            Invoke("RemoveAllHeart", 0.35f);
         }
     }
 
     private void RemoveHeart()
     {
         Destroy(healthSprite[healthPoints]);
+        if (healthPoints == 0)
+        {
+            Time.timeScale = 0f;
+            failPanel.SetActive(true);
+
+        }
         // healthSprite[healthPoints].enabled = false;
     }
 
@@ -106,6 +98,8 @@ public class CharacterHealth : MonoBehaviour
         Destroy(healthSprite?[2]);
         Destroy(healthSprite?[1]);
         Destroy(healthSprite?[0]);
+        Time.timeScale = 0f;
+        failPanel.SetActive(true);
         // healthSprite[healthPoints].enabled = false;
     }
 
