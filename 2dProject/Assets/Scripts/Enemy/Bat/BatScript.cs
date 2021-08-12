@@ -9,6 +9,7 @@ public class BatScript : MonoBehaviour
     private Rigidbody2D enemyRigidbody;
 
     private float enemySpeed = 2.5f;
+    private bool moveUp = false;
 
     private void Awake()
     {
@@ -19,7 +20,7 @@ public class BatScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (targetPlayer != null)
+        if (targetPlayer != null && enemyRigidbody.simulated)
         {
             TargetToPlayer();
         }
@@ -47,9 +48,10 @@ public class BatScript : MonoBehaviour
             enemyRigidbody.velocity = new Vector2(enemyRigidbody.velocity.x, enemySpeed);
         }
 
-        if (transform.localPosition.x > -0.5 && transform.localPosition.x < 0.5 && transform.localPosition.y == 0)
+        if (transform.localPosition.y > -0.01 && transform.localPosition.y < 0.01)
         {
-            StartCoroutine(ChangeSimulated(false));
+            enemyRigidbody.simulated = false;
+            // StartCoroutine(ChangeSimulated(false));
             animator.SetBool("IsFlying", false);
             enemyRigidbody.velocity = new Vector2(0, 0);
         }
@@ -57,21 +59,21 @@ public class BatScript : MonoBehaviour
 
     private void TargetToPlayer()
     {
-        if (transform.position.x > targetPlayer.transform.position.x + 1)
-        {
-            spriteRenderer.flipX = false;
-            enemyRigidbody.velocity = new Vector2(-enemySpeed * 2, 0);
-        }
-        else if (transform.position.x < targetPlayer.transform.position.x - 1)
-        {
-            spriteRenderer.flipX = true;
-            enemyRigidbody.velocity = new Vector2(enemySpeed * 2, 0);
-        }
+        //RaycastHit2D rayHit;
+        //if (!spriteRenderer.flipX)
+        //{
+        //    rayHit = Physics2D.Raycast(transform.GetChild(0).transform.position, Vector2.right, 150f);
+        //}
+        //else
+        //{
+        //    rayHit = Physics2D.Raycast(transform.GetChild(1).transform.position, Vector2.left, 150f);
+        //}
 
-        RaycastHit2D rayHit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x);
-        if (rayHit.transform.tag == "Trap")
+        //Debug.Log(rayHit.collider.tag);
+        if (moveUp)
         {
-            enemyRigidbody.velocity = new Vector2(enemyRigidbody.velocity.x, enemySpeed);
+            enemyRigidbody.velocity = new Vector2(0, enemySpeed * 2);
+            return;
         }
         else if (transform.position.y > targetPlayer.transform.position.y + 0.5)
         {
@@ -80,7 +82,18 @@ public class BatScript : MonoBehaviour
         else if (transform.position.y < targetPlayer.transform.position.y - 0.5)
         {
             enemyRigidbody.velocity = new Vector2(enemyRigidbody.velocity.x, enemySpeed);
-        }        
+        }
+
+        if (transform.position.x > targetPlayer.transform.position.x + 0.5)
+        {
+            spriteRenderer.flipX = false;
+            enemyRigidbody.velocity = new Vector2(-enemySpeed * 2, enemyRigidbody.velocity.y);
+        }
+        else if (transform.position.x < targetPlayer.transform.position.x - 0.5)
+        {
+            spriteRenderer.flipX = true;
+            enemyRigidbody.velocity = new Vector2(enemySpeed * 2, enemyRigidbody.velocity.y);
+        }
     }
 
     public void SetTriggerPlayer(GameObject trigger)
@@ -88,15 +101,31 @@ public class BatScript : MonoBehaviour
         targetPlayer = trigger;
         if (trigger != null)
         {
-            StartCoroutine(ChangeSimulated(true));
             animator.SetBool("IsFlying", true);
+            StartCoroutine(ChangeSimulated(true));
         }
     }
 
     private IEnumerator ChangeSimulated(bool simulated)
     {
-        yield return new WaitForSeconds(1);
-        enemyRigidbody.simulated = simulated;
+        while (true)
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("BatFlyingAnimation"))
+            {
+                Debug.Log(5);
+                enemyRigidbody.simulated = simulated;
+                yield break;
+            }
+            yield return new WaitForSeconds(0.75f);
+        }               
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Trap")
+        {
+            moveUp = true;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -104,6 +133,14 @@ public class BatScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             CharacterHealth.characterHealthInstance.EnemyHit();
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Trap")
+        {
+            moveUp = false;
         }
     }
 }
