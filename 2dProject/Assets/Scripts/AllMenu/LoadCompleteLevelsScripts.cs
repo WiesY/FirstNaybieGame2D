@@ -27,12 +27,12 @@ public class LoadCompleteLevelsScripts : MonoBehaviour
             if (isCompleteLevels[i])
             {
                 allLevels.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
-                allLevels.transform.GetChild(i).GetComponent<Button>().interactable = true;
+                //allLevels.transform.GetChild(i).GetComponent<Button>().interactable = true;
             }
             else
             {
                 allLevels.transform.GetChild(i).GetChild(1).gameObject.SetActive(true);
-                allLevels.transform.GetChild(i).GetComponent<Button>().interactable = false;
+                //allLevels.transform.GetChild(i).GetComponent<Button>().interactable = false;
             }
         }
     }
