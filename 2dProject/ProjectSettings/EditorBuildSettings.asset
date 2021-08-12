@@ -22,8 +22,11 @@ EditorBuildSettings:
     guid: 20747efbfa321a649a0f6234f272bc51
   - enabled: 1
     path: Assets/Scenes/Worlds/SummerLevels/SummerLevel2.unity
+    guid: 9a888d794917b1f4d98b8eec4668b665
+  - enabled: 1
+    path: Assets/Scenes/Worlds/SummerLevels/SummerLevel5.unity
     guid: 3935a1532247c9c48a2fe9f39015e7ab
   - enabled: 1
-    path: Assets/Scenes/MenuSettingsStore/Achievement.unity
+    path: Assets/Scenes/MenuSettingsStore/achievement.unity
     guid: f3961a6b49480224fa11fa733ee82995
   m_configObjects: {}
