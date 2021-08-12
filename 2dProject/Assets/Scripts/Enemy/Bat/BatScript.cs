@@ -112,7 +112,6 @@ public class BatScript : MonoBehaviour
         {
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("BatFlyingAnimation"))
             {
-                Debug.Log(5);
                 enemyRigidbody.simulated = simulated;
                 yield break;
             }
