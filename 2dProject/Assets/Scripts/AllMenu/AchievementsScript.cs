@@ -9,13 +9,16 @@ public class AchievementsScript : MonoBehaviour
     {
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
-        Social.localUser.Authenticate((bool success) => {
-
-        });
+        Social.localUser.Authenticate((bool success) => { });
     }
 
-    public void SetAchievements(string idAchiev)
+    public void SetAchievements()
     {
-        Social.ReportProgress(idAchiev, 100, (bool success) => { });
+        Social.ShowAchievementsUI();
+    }
+
+    public void ExitFromGPS()
+    {
+        PlayGamesPlatform.Instance.SignOut();
     }
 }
