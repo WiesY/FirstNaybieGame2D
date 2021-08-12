@@ -5,6 +5,7 @@ using UnityEngine;
 public class Trampoline : MonoBehaviour
 {
     [SerializeField] private string playerTag = "Player";
+    [SerializeField] private float jumpHeight = 30f;
     private bool isPlayerOn;
 
     public Animator animator;
@@ -19,7 +20,7 @@ public class Trampoline : MonoBehaviour
             //other.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
             animator.SetBool("IsPlayerOn", true);
             var JumpSpeed = other.GetComponent<Rigidbody2D>().velocity;
-            JumpSpeed.y = 30f;
+            JumpSpeed.y = jumpHeight;
             other.GetComponent<Rigidbody2D>().velocity = JumpSpeed;
 
         }

@@ -46,7 +46,7 @@ public class BatScript : MonoBehaviour
         if (transform.localPosition.x > -1 && transform.localPosition.x < 1 && transform.localPosition.y < 0)
         {
             var tempVelocity = enemyRigidbody.velocity;
-            tempVelocity.y = enemySpeed / 2;
+            tempVelocity.y = enemySpeed;
             enemyRigidbody.velocity = tempVelocity;
         }
 
