@@ -20,13 +20,13 @@
 
 
 Цены фруктов:
-- Apple - 5
-- Bananas - 10
-- Orange - 10
-- Cherries - 15
-- Qiwi - 15
+- Apple - 5 (unlock on first lvl)
+- Bananas - 10 (unlock on third lvl)
+- Orange - 10 (second island)
+- Cherries - 15 (unlock on fifth lvl)
+- Qiwi - 15 (second island)
 - Strawberry - 25
-- PineApple - 50
+- PineApple - 50 (second island)
 - Melon - 100
 
 
