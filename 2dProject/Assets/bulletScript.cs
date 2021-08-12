@@ -10,13 +10,13 @@ public class bulletScript : MonoBehaviour
     {
         anim = GetComponent<Animator>();    
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        anim.SetTrigger("destroy");
         if (collision.gameObject.CompareTag("Player"))
         {
             CharacterHealth.characterHealthInstance.EnemyHit();
         }
-        anim.SetTrigger("destroy");
     }
 
     private void BulletDestroy()
