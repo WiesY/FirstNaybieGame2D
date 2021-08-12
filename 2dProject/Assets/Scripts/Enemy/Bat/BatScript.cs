@@ -68,20 +68,19 @@ public class BatScript : MonoBehaviour
             enemyRigidbody.velocity = new Vector2(enemySpeed * 2, 0);
         }
 
-        if (transform.position.y > targetPlayer.transform.position.y)
-        {
-            enemyRigidbody.velocity = new Vector2(enemyRigidbody.velocity.x, -enemySpeed);
-        }
-        else if (transform.position.y < targetPlayer.transform.position.y)
-        {
-            enemyRigidbody.velocity = new Vector2(enemyRigidbody.velocity.x, enemySpeed);
-        }
-
         RaycastHit2D rayHit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x);
         if (rayHit.transform.tag == "Trap")
         {
             enemyRigidbody.velocity = new Vector2(enemyRigidbody.velocity.x, enemySpeed);
         }
+        else if (transform.position.y > targetPlayer.transform.position.y + 0.5)
+        {
+            enemyRigidbody.velocity = new Vector2(enemyRigidbody.velocity.x, -enemySpeed);
+        }
+        else if (transform.position.y < targetPlayer.transform.position.y - 0.5)
+        {
+            enemyRigidbody.velocity = new Vector2(enemyRigidbody.velocity.x, enemySpeed);
+        }        
     }
 
     public void SetTriggerPlayer(GameObject trigger)
