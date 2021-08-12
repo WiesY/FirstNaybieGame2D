@@ -1,4 +1,5 @@
 using UnityEngine;
+using Pathfinding;
 
 public class BatTriggerScript : MonoBehaviour
 {
@@ -17,11 +18,11 @@ public class BatTriggerScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            batScript.SetTriggerPlayer(null);
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Player"))
+    //    {
+    //        batScript.SetTriggerPlayer(null);
+    //    }
+    //}
 }

@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,69 +25,66 @@ public class BatScript : MonoBehaviour
         {
             TargetToPlayer();
         }
-        else if (targetPlayer == null && transform.localPosition != new Vector3(0, 0, 0))
-        {
-            GoToHome();
-        }
+        //else if (targetPlayer == null && transform.localPosition != new Vector3(0, 0, 0))
+        //{
+        //    GoToHome();
+        //}
     }
 
-    private void GoToHome()
-    {
-        if (transform.localPosition.x > 1)
-        {
-            spriteRenderer.flipX = false;
-            enemyRigidbody.velocity = new Vector2(-enemySpeed, 0);
-        }
-        else if (transform.localPosition.x < -1)
-        {
-            spriteRenderer.flipX = true;
-            enemyRigidbody.velocity = new Vector2(enemySpeed, 0);
-        }
+    //private void GoToHome()
+    //{
+    //    if (transform.localPosition.x > 1)
+    //    {
+    //        spriteRenderer.flipX = false;
+    //        enemyRigidbody.velocity = new Vector2(-enemySpeed, 0);
+    //    }
+    //    else if (transform.localPosition.x < -1)
+    //    {
+    //        spriteRenderer.flipX = true;
+    //        enemyRigidbody.velocity = new Vector2(enemySpeed, 0);
+    //    }
 
-        if (transform.localPosition.x > -1 && transform.localPosition.x < 1 && transform.localPosition.y < 0)
-        {
-            var tempVelocity = enemyRigidbody.velocity;
-            tempVelocity.y = enemySpeed;
-            enemyRigidbody.velocity = tempVelocity;
-        }
+    //    if (transform.localPosition.x > -1 && transform.localPosition.x < 1 && transform.localPosition.y < 0)
+    //    {
+    //        var tempVelocity = enemyRigidbody.velocity;
+    //        tempVelocity.y = enemySpeed;
+    //        enemyRigidbody.velocity = tempVelocity;
+    //    }
 
-        if (transform.localPosition.x > -1 && transform.localPosition.x < 1 && transform.localPosition.y > -1 && transform.localPosition.y < 1)
-        {
-            StartCoroutine(ChangeSimulated(false));
-            animator.SetBool("IsFlying", false);
-            enemyRigidbody.velocity = new Vector2(0, 0);
-        }
-    }
+    //    if (transform.localPosition.x > -1 && transform.localPosition.x < 1 && transform.localPosition.y > -1 && transform.localPosition.y < 1)
+    //    {
+    //        StartCoroutine(ChangeSimulated(false));
+    //        animator.SetBool("IsFlying", false);
+    //        enemyRigidbody.velocity = new Vector2(0, 0);
+    //    }
+    //}
 
     private void TargetToPlayer()
     {
-        if (transform.position.x > targetPlayer.transform.position.x + 1)
-        {
-            spriteRenderer.flipX = false;
-            enemyRigidbody.velocity = new Vector2(-enemySpeed * 2, 0);
-        }
-        else if (transform.position.x < targetPlayer.transform.position.x - 1)
-        {
-            spriteRenderer.flipX = true;
-            enemyRigidbody.velocity = new Vector2(enemySpeed * 2, 0);
-        }
-        else
-        {
-            enemyRigidbody.velocity = new Vector2(0, 0);
-        }
+        //if (transform.position.x > targetPlayer.transform.position.x + 1)
+        //{
+        //    spriteRenderer.flipX = false;
+        //    //enemyRigidbody.velocity = new Vector2(-enemySpeed * 2, 0);
+        //}
+        //else if (transform.position.x < targetPlayer.transform.position.x - 1)
+        //{
+        //    spriteRenderer.flipX = true;
+        //    //enemyRigidbody.velocity = new Vector2(enemySpeed * 2, 0);
+        //}
+        //transform.parent.GetComponent<>().target = targetPlayer.transform;
 
-        if (transform.position.y > targetPlayer.transform.position.y)
-        {
-            var tempVelocity = enemyRigidbody.velocity;
-            tempVelocity.y = -enemySpeed;
-            enemyRigidbody.velocity = tempVelocity;
-        }
-        else if (transform.position.x < targetPlayer.transform.position.x)
-        {
-            var tempVelocity = enemyRigidbody.velocity;
-            tempVelocity.y = enemySpeed;
-            enemyRigidbody.velocity = tempVelocity;
-        }
+        //if (transform.position.y > targetPlayer.transform.position.y)
+        //{
+        //    var tempVelocity = enemyRigidbody.velocity;
+        //    tempVelocity.y = -enemySpeed;
+        //    enemyRigidbody.velocity = tempVelocity;
+        //}
+        //else if (transform.position.x < targetPlayer.transform.position.x)
+        //{
+        //    var tempVelocity = enemyRigidbody.velocity;
+        //    tempVelocity.y = enemySpeed;
+        //    enemyRigidbody.velocity = tempVelocity;
+        //}
     }
 
     public void SetTriggerPlayer(GameObject trigger)
@@ -94,16 +92,16 @@ public class BatScript : MonoBehaviour
         targetPlayer = trigger;
         if (trigger != null)
         {
-            StartCoroutine(ChangeSimulated(true));
+            //StartCoroutine(ChangeSimulated(true));
             animator.SetBool("IsFlying", true);
         }
     }
 
-    private IEnumerator ChangeSimulated(bool simulated)
-    {
-        yield return new WaitForSeconds(1);
-        enemyRigidbody.simulated = simulated;
-    }
+    //private IEnumerator ChangeSimulated(bool simulated)
+    //{
+    //    yield return new WaitForSeconds(1);
+    //    enemyRigidbody.simulated = simulated;
+    //}
 
     private void OnCollisionStay2D(Collision2D collision)
     {
