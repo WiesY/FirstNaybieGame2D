@@ -18,6 +18,9 @@ public class GoogleServices : MonoBehaviour
     private int testInt = 15;
     private bool testBool = true;
 
+    private string[] arrOfStrings;
+    private bool[] arrOfBools;
+
     private DateTime startTime;
 
     private void Awake()
@@ -41,9 +44,19 @@ public class GoogleServices : MonoBehaviour
 
             }
         });
+
+        arrOfStrings = new string[3];
+        arrOfStrings[0] = "First";
+        arrOfStrings[1] = "Second";
+        arrOfStrings[2] = "Third";
+
+        arrOfBools = new bool[8];
+        arrOfBools[0] = true;
+        arrOfBools[1] = true;
+        arrOfBools[7] = true;
     }
 
-    public void OpenSavedGame(bool saving)
+    public void OpenSavedGame(bool saving) // Сохранение / Загрузка данных ||| true - сохранение, false - загрузка
     {
         isSaving = saving;
         OpenSavedGame("InfoAboutApp");
@@ -62,7 +75,10 @@ public class GoogleServices : MonoBehaviour
         {
             if (isSaving)
             {
-                string data = testString + ";" + testInt + ";" + testBool;
+                // string data = testString + ";" + testInt + ";" + testBool;
+                // game.Filename;
+
+                string data = AllMySaves.myMoney;
 
                 byte[] saveData = Encoding.UTF8.GetBytes(data);
                 SaveGame(game, saveData);
@@ -74,7 +90,7 @@ public class GoogleServices : MonoBehaviour
         }
         else
         {
-            // handle error
+            text.text = "Файл не открылся";
         }
     }
 
@@ -137,7 +153,12 @@ public class GoogleServices : MonoBehaviour
         }
         else
         {
-            // handle error
+            text.text = "Ошибка при считавании данных";
         }
     }
+}
+
+public static class AllMySaves
+{
+    public static int myMoney = 150;
 }
