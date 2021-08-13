@@ -20,10 +20,10 @@
 
 
 Цены фруктов:
-- Apple - 5 (unlock on first lvl)
-- Bananas - 10 (unlock on third lvl)
+- Apple - 5 (unlock on 1 lvl)
+- Bananas - 10 (unlock on 3 lvl)
 - Orange - 10 (second island)
-- Cherries - 15 (unlock on fifth lvl)
+- Cherries - 15 (unlock on 5 lvl)
 - Qiwi - 15 (second island)
 - Strawberry - 25
 - PineApple - 50 (second island)
@@ -32,6 +32,13 @@
 
 PlayerPrefs key:
 - Money - Количество монет
-- SelectedSkin - Текущий выбранный скин
 - PurchasedSkins - Массив купленных скинов
-- SummerLevels - Пройденные летние уровни(первые 8)
+- SelectedSkin - Текущий выбранный скин
+- OpenIslands - Открытые острова
+- FirstIslandLevelsOpens - Пройденные летние уровни(1-8)
+- SecondIslandLevelsOpens - Пройденные летние уровни(9-16)
+- ThirdIslandLevelsOpens - Пройденные летние уровни(17-24)
+- FourthIslandLevelsOpens - Пройденные летние уровни(25-32)
+- FifthIslandLevelsOpens - Пройденные летние уровни(33-40)
+- SixthIslandLevelsOpens - Пройденные летние уровни(41-48)
+- SeventhIslandLevelsOpens - Пройденные летние уровни(49-56)
