@@ -547,7 +547,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1225980406}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GoogleServices, Assembly-CSharp
         m_MethodName: OpenSavedGame
         m_Mode: 6
@@ -2921,7 +2921,6 @@ GameObject:
   - component: {fileID: 1225980399}
   - component: {fileID: 1225980404}
   - component: {fileID: 1225980405}
-  - component: {fileID: 1225980406}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3050,19 +3049,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd1c90e13adccc46a32b7058c49a9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1225980406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1225980398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14e033396f8f4b543bb78fca4b13728c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1744304147}
 --- !u!1 &1263325633
 GameObject:
   m_ObjectHideFlags: 0
@@ -4354,7 +4340,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1225980406}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GoogleServices, Assembly-CSharp
         m_MethodName: OpenSavedGame
         m_Mode: 6
@@ -4711,10 +4697,10 @@ RectTransform:
   m_Father: {fileID: 1225980403}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.91, y: 5.43}
-  m_SizeDelta: {x: 883.68, y: 445.77}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 174.81006, y: 0}
+  m_SizeDelta: {x: 327.6, y: -30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1752173641
 GameObject:

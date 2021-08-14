@@ -10,20 +10,22 @@ using UnityEngine.UI;
 
 public class GoogleServices : MonoBehaviour
 {
-    public Text text;
+    public static Text text;
 
-    private bool isSaving;
+    private static DateTime startTime;
 
-    private string testString = "Hi!";
-    private int testInt = 15;
-    private bool testBool = true;
+    public static bool isSaving; // Сохранить или записать файл
 
-    private string[] arrOfStrings;
-    private bool[] arrOfBools;
+    private static bool tryToAuthenticate = false;
 
-    private DateTime startTime;
+    public static string testString = "Hi!";
+    private static int testInt = 15;
+    private static bool testBool = true;
 
-    private void Awake()
+    private static string[] arrOfStrings;
+    private static bool[] arrOfBools;
+
+    public static void AuthenticateAtStartApp()
     {
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
         .EnableSavedGames()
@@ -36,12 +38,13 @@ public class GoogleServices : MonoBehaviour
         PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (result) => {
             if (result == SignInStatus.Success)
             {
+                tryToAuthenticate = true;
                 startTime = DateTime.Now;
                 OpenSavedGame(false);
             }
             else
             {
-
+                tryToAuthenticate = true;
             }
         });
 
@@ -56,29 +59,27 @@ public class GoogleServices : MonoBehaviour
         arrOfBools[7] = true;
     }
 
-    public void OpenSavedGame(bool saving) // Сохранение / Загрузка данных ||| true - сохранение, false - загрузка
+    public static void OpenSavedGame(bool saving) // Сохранение / Загрузка данных ||| true - сохранение, false - загрузка
     {
         isSaving = saving;
         OpenSavedGame("InfoAboutApp");
     }
 
-    private void OpenSavedGame(string filename)
+    private static void OpenSavedGame(string filename)
     {
         ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
         savedGameClient.OpenWithAutomaticConflictResolution(filename, DataSource.ReadCacheOrNetwork,
             ConflictResolutionStrategy.UseLongestPlaytime, OnSavedGameOpened);
     }
 
-    private void OnSavedGameOpened(SavedGameRequestStatus status, ISavedGameMetadata game)
+    private static void OnSavedGameOpened(SavedGameRequestStatus status, ISavedGameMetadata game)
     {
         if (status == SavedGameRequestStatus.Success)
         {
             if (isSaving)
             {
-                // string data = testString + ";" + testInt + ";" + testBool;
+                string data = testString + ";" + testInt + ";" + testBool;
                 // game.Filename;
-
-                string data = AllMySaves.myMoney;
 
                 byte[] saveData = Encoding.UTF8.GetBytes(data);
                 SaveGame(game, saveData);
@@ -94,7 +95,7 @@ public class GoogleServices : MonoBehaviour
         }
     }
 
-    private void SaveGame(ISavedGameMetadata game, byte[] savedData)
+    private static void SaveGame(ISavedGameMetadata game, byte[] savedData)
     {
         TimeSpan currentSpan = DateTime.Now - startTime;
         TimeSpan totalPlaytime = game.TotalTimePlayed + currentSpan;
@@ -109,7 +110,7 @@ public class GoogleServices : MonoBehaviour
         savedGameClient.CommitUpdate(game, updatedMetadata, savedData, OnSavedGameWritten);
     }
 
-    private void OnSavedGameWritten(SavedGameRequestStatus status, ISavedGameMetadata game)
+    private static void OnSavedGameWritten(SavedGameRequestStatus status, ISavedGameMetadata game)
     {
         if (status == SavedGameRequestStatus.Success)
         {
@@ -124,13 +125,13 @@ public class GoogleServices : MonoBehaviour
         }
     }
 
-    private void LoadGameData(ISavedGameMetadata game)
+    private static void LoadGameData(ISavedGameMetadata game)
     {
         ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
         savedGameClient.ReadBinaryData(game, OnSavedGameDataRead);
     }
 
-    private void OnSavedGameDataRead(SavedGameRequestStatus status, byte[] data)
+    private static void OnSavedGameDataRead(SavedGameRequestStatus status, byte[] data)
     {
         if (status == SavedGameRequestStatus.Success)
         {
@@ -160,5 +161,5 @@ public class GoogleServices : MonoBehaviour
 
 public static class AllMySaves
 {
-    public static int myMoney = 150;
+    public static int[] myMoney;
 }

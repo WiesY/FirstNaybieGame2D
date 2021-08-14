@@ -6,7 +6,9 @@ public class MainMenuScript : MonoBehaviour
 {
     private void Start()
     {
-        QualitySettings.SetQualityLevel(0);
+        QualitySettings.SetQualityLevel(2);
+
+        GoogleServices.OpenSavedGame(false);
     }
 
     public void OnQuitButton() // Кнопка ВЫХОД
