@@ -9,7 +9,9 @@ public class StoreScript : MonoBehaviour
     public TextMeshProUGUI currentMoney; // Количество монет
 
     private void Awake()
-    {        
+    {
+        Debug.Log(Application.targetFrameRate);
+
         purchased = new bool[skins.Length];
         if (PlayerPrefs.HasKey("PurchasedSkins")) // Проверка на купленные скины
         {

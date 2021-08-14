@@ -567,7 +567,6 @@ GameObject:
   - component: {fileID: 127242720}
   - component: {fileID: 127242719}
   - component: {fileID: 127242718}
-  - component: {fileID: 127242723}
   - component: {fileID: 127242722}
   m_Layer: 5
   m_Name: Canvas
@@ -670,18 +669,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievementsList: {fileID: 1585605150}
---- !u!114 &127242723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127242717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bd1c90e13adccc46a32b7058c49a9f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &134716462
 GameObject:
   m_ObjectHideFlags: 0

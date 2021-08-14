@@ -12,17 +12,6 @@ public class Finish : MonoBehaviour
 
     protected internal GameObject player;
 
-    private Rigidbody2D playerRb;
-    private PlayerController playerScript;    
-
-    private bool isFinished = false;
-
-    private void Start()
-    {
-        playerRb = player.GetComponent<Rigidbody2D>();
-        playerScript = player.GetComponent<PlayerController>();
-    }
-
     //void Update()
     //{
     //    if (isFinished && playerRb.velocity.magnitude > 0)
@@ -45,13 +34,19 @@ public class Finish : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Time.timeScale = 0f;
-            isFinished = true;
             pauseButton.SetActive(false);
             finishMenu.SetActive(true);
             var asd = PlayerPrefsX.GetBoolArray(nameIsland);
             asd[numberLevelsOfIsland] = true;
             PlayerPrefsX.SetBoolArray(nameIsland, asd);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + FruitsScript.fruitScriptInstance.totalAmountOfFruits);
+
+            // GoogleServices.OpenSavedGame(true, "Money");
         }
+    }
+
+    private void SaveGameOnFinish()
+    {
+
     }
 }

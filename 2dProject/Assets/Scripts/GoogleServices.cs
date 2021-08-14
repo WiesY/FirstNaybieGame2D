@@ -15,15 +15,16 @@ public class GoogleServices : MonoBehaviour
     private static DateTime startTime;
 
     public static bool isSaving; // Сохранить или записать файл
+    public static bool tryToAuthenticate = false;
 
-    private static bool tryToAuthenticate = false;
+    public static string testString = "Hi!";    // Test field
+    private static int testInt = 15;            // Test field
+    private static bool testBool = true;        // Test field
 
-    public static string testString = "Hi!";
-    private static int testInt = 15;
-    private static bool testBool = true;
+    private static string[] arrOfStrings;       // Test field
+    private static bool[] arrOfBools;           // Test field
 
-    private static string[] arrOfStrings;
-    private static bool[] arrOfBools;
+    public static int money = 0;
 
     public static void AuthenticateAtStartApp()
     {
@@ -38,31 +39,21 @@ public class GoogleServices : MonoBehaviour
         PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (result) => {
             if (result == SignInStatus.Success)
             {
-                tryToAuthenticate = true;
+                text.text = "Удачная аутентификация";
                 startTime = DateTime.Now;
-                OpenSavedGame(false);
             }
             else
             {
-                tryToAuthenticate = true;
+
             }
         });
-
-        arrOfStrings = new string[3];
-        arrOfStrings[0] = "First";
-        arrOfStrings[1] = "Second";
-        arrOfStrings[2] = "Third";
-
-        arrOfBools = new bool[8];
-        arrOfBools[0] = true;
-        arrOfBools[1] = true;
-        arrOfBools[7] = true;
     }
 
-    public static void OpenSavedGame(bool saving) // Сохранение / Загрузка данных ||| true - сохранение, false - загрузка
+    public static void OpenSavedGame(bool saving, string nameFileToOpen) // Сохранение / Загрузка данных ||| true - сохранение, false - загрузка
     {
         isSaving = saving;
-        OpenSavedGame("InfoAboutApp");
+        text.text = "Открытие файла...";
+        OpenSavedGame(nameFileToOpen);
     }
 
     private static void OpenSavedGame(string filename)
@@ -157,9 +148,4 @@ public class GoogleServices : MonoBehaviour
             text.text = "Ошибка при считавании данных";
         }
     }
-}
-
-public static class AllMySaves
-{
-    public static int[] myMoney;
 }
