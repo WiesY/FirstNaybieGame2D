@@ -34,7 +34,9 @@ public class MainMenuScript : MonoBehaviour
 
     public void OnChangeGraphics(int graphicIndex)
     {
+        var asd = QualitySettings.vSyncCount;
         QualitySettings.SetQualityLevel(graphicIndex);
+        QualitySettings.vSyncCount = asd;
     }
 
     public void OnChangeFPS(int fpsIndex)
@@ -59,5 +61,10 @@ public class MainMenuScript : MonoBehaviour
         {
             Application.targetFrameRate = 120;
         }
+    }
+
+    public void OnChangeVSync(int vSyncIndex)
+    {
+        QualitySettings.vSyncCount = vSyncIndex;
     }
 }
