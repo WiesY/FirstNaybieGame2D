@@ -24,8 +24,6 @@ public class GoogleServices : MonoBehaviour
     private static string[] arrOfStrings;       // Test field
     private static bool[] arrOfBools;           // Test field
 
-    public static int money = 0;
-
     public static void AuthenticateAtStartApp()
     {
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
@@ -46,6 +44,13 @@ public class GoogleServices : MonoBehaviour
             {
 
             }
+
+            OpenSavedGame(false, "Money");
+
+            //GoogleServices.OpenSavedGame(false, "Money");
+            //GoogleServices.OpenSavedGame(false, "SkinsInfo");
+            //GoogleServices.OpenSavedGame(false, "OpenIslands");
+            //GoogleServices.OpenSavedGame(false, "OpenLevels");
         });
     }
 
@@ -53,7 +58,7 @@ public class GoogleServices : MonoBehaviour
     {
         isSaving = saving;
         text.text = "Открытие файла...";
-        OpenSavedGame(nameFileToOpen);
+        OpenSavedGame("TestSaveAndLoadApp");
     }
 
     private static void OpenSavedGame(string filename)
@@ -69,7 +74,6 @@ public class GoogleServices : MonoBehaviour
         {
             if (isSaving)
             {
-
                 //if (game.Filename == "MoneyAndSelectedSkin")
                 //{
                 //    data = InfoAboutApplication.money + ";" + InfoAboutApplication.selectedSkin;
@@ -88,14 +92,19 @@ public class GoogleServices : MonoBehaviour
                 //}
                 // string data = testString + ";" + testInt + ";" + testBool;
 
+                text.text = "Попытка сохранить";
+
                 InfoAboutApplication infoAboutApplication = new InfoAboutApplication();
+                infoAboutApplication.money = 5;
                 string data = JsonUtility.ToJson(infoAboutApplication);
 
                 byte[] saveData = Encoding.UTF8.GetBytes(data);
+
                 SaveGame(game, saveData);
             }
             else if(!isSaving)
             {
+                text.text = "Попытка загрузить";
                 LoadGameData(game);
             }
         }
@@ -125,7 +134,6 @@ public class GoogleServices : MonoBehaviour
         if (status == SavedGameRequestStatus.Success)
         {
             text.text = "Успешно сохранил";
-            Debug.Log("Успешно сохранил!");
         }
         else
         {
@@ -146,21 +154,17 @@ public class GoogleServices : MonoBehaviour
             if (data.Length > 0)
             {
                 string dataGoogle = Encoding.ASCII.GetString(data);
-                InfoAboutApplication dataJson = JsonUtility.FromJson<InfoAboutApplication>(dataGoogle);
+                InfoAboutApplication ifa = InfoAboutApplication.CreateFromJSON(dataGoogle); // JsonUtility.FromJson<InfoAboutApplication>(dataGoogle);
 
-                Debug.Log(dataJson);
+                text.text = "Успешно загрузил: " + "Монеты ifa.money: " + ifa.money + " Монеты класса: " + InfoAboutApplication.Money;
 
-                // string[] s = dataGoogle.Split(';');
+                InfoAboutApplication.Money = ifa.money;
 
-                // text.text = s[0] + " " + s[1] + " " + s[2];
-
-                Debug.Log("Успешно загрузил: " + dataJson);
+                text.text += "Успешно загрузил: " + "Монеты ifa.money: " + ifa.money + " Монеты класса: " + InfoAboutApplication.Money;
             }
             else
             {
                 text.text = "Данных нет, не удалось считать";
-
-                Debug.Log("Нет данных");
             }
         }
         else
