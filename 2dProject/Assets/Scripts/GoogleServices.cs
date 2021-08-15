@@ -45,16 +45,11 @@ public class GoogleServices : MonoBehaviour
 
             }
 
-            OpenSavedGame(false, "Money");
-
-            //GoogleServices.OpenSavedGame(false, "Money");
-            //GoogleServices.OpenSavedGame(false, "SkinsInfo");
-            //GoogleServices.OpenSavedGame(false, "OpenIslands");
-            //GoogleServices.OpenSavedGame(false, "OpenLevels");
+            OpenSavedGame(false);
         });
     }
 
-    public static void OpenSavedGame(bool saving, string nameFileToOpen) // Сохранение / Загрузка данных ||| true - сохранение, false - загрузка
+    public static void OpenSavedGame(bool saving) // Сохранение / Загрузка данных ||| true - сохранение, false - загрузка
     {
         isSaving = saving;
         text.text = "Открытие файла...";
@@ -74,28 +69,16 @@ public class GoogleServices : MonoBehaviour
         {
             if (isSaving)
             {
-                //if (game.Filename == "MoneyAndSelectedSkin")
-                //{
-                //    data = InfoAboutApplication.money + ";" + InfoAboutApplication.selectedSkin;
-                //}
-                //else if (game.Filename == "PurchasedSkins")
-                //{
-                //    data = InfoAboutApplication.purchasedSkins;
-                //}
-                //else if (game.Filename == "OpenIslands")
-                //{
-
-                //}
-                //else if (game.Filename == "OpenLevels")
-                //{
-
-                //}
-                // string data = testString + ";" + testInt + ";" + testBool;
-
                 text.text = "Попытка сохранить";
 
                 InfoAboutApplication infoAboutApplication = new InfoAboutApplication();
-                infoAboutApplication.money = 5;
+
+                infoAboutApplication.money = InfoAboutApplication.Money;
+                infoAboutApplication.selectedSkin = InfoAboutApplication.SelectedSkin;
+                infoAboutApplication.purchasedSkins = InfoAboutApplication.PurchasedSkins;
+                infoAboutApplication.openIslands = InfoAboutApplication.OpenIslands;
+                infoAboutApplication.openLevels = InfoAboutApplication.OpenLevels;
+
                 string data = JsonUtility.ToJson(infoAboutApplication);
 
                 byte[] saveData = Encoding.UTF8.GetBytes(data);
@@ -154,22 +137,42 @@ public class GoogleServices : MonoBehaviour
             if (data.Length > 0)
             {
                 string dataGoogle = Encoding.ASCII.GetString(data);
-                InfoAboutApplication ifa = InfoAboutApplication.CreateFromJSON(dataGoogle); // JsonUtility.FromJson<InfoAboutApplication>(dataGoogle);
-
-                text.text = "Успешно загрузил: " + "Монеты ifa.money: " + ifa.money + " Монеты класса: " + InfoAboutApplication.Money;
+                InfoAboutApplication ifa = InfoAboutApplication.CreateFromJSON(dataGoogle);
 
                 InfoAboutApplication.Money = ifa.money;
+                InfoAboutApplication.SelectedSkin = ifa.selectedSkin;
+                InfoAboutApplication.PurchasedSkins = ifa.purchasedSkins;
+                InfoAboutApplication.OpenIslands = ifa.openIslands;
+                InfoAboutApplication.OpenLevels = ifa.openLevels;
 
-                text.text += "Успешно загрузил: " + "Монеты ifa.money: " + ifa.money + " Монеты класса: " + InfoAboutApplication.Money;
+                text.text = "Money - " + InfoAboutApplication.Money;
+                text.text += " SelectedIndex - " + InfoAboutApplication.SelectedSkin;
+                text.text += " PurchasedSkins - " + InfoAboutApplication.PurchasedSkins.Length;
+                text.text += " OpenIslands - " + InfoAboutApplication.OpenIslands[0];
+                text.text += " OpenLevels - " + InfoAboutApplication.OpenLevels[1];
+
+                text.text += "Успешно загрузил:" + " Пройденные острова: " + InfoAboutApplication.OpenIslands[0] + InfoAboutApplication.OpenIslands[1] + InfoAboutApplication.OpenIslands[2];
             }
             else
             {
-                text.text = "Данных нет, не удалось считать";
+                InfoAboutApplication.Money = 0;
+                InfoAboutApplication.SelectedSkin = 0;
+                InfoAboutApplication.PurchasedSkins[0] = true;
+                InfoAboutApplication.OpenIslands[0] = true;
+                InfoAboutApplication.OpenLevels[0] = true;
+
+                text.text = "Неудалось считать данные:" +
+                                " Монеты: " + InfoAboutApplication.Money +
+                                " Выбранный скин: " + InfoAboutApplication.SelectedSkin +
+                                " Купленные скины: " + InfoAboutApplication.PurchasedSkins.Length +
+                                " Пройденные острова: " + InfoAboutApplication.OpenIslands[0] +
+                                                          InfoAboutApplication.OpenIslands[1] +
+                                                          InfoAboutApplication.OpenIslands[2];
             }
         }
         else
         {
-            text.text = "Ошибка при считавании данных";
+            text.text = "Ошибка при считывании данных";
         }
     }
 }

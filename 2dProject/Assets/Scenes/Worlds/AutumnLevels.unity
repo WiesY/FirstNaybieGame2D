@@ -3392,7 +3392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de8ec8ffed82ae04ea7b046bac3fcffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameIsland: SummerLevels
+  indexIsland: 0
 --- !u!1 &2143778161
 GameObject:
   m_ObjectHideFlags: 0

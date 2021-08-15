@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Finish : MonoBehaviour
 {
-    [SerializeField] private string nameIsland;
+    [SerializeField] private int numberIsland;
     [SerializeField] private int numberLevelsOfIsland;
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject finishMenu;
@@ -36,17 +36,24 @@ public class Finish : MonoBehaviour
             Time.timeScale = 0f;
             pauseButton.SetActive(false);
             finishMenu.SetActive(true);
-            var asd = PlayerPrefsX.GetBoolArray(nameIsland);
-            asd[numberLevelsOfIsland] = true;
-            PlayerPrefsX.SetBoolArray(nameIsland, asd);
-            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + FruitsScript.fruitScriptInstance.totalAmountOfFruits);
 
-            // GoogleServices.OpenSavedGame(true, "Money");
+            if (numberIsland <= 5 && numberLevelsOfIsland == (8 * (numberIsland + 1)) - 1)
+            {
+                InfoAboutApplication.OpenIslands[numberIsland + 1] = true;
+            }
+
+            if (numberLevelsOfIsland + 1 <= 55)
+            {
+                InfoAboutApplication.OpenLevels[numberLevelsOfIsland + 1] = true;
+            }
+
+            //var asd = PlayerPrefsX.GetBoolArray(nameIsland);
+            //asd[numberLevelsOfIsland] = true;
+            //PlayerPrefsX.SetBoolArray(nameIsland, asd);
+
+            InfoAboutApplication.Money += FruitsScript.fruitScriptInstance.totalAmountOfFruits;
+
+            GoogleServices.OpenSavedGame(true);
         }
-    }
-
-    private void SaveGameOnFinish()
-    {
-
     }
 }

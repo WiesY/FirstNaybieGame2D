@@ -18,20 +18,14 @@ public class MainMenuScript : MonoBehaviour
 
     public void OnQuitButton() //  ÌÓÔÍ‡ ¬€’Œƒ
     {
-        GoogleServices.OpenSavedGame(true, "Money");
-        // GoogleServices.OpenSavedGame(true, "SkinsInfo");
-        // GoogleServices.OpenSavedGame(true, "OpenIslands");
-        // GoogleServices.OpenSavedGame(true, "OpenLevels");
+        GoogleServices.OpenSavedGame(true);
 
         // Application.Quit();
     }
 
     public void OnQuitButton5()
     {
-        GoogleServices.OpenSavedGame(false, "Money");
-        // GoogleServices.OpenSavedGame(false, "SkinsInfo");
-        // GoogleServices.OpenSavedGame(false, "OpenIslands");
-        // GoogleServices.OpenSavedGame(false, "OpenLevels");
+        GoogleServices.OpenSavedGame(false);
     }
 
     public void OnChangeGraphics(int graphicIndex)

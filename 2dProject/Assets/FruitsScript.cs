@@ -48,7 +48,7 @@ public class FruitsScript : MonoBehaviour
 
                 while (fruitsCountText.fontSize > 36)
                 {
-                    fruitsCountText.fontSize -= 0.5f;
+                    fruitsCountText.fontSize -= 0.75f;
                     yield return null;
                 }
             }

@@ -10,45 +10,58 @@ public class StoreScript : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log(Application.targetFrameRate);
+        purchased = InfoAboutApplication.PurchasedSkins;
+        purchased[0] = true;
+        //purchased = new bool[skins.Length];
+        //if (PlayerPrefs.HasKey("PurchasedSkins")) // Проверка на купленные скины
+        //{
+        //    purchased = PlayerPrefsX.GetBoolArray("PurchasedSkins");
+        //}
+        //else
+        //{
+        //    purchased[0] = true;
+        //}
 
-        purchased = new bool[skins.Length];
-        if (PlayerPrefs.HasKey("PurchasedSkins")) // Проверка на купленные скины
+        if (purchased[InfoAboutApplication.SelectedSkin])
         {
-            purchased = PlayerPrefsX.GetBoolArray("PurchasedSkins");
+            skins[InfoAboutApplication.SelectedSkin].choose = true;
         }
         else
         {
-            purchased[0] = true;
-        }
-
-        if (PlayerPrefs.HasKey("SelectedSkin")) // Если есть выбранный скин
-        {
-            if (purchased[PlayerPrefs.GetInt("SelectedSkin")]) // Если этот выбранный скин куплен
-            {
-                skins[PlayerPrefs.GetInt("SelectedSkin")].choose = true;
-            }
-            else
-            {
-                PlayerPrefs.SetInt("SelectedSkin", 0);
-                skins[0].choose = true;
-            }
-        }
-        else // Если нет - выбираем первый скин
-        {
-            PlayerPrefs.SetInt("SelectedSkin", 0);
+            skins[InfoAboutApplication.SelectedSkin].choose = false;
+            InfoAboutApplication.SelectedSkin = 0;
             skins[0].choose = true;
         }
 
-        if (PlayerPrefs.HasKey("Money"))
-        {
-            currentMoney.text = PlayerPrefs.GetInt("Money").ToString();
-        }
-        else
-        {
-            PlayerPrefs.SetInt("Money", 0);
-            currentMoney.text = "0";
-        }
+        //if (PlayerPrefs.HasKey("SelectedSkin")) // Если есть выбранный скин
+        //{
+        //    if (purchased[PlayerPrefs.GetInt("SelectedSkin")]) // Если этот выбранный скин куплен
+        //    {
+        //        skins[PlayerPrefs.GetInt("SelectedSkin")].choose = true;
+        //    }
+        //    else
+        //    {
+        //        PlayerPrefs.SetInt("SelectedSkin", 0);
+        //        skins[0].choose = true;
+        //    }
+        //}
+        //else // Если нет - выбираем первый скин
+        //{
+        //    PlayerPrefs.SetInt("SelectedSkin", 0);
+        //    skins[0].choose = true;
+        //}
+
+        currentMoney.text = InfoAboutApplication.Money.ToString();
+
+        //if (PlayerPrefs.HasKey("Money"))
+        //{
+        //    currentMoney.text = PlayerPrefs.GetInt("Money").ToString();
+        //}
+        //else
+        //{
+        //    PlayerPrefs.SetInt("Money", 0);
+        //    currentMoney.text = "0";
+        //}
 
         for (int i = 0; i < skins.Length; i++)
         {
@@ -62,18 +75,14 @@ public class StoreScript : MonoBehaviour
 
             skins[i].skinPrice = int.Parse(skins[i].skinObject.transform.Find("Price Info").Find("Price Text").GetComponent<TextMeshProUGUI>().text);
             skins[i].purchased = purchased[i];
-
-            if (PlayerPrefs.GetInt("SelectedSkin") == i)
-            {
-                skins[i].choose = true;
-            }
         }
+
         UpdateStore();
     }
 
     private void UpdateStore()
     {
-        skins[PlayerPrefs.GetInt("SelectedSkin")].choose = true;
+        skins[InfoAboutApplication.SelectedSkin].choose = true;
 
         for (int i = 0; i < skins.Length; i++)
         {
@@ -93,7 +102,7 @@ public class StoreScript : MonoBehaviour
                 skins[i].buyButton[3].SetActive(false);
                 skins[i].priceObject.SetActive(false);
             }
-            if (!skins[i].purchased && !skins[i].choose && PlayerPrefs.GetInt("Money") >= skins[i].skinPrice)
+            if (!skins[i].purchased && !skins[i].choose && InfoAboutApplication.Money >= skins[i].skinPrice)
             {
                 skins[i].buyButton[0].SetActive(true);
                 skins[i].buyButton[1].SetActive(false);
@@ -101,7 +110,7 @@ public class StoreScript : MonoBehaviour
                 skins[i].buyButton[3].SetActive(false);
                 skins[i].priceObject.SetActive(true);
             }
-            if (!skins[i].purchased && !skins[i].choose && PlayerPrefs.GetInt("Money") < skins[i].skinPrice)
+            if (!skins[i].purchased && !skins[i].choose && InfoAboutApplication.Money < skins[i].skinPrice)
             {
                 skins[i].buyButton[0].SetActive(false);
                 skins[i].buyButton[1].SetActive(true);
@@ -114,36 +123,42 @@ public class StoreScript : MonoBehaviour
 
     public void BuySkin(int indexSkin)
     {
-        if (PlayerPrefs.GetInt("Money") >= skins[indexSkin].skinPrice && !skins[indexSkin].purchased && !skins[indexSkin].choose)
+        if (InfoAboutApplication.Money >= skins[indexSkin].skinPrice && !skins[indexSkin].purchased && !skins[indexSkin].choose)
         {
             purchased[indexSkin] = true;
+            InfoAboutApplication.PurchasedSkins[indexSkin] = true;
             skins[indexSkin].purchased = true;
 
-            currentMoney.text = (PlayerPrefs.GetInt("Money") - skins[indexSkin].skinPrice).ToString();
-
-            PlayerPrefsX.SetBoolArray("PurchasedSkins", purchased);
-            PlayerPrefs.SetInt("Money", int.Parse(currentMoney.text));
+            InfoAboutApplication.Money -= skins[indexSkin].skinPrice;
+            currentMoney.text = InfoAboutApplication.Money.ToString();
 
             UpdateStore();
+
+            GoogleServices.OpenSavedGame(true);
         }
     }
 
     public void ChooseSkin(int indexSkin)
     {
-        skins[PlayerPrefs.GetInt("SelectedSkin")].choose = false;
+        skins[InfoAboutApplication.SelectedSkin].choose = false;
 
+        InfoAboutApplication.SelectedSkin = indexSkin;
         skins[indexSkin].choose = true;
-        PlayerPrefs.SetInt("SelectedSkin", indexSkin);
 
         UpdateStore();
+
+        GoogleServices.OpenSavedGame(true);
     }
 
     public void CheatOnMoney()
     {
-        PlayerPrefs.SetInt("Money", 5000);
-        currentMoney.text = PlayerPrefs.GetInt("Money").ToString();
+        InfoAboutApplication.Money += 1500;
+
+        currentMoney.text = InfoAboutApplication.Money.ToString();
 
         UpdateStore();
+
+        GoogleServices.OpenSavedGame(true);
     }
 }
 
@@ -160,7 +175,7 @@ public class Skin
     public GameObject skinObject;
 
     protected internal GameObject[] buyButton; // Кнопки покупки и тд
-    protected internal GameObject priceObject; // Объект с иконкой и цифрой цены
+    protected internal GameObject priceObject; // Объект со спрайтом и ценой
 
     protected internal int skinPrice;
     protected internal bool purchased; // Куплен(true) / Не куплен(false)
