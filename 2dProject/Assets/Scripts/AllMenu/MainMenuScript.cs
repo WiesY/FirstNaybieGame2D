@@ -19,7 +19,6 @@ public class MainMenuScript : MonoBehaviour
             GoogleServices.OpenSavedGame(false, "OpenIslands");
             GoogleServices.OpenSavedGame(false, "OpenLevels");
         }
-        // GoogleServices.OpenSavedGame(false); // Загружаем данные игры
     }
 
     public void OnQuitButton() // Кнопка ВЫХОД

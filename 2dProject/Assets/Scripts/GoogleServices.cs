@@ -69,8 +69,27 @@ public class GoogleServices : MonoBehaviour
         {
             if (isSaving)
             {
-                string data = testString + ";" + testInt + ";" + testBool;
-                // game.Filename;
+
+                //if (game.Filename == "MoneyAndSelectedSkin")
+                //{
+                //    data = InfoAboutApplication.money + ";" + InfoAboutApplication.selectedSkin;
+                //}
+                //else if (game.Filename == "PurchasedSkins")
+                //{
+                //    data = InfoAboutApplication.purchasedSkins;
+                //}
+                //else if (game.Filename == "OpenIslands")
+                //{
+
+                //}
+                //else if (game.Filename == "OpenLevels")
+                //{
+
+                //}
+                // string data = testString + ";" + testInt + ";" + testBool;
+
+                InfoAboutApplication infoAboutApplication = new InfoAboutApplication();
+                string data = JsonUtility.ToJson(infoAboutApplication);
 
                 byte[] saveData = Encoding.UTF8.GetBytes(data);
                 SaveGame(game, saveData);
@@ -111,8 +130,6 @@ public class GoogleServices : MonoBehaviour
         else
         {
             text.text = "Неудачное сохранение";
-
-            // handle error
         }
     }
 
@@ -129,12 +146,15 @@ public class GoogleServices : MonoBehaviour
             if (data.Length > 0)
             {
                 string dataGoogle = Encoding.ASCII.GetString(data);
+                InfoAboutApplication dataJson = JsonUtility.FromJson<InfoAboutApplication>(dataGoogle);
 
-                string[] s = dataGoogle.Split(';');
+                Debug.Log(dataJson);
 
-                text.text = s[0] + " " + s[1] + " " + s[2];
+                // string[] s = dataGoogle.Split(';');
 
-                Debug.Log("Успешно загрузил");
+                // text.text = s[0] + " " + s[1] + " " + s[2];
+
+                Debug.Log("Успешно загрузил: " + dataJson);
             }
             else
             {
