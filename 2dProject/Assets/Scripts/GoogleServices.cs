@@ -53,7 +53,7 @@ public class GoogleServices : MonoBehaviour
     {
         isSaving = saving;
         text.text = "Открытие файла...";
-        OpenSavedGame("TestSaveAndLoadApps");
+        OpenSavedGame("TestSaveAndLoadAppsss");
     }
 
     private static void OpenSavedGame(string filename)
@@ -141,24 +141,9 @@ public class GoogleServices : MonoBehaviour
 
                 InfoAboutApplication.Money = ifa.money;
                 InfoAboutApplication.SelectedSkin = ifa.selectedSkin;
-
                 InfoAboutApplication.PurchasedSkins = ifa.purchasedSkins;
-                if (InfoAboutApplication.PurchasedSkins.Length == 0)
-                {
-                    InfoAboutApplication.PurchasedSkins = new bool[4];
-                }
-
                 InfoAboutApplication.OpenIslands = ifa.openIslands;
-                if (InfoAboutApplication.OpenIslands.Length == 0)
-                {
-                    InfoAboutApplication.OpenIslands = new bool[7];
-                }
-
                 InfoAboutApplication.OpenLevels = ifa.openLevels;
-                if (InfoAboutApplication.OpenLevels.Length == 0)
-                {
-                    InfoAboutApplication.OpenLevels = new bool[56];
-                }
 
                 text.text = "Money - " + InfoAboutApplication.Money;
                 text.text += " SelectedIndex - " + InfoAboutApplication.SelectedSkin;
@@ -175,6 +160,8 @@ public class GoogleServices : MonoBehaviour
                 InfoAboutApplication.PurchasedSkins[0] = true;
                 InfoAboutApplication.OpenIslands[0] = true;
                 InfoAboutApplication.OpenLevels[0] = true;
+
+                OpenSavedGame(true);
 
                 text.text = "Неудалось считать данные:" +
                                 " Монеты: " + InfoAboutApplication.Money +
