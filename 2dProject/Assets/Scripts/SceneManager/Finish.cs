@@ -12,6 +12,8 @@ public class Finish : MonoBehaviour
 
     protected internal GameObject player;
 
+    private bool isFinished = false;
+
     //void Update()
     //{
     //    if (isFinished && playerRb.velocity.magnitude > 0)
@@ -31,8 +33,10 @@ public class Finish : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isFinished)
         {
+            isFinished = true;
+
             Time.timeScale = 0f;
             pauseButton.SetActive(false);
             finishMenu.SetActive(true);

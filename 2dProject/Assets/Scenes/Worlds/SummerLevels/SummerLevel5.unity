@@ -5304,6 +5304,10 @@ PrefabInstance:
       propertyPath: pauseButton
       value: 
       objectReference: {fileID: 1551315444}
+    - target: {fileID: 1663607301038910144, guid: 23a673c65c305c74084fe18b9ecc3999, type: 3}
+      propertyPath: numberLevelsOfIsland
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3917978487477921471, guid: 23a673c65c305c74084fe18b9ecc3999, type: 3}
       propertyPath: m_Name
       value: Finish

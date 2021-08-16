@@ -19,7 +19,7 @@ public class TrunkScript : MonoBehaviour
     void OnFire()
     {
         var bullet = Instantiate(bulletPrefab, new Vector2(transform.position.x, transform.position.y - 0.4f), Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * bulletSpeed, 0);
+        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(-transform.localScale.x * bulletSpeed, 0);
     }
 
 }
