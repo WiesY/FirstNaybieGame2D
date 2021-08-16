@@ -33,13 +33,13 @@ public class PlayerController : MonoBehaviour
     //    joystick = transform.parent.GetComponent<SetCharacterScript>().joystick;
     //}
 
-    //private void Update()
-    //{
-    //    if (Input.GetKey(KeyCode.W))
-    //    {
-    //        Jump();
-    //    }
-    //}
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            Jump();
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -57,18 +57,18 @@ public class PlayerController : MonoBehaviour
         //    movement = 0;
         //}
 
-        if (leftMove) // Buttons move(telephone)
-        {
-            movement = -playerSpeed;
-        }
-        else if (rightMove)
-        {
-            movement = playerSpeed;
-        }
-        else
-        {
-            movement = 0;
-        }
+        //if (leftMove) // Buttons move(telephone)
+        //{
+        //    movement = -playerSpeed;
+        //}
+        //else if (rightMove)
+        //{
+        //    movement = playerSpeed;
+        //}
+        //else
+        //{
+        //    movement = 0;
+        //}
 
         playerRigidbody.velocity = new Vector2(movement, playerRigidbody.velocity.y);
 

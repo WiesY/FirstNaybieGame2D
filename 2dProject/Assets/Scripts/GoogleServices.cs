@@ -17,13 +17,6 @@ public class GoogleServices : MonoBehaviour
     public static bool isSaving; // Сохранить или записать файл
     public static bool tryToAuthenticate = false;
 
-    public static string testString = "Hi!";    // Test field
-    private static int testInt = 15;            // Test field
-    private static bool testBool = true;        // Test field
-
-    private static string[] arrOfStrings;       // Test field
-    private static bool[] arrOfBools;           // Test field
-
     public static void AuthenticateAtStartApp()
     {
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
@@ -37,7 +30,14 @@ public class GoogleServices : MonoBehaviour
         PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (result) => {
             if (result == SignInStatus.Success)
             {
-                text.text = "Удачная аутентификация";
+                try
+                {
+                    text.text = "Удачная аутентификация";
+                }
+                catch (Exception)
+                {
+                    throw;
+                }                
                 startTime = DateTime.Now;
             }
             else
@@ -52,7 +52,15 @@ public class GoogleServices : MonoBehaviour
     public static void OpenSavedGame(bool saving) // Сохранение / Загрузка данных ||| true - сохранение, false - загрузка
     {
         isSaving = saving;
-        text.text = "Открытие файла...";
+        try
+        {
+            text.text = "Открытие файла...";
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
         OpenSavedGame("TestSaveAndLoadAppsss");
     }
 
@@ -69,7 +77,15 @@ public class GoogleServices : MonoBehaviour
         {
             if (isSaving)
             {
-                text.text = "Попытка сохранить";
+                try
+                {
+                    text.text = "Попытка сохранить";
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
 
                 InfoAboutApplication infoAboutApplication = new InfoAboutApplication();
 
@@ -87,13 +103,29 @@ public class GoogleServices : MonoBehaviour
             }
             else if(!isSaving)
             {
-                text.text = "Попытка загрузить";
+                try
+                {
+                    text.text = "Попытка загрузить";
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
                 LoadGameData(game);
             }
         }
         else
         {
-            text.text = "Файл не открылся";
+            try
+            {
+                text.text = "Файл не открылся";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 
@@ -116,11 +148,27 @@ public class GoogleServices : MonoBehaviour
     {
         if (status == SavedGameRequestStatus.Success)
         {
-            text.text = "Успешно сохранил";
+            try
+            {
+                text.text = "Успешно сохранил";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         else
         {
-            text.text = "Неудачное сохранение";
+            try
+            {
+                text.text = "Неудачное сохранение";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 
@@ -145,13 +193,21 @@ public class GoogleServices : MonoBehaviour
                 InfoAboutApplication.OpenIslands = ifa.openIslands;
                 InfoAboutApplication.OpenLevels = ifa.openLevels;
 
-                text.text = "Money - " + InfoAboutApplication.Money;
-                text.text += " SelectedIndex - " + InfoAboutApplication.SelectedSkin;
-                text.text += " PurchasedSkins - " + InfoAboutApplication.PurchasedSkins.Length;
-                text.text += " OpenIslands - " + InfoAboutApplication.OpenIslands[0];
-                text.text += " OpenLevels - " + InfoAboutApplication.OpenLevels[1];
+                try
+                {
+                    text.text = "Money - " + InfoAboutApplication.Money;
+                    text.text += " SelectedIndex - " + InfoAboutApplication.SelectedSkin;
+                    text.text += " PurchasedSkins - " + InfoAboutApplication.PurchasedSkins.Length;
+                    text.text += " OpenIslands - " + InfoAboutApplication.OpenIslands[0];
+                    text.text += " OpenLevels - " + InfoAboutApplication.OpenLevels[1];
 
-                text.text += "Успешно загрузил:" + " Пройденные острова: " + InfoAboutApplication.OpenIslands[0] + InfoAboutApplication.OpenIslands[1] + InfoAboutApplication.OpenIslands[2];
+                    text.text += "Успешно загрузил:" + " Пройденные острова: " + InfoAboutApplication.OpenIslands[0] + InfoAboutApplication.OpenIslands[1] + InfoAboutApplication.OpenIslands[2];
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
             else
             {
@@ -163,18 +219,34 @@ public class GoogleServices : MonoBehaviour
 
                 OpenSavedGame(true);
 
-                text.text = "Неудалось считать данные:" +
+                try
+                {
+                    text.text = "Неудалось считать данные:" +
                                 " Монеты: " + InfoAboutApplication.Money +
                                 " Выбранный скин: " + InfoAboutApplication.SelectedSkin +
                                 " Купленные скины: " + InfoAboutApplication.PurchasedSkins.Length +
                                 " Пройденные острова: " + InfoAboutApplication.OpenIslands[0] +
                                                           InfoAboutApplication.OpenIslands[1] +
                                                           InfoAboutApplication.OpenIslands[2];
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
         }
         else
         {
-            text.text = "Ошибка при считывании данных";
+            try
+            {
+                text.text = "Ошибка при считывании данных";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
