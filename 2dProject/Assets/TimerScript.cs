@@ -9,7 +9,7 @@ public class TimerScript : MonoBehaviour
 
     private TextMeshProUGUI timerText;
 
-    private int timer = 0;
+    protected internal int timer = 0;
 
     private void Awake()
     {
