@@ -4,14 +4,14 @@ public class FruitTriggerScript : MonoBehaviour
 {
     [SerializeField] private int priceFruit = 5;
 
-    private Sprite spriteFruit;
+    // private Sprite spriteFruit;
     private Animator fruitAnimator;
 
     private bool isTrigger = false;
 
     private void Awake()
     {
-        spriteFruit = GetComponent<SpriteRenderer>().sprite;
+        // spriteFruit = GetComponent<SpriteRenderer>().sprite;
         fruitAnimator = GetComponent<Animator>();
     }
 
