@@ -6,15 +6,15 @@ public class LoadCompleteLevelsScripts : MonoBehaviour
 {
     [SerializeField] private int indexIsland; // Имя острова(SummerLevels, WinterLevels и тд)
 
-    private bool[] isCompleteLevels; // Массив пройденных уровней(пройден/не пройден - true/false)
+    private bool[] openLevels; // Массив пройденных уровней(пройден/не пройден - true/false)
 
     private void Awake()
     {
-        isCompleteLevels = new bool[8];
+        openLevels = new bool[8];
 
         for (int i = indexIsland * 8; i <= indexIsland * 8 + 7; i++)
         {
-            isCompleteLevels[i] = InfoAboutApplication.OpenLevels[i];
+            openLevels[i] = InfoAboutApplication.OpenLevels[i];
         }
 
         //if (PlayerPrefs.HasKey(nameIsland))
@@ -30,7 +30,7 @@ public class LoadCompleteLevelsScripts : MonoBehaviour
         var allLevels = transform.Find("All Levels").gameObject;
         for (int i = 0; i < allLevels.transform.childCount; i++) // Замок на уровни
         {
-            if (isCompleteLevels[i])
+            if (openLevels[i])
             {
                 allLevels.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
                 allLevels.transform.GetChild(i).GetComponent<Button>().interactable = true;

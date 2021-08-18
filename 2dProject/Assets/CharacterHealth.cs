@@ -73,9 +73,33 @@ public class CharacterHealth : MonoBehaviour
     {
         if (healthPoints > 0)
         {
-            healthSprite[healthPoints - 1]?.GetComponent<Animator>().SetTrigger("Trigger");
-            healthSprite[healthPoints - 2]?.GetComponent<Animator>().SetTrigger("Trigger");
-            healthSprite[healthPoints - 3]?.GetComponent<Animator>().SetTrigger("Trigger");
+            try
+            {
+                healthSprite[healthPoints - 1]?.GetComponent<Animator>().SetTrigger("Trigger");
+            }
+            catch (System.Exception)
+            {
+
+            }
+
+            try
+            {
+                healthSprite[healthPoints - 2]?.GetComponent<Animator>().SetTrigger("Trigger");
+            }
+            catch (System.Exception)
+            {
+
+            }
+
+            try
+            {
+                healthSprite[healthPoints - 3]?.GetComponent<Animator>().SetTrigger("Trigger");
+            }
+            catch (System.Exception)
+            {
+
+            }
+            
             healthPoints = 0;
             Invoke("RemoveAllHeart", 0.35f);
             gameObject.transform.localScale = new Vector2(0.001f, 0.001f);

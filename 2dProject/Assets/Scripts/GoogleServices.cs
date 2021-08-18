@@ -36,7 +36,7 @@ public class GoogleServices : MonoBehaviour
                 }
                 catch (Exception)
                 {
-                    throw;
+
                 }                
                 startTime = DateTime.Now;
             }
@@ -58,10 +58,9 @@ public class GoogleServices : MonoBehaviour
         }
         catch (Exception)
         {
-
-            throw;
+            
         }
-        OpenSavedGame("TestSaveAndLoadAppsss");
+        OpenSavedGame("TestSaveAndLoadAppsssssssss");
     }
 
     private static void OpenSavedGame(string filename)
@@ -84,7 +83,6 @@ public class GoogleServices : MonoBehaviour
                 catch (Exception)
                 {
 
-                    throw;
                 }
 
                 InfoAboutApplication infoAboutApplication = new InfoAboutApplication();
@@ -110,7 +108,6 @@ public class GoogleServices : MonoBehaviour
                 catch (Exception)
                 {
 
-                    throw;
                 }
                 LoadGameData(game);
             }
@@ -124,7 +121,6 @@ public class GoogleServices : MonoBehaviour
             catch (Exception)
             {
 
-                throw;
             }
         }
     }
@@ -155,7 +151,6 @@ public class GoogleServices : MonoBehaviour
             catch (Exception)
             {
 
-                throw;
             }
         }
         else
@@ -167,7 +162,6 @@ public class GoogleServices : MonoBehaviour
             catch (Exception)
             {
 
-                throw;
             }
         }
     }
@@ -206,7 +200,6 @@ public class GoogleServices : MonoBehaviour
                 catch (Exception)
                 {
 
-                    throw;
                 }
             }
             else
@@ -232,7 +225,6 @@ public class GoogleServices : MonoBehaviour
                 catch (Exception)
                 {
 
-                    throw;
                 }
             }
         }
@@ -245,7 +237,6 @@ public class GoogleServices : MonoBehaviour
             catch (Exception)
             {
 
-                throw;
             }
         }
     }

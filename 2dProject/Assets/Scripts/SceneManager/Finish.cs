@@ -41,7 +41,7 @@ public class Finish : MonoBehaviour
             pauseButton.SetActive(false);
             finishMenu.SetActive(true);
 
-            if (numberIsland <= 5 && numberLevelsOfIsland == (8 * (numberIsland + 1)) - 1)
+            if (numberIsland <= 5 && numberLevelsOfIsland == (numberIsland * 8 + 7))
             {
                 InfoAboutApplication.OpenIslands[numberIsland + 1] = true;
             }
