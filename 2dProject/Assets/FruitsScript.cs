@@ -41,7 +41,7 @@ public class FruitsScript : MonoBehaviour
                 while (int.Parse(fruitsCountText.text) < totalAmountOfFruits)
                 {
                     fruitsCountText.text = (int.Parse(fruitsCountText.text) + 1).ToString();
-                    yield return new WaitForSeconds(0.045f);
+                    yield return new WaitForSeconds(0.05f);
                 }
 
                 yield return new WaitForSeconds(0.4f);
@@ -49,7 +49,7 @@ public class FruitsScript : MonoBehaviour
                 while (fruitsCountText.fontSize > 36)
                 {
                     fruitsCountText.fontSize -= 0.75f;
-                    yield return new WaitForSeconds(0.001f);
+                    yield return new WaitForSeconds(0.0035f);
                 }
             }
 

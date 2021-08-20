@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class LoadCompleteLevelsScripts : MonoBehaviour
 {
-    [SerializeField] private int indexIsland; // Имя острова(SummerLevels, WinterLevels и тд)
+    [SerializeField] private int indexIsland;
 
     private bool[] openLevels; // Массив пройденных уровней(пройден/не пройден - true/false)
 

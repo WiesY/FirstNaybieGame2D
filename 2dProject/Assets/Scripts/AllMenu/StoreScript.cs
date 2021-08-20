@@ -11,7 +11,6 @@ public class StoreScript : MonoBehaviour
     private void Awake()
     {
         purchased = InfoAboutApplication.PurchasedSkins;
-        purchased[0] = true;
         //purchased = new bool[skins.Length];
         //if (PlayerPrefs.HasKey("PurchasedSkins")) // Проверка на купленные скины
         //{
@@ -82,8 +81,6 @@ public class StoreScript : MonoBehaviour
 
     private void UpdateStore()
     {
-        skins[InfoAboutApplication.SelectedSkin].choose = true;
-
         for (int i = 0; i < skins.Length; i++)
         {
             if (skins[i].purchased && skins[i].choose)
