@@ -57,6 +57,11 @@ public class Finish : MonoBehaviour
 
             InfoAboutApplication.Money += FruitsScript.fruitScriptInstance.totalAmountOfFruits;
 
+            if (numberLevelsOfIsland == 0)
+            {
+                Social.ReportProgress("CgkI0pz-7K4UEAIQAw", 100.0f, (bool success) => { });
+            }
+
             GoogleServices.OpenSavedGame(true);
         }
     }

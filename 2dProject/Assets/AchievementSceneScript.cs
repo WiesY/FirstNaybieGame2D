@@ -15,21 +15,21 @@ public class AchievementSceneScript : MonoBehaviour
 
     void Start()
     {
-        Social.LoadAchievements(achievements => {
-            // achievementsList.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = achievements.Length.ToString();
+        Social.LoadAchievements(achievements => {            
             if (achievements.Length > 0)
             {
                 index = 0;
                 foreach (IAchievement achievement in achievements)
                 {
-                    //tmpColor.sizeDelta = new Vector2((achievementsList.GetComponent<RectTransform>().sizeDelta.x / 100f * (float)achievement.percentCompleted), tmpColor.sizeDelta.y);
+                    // achievementsList.transform.GetChild(index).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = achievement.
+                    // achievementsList.transform.GetChild(index).GetComponent<Image>().color.sizeDelta = new Vector2((achievementsList.GetComponent<RectTransform>().sizeDelta.x / 100f * (float)achievement.percentCompleted), tmpColor.sizeDelta.y);
                     if (achievement.completed)
                     {
-                        achievementsList.transform.GetChild(index).GetComponent<Image>().color = new Color(46, 152, 48);
+                        achievementsList.transform.GetChild(index).GetComponent<Image>().color = new Color(0.182f, 0.594f, 0.188f);
                     }
                     else
                     {
-                        achievementsList.transform.GetChild(index).GetComponent<Image>().color = new Color(202, 80, 64);
+                        achievementsList.transform.GetChild(index).GetComponent<Image>().color = new Color(0.792f, 0.313f, 0.250f);
                     }
                     index++;
                 }
