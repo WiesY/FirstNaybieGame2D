@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class FruitTriggerScript : MonoBehaviour
 {
+    [SerializeField] private int idFruit = 0;
     [SerializeField] private int priceFruit = 5;
 
     // private Sprite spriteFruit;
@@ -21,7 +22,7 @@ public class FruitTriggerScript : MonoBehaviour
         {
             isTrigger = true;
             fruitAnimator.SetTrigger("Collect");
-            FruitsScript.fruitScriptInstance.PickUpFruit(priceFruit);//, spriteFruit);
+            FruitsScript.fruitScriptInstance.PickUpFruit(priceFruit, idFruit);//, spriteFruit);
             Destroy(gameObject, 0.25f);
         }
     }

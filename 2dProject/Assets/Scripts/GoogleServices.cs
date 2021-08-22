@@ -60,7 +60,7 @@ public class GoogleServices : MonoBehaviour
         {
             
         }
-        OpenSavedGame("TestSaveAndLoadAppssssssssssss");
+        OpenSavedGame("TestSaveAndLoadAppsssssssssssssss");
     }
 
     private static void OpenSavedGame(string filename)
@@ -92,6 +92,7 @@ public class GoogleServices : MonoBehaviour
                 infoAboutApplication.purchasedSkins = InfoAboutApplication.PurchasedSkins;
                 infoAboutApplication.openIslands = InfoAboutApplication.OpenIslands;
                 infoAboutApplication.openLevels = InfoAboutApplication.OpenLevels;
+                infoAboutApplication.countTakenFruits = InfoAboutApplication.CountTakenFruits;
 
                 string data = JsonUtility.ToJson(infoAboutApplication);
 
@@ -186,6 +187,7 @@ public class GoogleServices : MonoBehaviour
                 InfoAboutApplication.PurchasedSkins = ifa.purchasedSkins;
                 InfoAboutApplication.OpenIslands = ifa.openIslands;
                 InfoAboutApplication.OpenLevels = ifa.openLevels;
+                InfoAboutApplication.CountTakenFruits = ifa.countTakenFruits;
 
                 try
                 {
@@ -194,6 +196,9 @@ public class GoogleServices : MonoBehaviour
                     text.text += " PurchasedSkins - " + InfoAboutApplication.PurchasedSkins.Length;
                     text.text += " OpenIslands - " + InfoAboutApplication.OpenIslands[0];
                     text.text += " OpenLevels - " + InfoAboutApplication.OpenLevels[1];
+                    text.text += " Fruits0 - " + InfoAboutApplication.CountTakenFruits[0];
+                    text.text += " Fruits1 - " + InfoAboutApplication.CountTakenFruits[1];
+                    text.text += " Fruits2 - " + InfoAboutApplication.CountTakenFruits[2];
 
                     text.text += "Успешно загрузил:" + " Пройденные острова: " + InfoAboutApplication.OpenIslands[0] + InfoAboutApplication.OpenIslands[1] + InfoAboutApplication.OpenIslands[2];
                 }
@@ -220,7 +225,10 @@ public class GoogleServices : MonoBehaviour
                                 " Купленные скины: " + InfoAboutApplication.PurchasedSkins.Length +
                                 " Пройденные острова: " + InfoAboutApplication.OpenIslands[0] +
                                                           InfoAboutApplication.OpenIslands[1] +
-                                                          InfoAboutApplication.OpenIslands[2];
+                                                          InfoAboutApplication.OpenIslands[2] +
+                                " Фрукты: " + InfoAboutApplication.CountTakenFruits[0] +
+                                          InfoAboutApplication.CountTakenFruits[1] +
+                                          InfoAboutApplication.CountTakenFruits[2];
                 }
                 catch (Exception)
                 {

@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6ff77b0de0a3a47a0120628cbe3b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idFruit: 2
   priceFruit: 10
 --- !u!58 &3135134151514238059
 CircleCollider2D:

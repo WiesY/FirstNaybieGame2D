@@ -24,9 +24,10 @@ public class FruitsScript : MonoBehaviour
         StartCoroutine(AnimationPickUpFruits());
     }
 
-    protected internal void PickUpFruit(int amountFruit)//, Sprite spriteFruit)
+    protected internal void PickUpFruit(int amountFruit, int idFruit)//, Sprite spriteFruit)
     {
         totalAmountOfFruits += amountFruit;
+        InfoAboutApplication.CountTakenFruits[idFruit] += 1;
         //fruitsImage.sprite = spriteFruit;        
     }
 

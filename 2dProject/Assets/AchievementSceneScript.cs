@@ -21,6 +21,8 @@ public class AchievementSceneScript : MonoBehaviour
                 index = 0;
                 foreach (IAchievementDescription ach in achDescr)
                 {
+                    Sprite tempSprite = Sprite.Create(ach.image, new Rect(60, 3.3f, 100, 100), new Vector2(0.5f, 0.5f));
+                    achievementsList.transform.GetChild(index).GetChild(0).gameObject.GetComponent<Image>().sprite = tempSprite;
                     achievementsList.transform.GetChild(index).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = ach.title;
                     achievementsList.transform.GetChild(index).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = ach.unachievedDescription;
                     index++;
@@ -38,16 +40,16 @@ public class AchievementSceneScript : MonoBehaviour
                 index = 0;
                 foreach (IAchievement achievement in achievements)
                 {
-                    // achievementsList.transform.GetChild(index).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = achievement.
-                    // achievementsList.transform.GetChild(index).GetComponent<Image>().color.sizeDelta = new Vector2((achievementsList.GetComponent<RectTransform>().sizeDelta.x / 100f * (float)achievement.percentCompleted), tmpColor.sizeDelta.y);
-                    if (achievement.completed)
-                    {
-                        achievementsList.transform.GetChild(index).GetComponent<Image>().color = new Color(0.182f, 0.594f, 0.188f);
-                    }
-                    else
-                    {
-                        achievementsList.transform.GetChild(index).GetComponent<Image>().color = new Color(0.792f, 0.313f, 0.250f);
-                    }
+                    achievementsList.transform.GetChild(index).GetChild(3).GetComponent<RectTransform>().sizeDelta = new Vector2(achievementsList.GetComponent<Rect>().width / 100 * (float)achievement.percentCompleted, achievementsList.transform.GetChild(index).GetChild(3).GetComponent<RectTransform>().sizeDelta.y);
+                    achievementsList.transform.GetChild(index).GetChild(3).GetComponent<RectTransform>().position = new Vector2(achievementsList.transform.GetChild(index).GetChild(3).GetComponent<RectTransform>().sizeDelta.x / 2, 0);
+                    //if (achievement.completed)
+                    //{
+                    //    achievementsList.transform.GetChild(index).GetComponent<Image>().color = new Color(0.182f, 0.594f, 0.188f);
+                    //}
+                    //else
+                    //{
+                    //    achievementsList.transform.GetChild(index).GetComponent<Image>().color = new Color(0.792f, 0.313f, 0.250f);
+                    //}
                     index++;
                 }
             }
