@@ -13,8 +13,25 @@ public class AchievementSceneScript : MonoBehaviour
 
     private int index = 0;
 
-    void Start()
+    void Awake()
     {
+        Social.LoadAchievementDescriptions(achDescr => {
+            if(achDescr.Length > 0)
+            {
+                index = 0;
+                foreach (IAchievementDescription ach in achDescr)
+                {
+                    achievementsList.transform.GetChild(index).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = ach.title;
+                    achievementsList.transform.GetChild(index).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = ach.unachievedDescription;
+                    index++;
+                }
+            }
+            else
+            {
+                achievementsList.transform.GetChild(0).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "Achiev not found";
+            }
+        });
+
         Social.LoadAchievements(achievements => {            
             if (achievements.Length > 0)
             {
@@ -39,7 +56,6 @@ public class AchievementSceneScript : MonoBehaviour
                 var asd = achievementsList.transform.GetChild(0).GetComponent<Image>().color;
                 asd.a = 0.35f;
                 achievementsList.transform.GetChild(0).GetComponent<Image>().color = asd;
-                Debug.Log("No achievements returned");
             }
         });
     }

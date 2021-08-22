@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movement = Input.GetAxis("Horizontal") * playerSpeed; // Keyboard move(desktop)
+        // movement = Input.GetAxis("Horizontal") * playerSpeed; // Keyboard move(desktop)
         //if (joystick.Horizontal > 0.1f) // Joystick move(telephone)
         //{
         //    movement = playerSpeed;
@@ -57,18 +57,18 @@ public class PlayerController : MonoBehaviour
         //    movement = 0;
         //}
 
-        //if (leftMove) // Buttons move(telephone)
-        //{
-        //    movement = -playerSpeed;
-        //}
-        //else if (rightMove)
-        //{
-        //    movement = playerSpeed;
-        //}
-        //else
-        //{
-        //    movement = 0;
-        //}
+        if (leftMove) // Buttons move(telephone)
+        {
+            movement = -playerSpeed;
+        }
+        else if (rightMove)
+        {
+            movement = playerSpeed;
+        }
+        else
+        {
+            movement = 0;
+        }
 
         playerRigidbody.velocity = new Vector2(movement, playerRigidbody.velocity.y);
 
