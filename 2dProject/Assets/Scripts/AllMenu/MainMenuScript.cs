@@ -28,6 +28,11 @@ public class MainMenuScript : MonoBehaviour
         GoogleServices.OpenSavedGame(false);
     }
 
+    public void OnQuitButton7()
+    {
+        Social.ShowAchievementsUI();
+    }
+
     public void OnChangeGraphics(int graphicIndex)
     {
         var asd = QualitySettings.vSyncCount;
