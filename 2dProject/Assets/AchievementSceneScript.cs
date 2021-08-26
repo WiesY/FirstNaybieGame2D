@@ -47,16 +47,17 @@ public class AchievementSceneScript : MonoBehaviour
                 foreach (IAchievement achievement in achievements)
                 {
                     achievementsList.transform.GetChild(index).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(achievementsList.GetComponent<RectTransform>().rect.width / 100 * (float)achievement.percentCompleted, achievementsList.transform.GetChild(index).GetChild(0).GetComponent<RectTransform>().rect.height);
-                    achievementsList.transform.GetChild(index).GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3(achievementsList.transform.GetChild(index).GetChild(0).GetComponent<RectTransform>().rect.width / 2, 0, 0);
-                    //if (achievement.completed)
-                    //{
-                    //    achievementsList.transform.GetChild(index).GetComponent<Image>().color = new Color(0.182f, 0.594f, 0.188f);
-                    //}
-                    //else
-                    //{
-                    //    achievementsList.transform.GetChild(index).GetComponent<Image>().color = new Color(0.792f, 0.313f, 0.250f);
-                    //}
-                    checkErrorsText.text += $"Ach{index}";
+                    // achievementsList.transform.GetChild(index).GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3(achievementsList.transform.GetChild(index).GetChild(0).GetComponent<RectTransform>().rect.width, 0, 0);
+                    checkErrorsText.text += $"{achievementsList.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta} + {achievementsList.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().localPosition}";
+        //if (achievement.completed)
+        //{
+        //    achievementsList.transform.GetChild(index).GetComponent<Image>().color = new Color(0.182f, 0.594f, 0.188f);
+        //}
+        //else
+        //{
+        //    achievementsList.transform.GetChild(index).GetComponent<Image>().color = new Color(0.792f, 0.313f, 0.250f);
+        //}
+        checkErrorsText.text += $"Ach{index}";
                     index++;
                 }
             }
@@ -70,8 +71,8 @@ public class AchievementSceneScript : MonoBehaviour
 
         checkErrorsText.text += $"AchComp";
 
-        achievementsList.transform.GetChild(2).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(achievementsList.GetComponent<RectTransform>().rect.width / 100 * 50f, achievementsList.transform.GetChild(2).GetChild(0).GetComponent<RectTransform>().rect.height);
-        achievementsList.transform.GetChild(2).GetChild(0).GetComponent<RectTransform>().localPosition = new Vector2(achievementsList.transform.GetChild(2).GetChild(0).GetComponent<RectTransform>().rect.width / 2, 0);
+        achievementsList.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(achievementsList.GetComponent<RectTransform>().rect.width / 100 * 50f, achievementsList.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().rect.height);
+        achievementsList.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().localPosition = new Vector2(achievementsList.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().rect.width / 2, 0);
 
         checkErrorsText.text += $"AllComp";
     }
