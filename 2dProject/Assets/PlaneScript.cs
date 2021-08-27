@@ -19,7 +19,7 @@ public class PlaneScript : MonoBehaviour
 
             while (transform.position.x < pointsToMove[1].transform.position.x)
             {
-                transform.position = Vector2.MoveTowards(transform.position, pointsToMove[1].transform.position, 0.035f);
+                transform.position = Vector2.MoveTowards(transform.position, pointsToMove[1].transform.position, 0.043f);
                 yield return null;
             }
 
@@ -27,7 +27,7 @@ public class PlaneScript : MonoBehaviour
 
             while (transform.position.x > pointsToMove[0].transform.position.x)
             {
-                transform.position = Vector2.MoveTowards(transform.position, pointsToMove[0].transform.position, 0.035f);
+                transform.position = Vector2.MoveTowards(transform.position, pointsToMove[0].transform.position, 0.043f);
                 yield return null;
             }
         }

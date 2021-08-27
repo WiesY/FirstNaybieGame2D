@@ -59,9 +59,12 @@ public class Finish : MonoBehaviour
             InfoAboutApplication.Money += FruitsScript.fruitScriptInstance.totalAmountOfFruits;
 
             Social.LoadAchievements(ach => {
-                if (!ach[0].completed)
+                foreach (var achiev in ach)
                 {
-                    Social.ReportProgress("CgkI0pz-7K4UEAIQAA", InfoAboutApplication.CountTakenFruits[1] / 50 * 100, (bool success) => { });
+                    if (achiev.id == "CgkI0pz-7K4UEAIQAA" && achiev.percentCompleted < 100) // Collect 50 apples
+                    {
+                        Social.ReportProgress("CgkI0pz-7K4UEAIQAA", 100 / 50 * InfoAboutApplication.CountTakenFruits[0], (bool success) => { });
+                    }
                 }
             });
 
