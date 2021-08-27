@@ -120,8 +120,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Default"))
         {
-            isGrounded = true;
             StopCoroutine(OutGround());
+            isGrounded = true;
         }
     }
 
