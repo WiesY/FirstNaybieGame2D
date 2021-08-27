@@ -47,6 +47,7 @@ public class AchievementSceneScript : MonoBehaviour
                 foreach (IAchievement achievement in achievements)
                 {
                     achievementsList.transform.GetChild(index).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(achievementsList.GetComponent<RectTransform>().rect.width / 100 * (float)achievement.percentCompleted, achievementsList.transform.GetChild(index).GetChild(0).GetComponent<RectTransform>().rect.height);
+                    checkErrorsText.text += $"S{achievement.percentCompleted}%";
                     achievementsList.transform.GetChild(index).GetChild(0).GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 0, 0);
                     checkErrorsText.text += $"{achievementsList.transform.GetChild(index).GetChild(0).GetComponent<RectTransform>().sizeDelta} + {achievementsList.transform.GetChild(index).GetChild(0).GetComponent<RectTransform>().localPosition}";
         //if (achievement.completed)
