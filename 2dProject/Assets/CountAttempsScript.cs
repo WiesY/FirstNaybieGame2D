@@ -10,5 +10,6 @@ public class CountAttempsScript : MonoBehaviour
     {
         InfoAboutApplication.CountAttempsOnLevels[indexLevel]++;
         GetComponent<TextMeshProUGUI>().text = $"Попытка: {InfoAboutApplication.CountAttempsOnLevels[indexLevel]}";
+        GoogleServices.OpenSavedGame(true);
     }
 }
