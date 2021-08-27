@@ -6,9 +6,9 @@ public class CountAttempsScript : MonoBehaviour
 {
     [SerializeField] private int indexLevel = 0;
 
-    private void Start()
+    private void Awake()
     {
         InfoAboutApplication.CountAttempsOnLevels[indexLevel]++;
-        GetComponent<TextMeshProUGUI>().text = $"Попытка: {InfoAboutApplication.CountAttempsOnLevels[indexLevel]}";
+        GetComponent<TextMeshProUGUI>().text = $"Attemp {InfoAboutApplication.CountAttempsOnLevels[indexLevel]}";
     }
 }
