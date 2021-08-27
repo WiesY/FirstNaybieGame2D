@@ -24,7 +24,7 @@
 
 public static class GPGSIds
 {
-        public const string achievement_bananas = "CgkI0pz-7K4UEAIQAA"; // <GPGSID>
+        public const string achievement_the_love_of_a_pig = "CgkI0pz-7K4UEAIQAA"; // <GPGSID>
         public const string leaderboard_the_best_record_on_1_lvl = "CgkI0pz-7K4UEAIQAQ"; // <GPGSID>
         public const string achievement_first_level = "CgkI0pz-7K4UEAIQAw"; // <GPGSID>
         public const string achievement_start_the_game = "CgkI0pz-7K4UEAIQBA"; // <GPGSID>

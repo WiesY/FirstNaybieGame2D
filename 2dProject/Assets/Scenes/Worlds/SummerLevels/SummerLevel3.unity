@@ -61864,6 +61864,7 @@ GameObject:
   - component: {fileID: 1890748411}
   - component: {fileID: 1890748413}
   - component: {fileID: 1890748412}
+  - component: {fileID: 1890748414}
   m_Layer: 5
   m_Name: Count Attemps Text
   m_TagString: Untagged
@@ -61987,6 +61988,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890748410}
   m_CullTransparentMesh: 1
+--- !u!114 &1890748414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890748410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0e750f3f05b434496517f82462c638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexLevel: 2
 --- !u!1 &1911011222
 GameObject:
   m_ObjectHideFlags: 0

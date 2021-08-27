@@ -60,7 +60,7 @@ public class GoogleServices : MonoBehaviour
         {
             
         }
-        OpenSavedGame("TestSaveAndLoadAppsssssssssssssss");
+        OpenSavedGame("TestSaveAndLoadAppssssssssssssssssssddd");
     }
 
     private static void OpenSavedGame(string filename)
@@ -93,6 +93,7 @@ public class GoogleServices : MonoBehaviour
                 infoAboutApplication.openIslands = InfoAboutApplication.OpenIslands;
                 infoAboutApplication.openLevels = InfoAboutApplication.OpenLevels;
                 infoAboutApplication.countTakenFruits = InfoAboutApplication.CountTakenFruits;
+                infoAboutApplication.countAttempsOnLevels = InfoAboutApplication.CountAttempsOnLevels;
 
                 string data = JsonUtility.ToJson(infoAboutApplication);
 
@@ -188,6 +189,7 @@ public class GoogleServices : MonoBehaviour
                 InfoAboutApplication.OpenIslands = ifa.openIslands;
                 InfoAboutApplication.OpenLevels = ifa.openLevels;
                 InfoAboutApplication.CountTakenFruits = ifa.countTakenFruits;
+                InfoAboutApplication.CountAttempsOnLevels = ifa.countAttempsOnLevels;
 
                 try
                 {
@@ -199,6 +201,9 @@ public class GoogleServices : MonoBehaviour
                     text.text += " Fruits0 - " + InfoAboutApplication.CountTakenFruits[0];
                     text.text += " Fruits1 - " + InfoAboutApplication.CountTakenFruits[1];
                     text.text += " Fruits2 - " + InfoAboutApplication.CountTakenFruits[2];
+                    text.text += " Att0 - " + InfoAboutApplication.CountAttempsOnLevels[0];
+                    text.text += " Att1 - " + InfoAboutApplication.CountAttempsOnLevels[1];
+                    text.text += " Att3 - " + InfoAboutApplication.CountAttempsOnLevels[2];
 
                     text.text += "Успешно загрузил:" + " Пройденные острова: " + InfoAboutApplication.OpenIslands[0] + InfoAboutApplication.OpenIslands[1] + InfoAboutApplication.OpenIslands[2];
                 }
