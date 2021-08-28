@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController playerController;
 
+    public float speedInWater = 1;
+
     [SerializeField] private float playerSpeed = 5f;
     [SerializeField] private float playerForceJump = 25f;
 
@@ -13,7 +15,6 @@ public class PlayerController : MonoBehaviour
     // private Joystick joystick;
 
     private float movement;
-    private float speedInWater = 1;
     private bool facingRight = true;
     private bool isGrounded = false;
     private bool canOneJump = false;
@@ -124,10 +125,10 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
 
-        if (collision.gameObject.tag == "Water")
-        {
-            speedInWater = 0.5f;
-        }
+        //if (collision.gameObject.tag == "Water")
+        //{
+        //    speedInWater = 0.5f;
+        //}
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -139,11 +140,11 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(OutGround());
         }
 
-        if (collision.gameObject.tag == "Water")
-        {
-            speedInWater = 1;
-            Debug.Log("Exit");
-        }
+        //if (collision.gameObject.tag == "Water")
+        //{
+        //    speedInWater = 1;
+        //    Debug.Log("Exit");
+        //}
     }
 
     private IEnumerator OutGround()
