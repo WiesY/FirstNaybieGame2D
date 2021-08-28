@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     // private Joystick joystick;
 
     private float movement;
+    private float speedInWater = 1;
     private bool facingRight = true;
     private bool isGrounded = false;
     private bool canOneJump = false;
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // movement = Input.GetAxis("Horizontal") * playerSpeed; // Keyboard move(desktop)
+        movement = Input.GetAxis("Horizontal") * playerSpeed; // Keyboard move(desktop)
         //if (joystick.Horizontal > 0.1f) // Joystick move(telephone)
         //{
         //    movement = playerSpeed;
@@ -57,20 +58,20 @@ public class PlayerController : MonoBehaviour
         //    movement = 0;
         //}
 
-        if (leftMove) // Buttons move(telephone)
-        {
-            movement = -playerSpeed;
-        }
-        else if (rightMove)
-        {
-            movement = playerSpeed;
-        }
-        else
-        {
-            movement = 0;
-        }
+        //if (leftMove) // Buttons move(telephone)
+        //{
+        //    movement = -playerSpeed;
+        //}
+        //else if (rightMove)
+        //{
+        //    movement = playerSpeed;
+        //}
+        //else
+        //{
+        //    movement = 0;
+        //}
 
-        playerRigidbody.velocity = new Vector2(movement, playerRigidbody.velocity.y);
+        playerRigidbody.velocity = new Vector2(movement * speedInWater, playerRigidbody.velocity.y * speedInWater);
 
         if (!facingRight && movement > 0)
         {
@@ -102,7 +103,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded || canOneJump)
         {
             canOneJump = false;
-            playerRigidbody.velocity = Vector2.up * playerForceJump;
+            playerRigidbody.velocity = Vector2.up * playerForceJump * speedInWater;
             playerAnimator.SetBool("Move", false);
             playerAnimator.SetBool("Jump", true);
         }
@@ -122,6 +123,11 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
+
+        if (collision.gameObject.tag == "Water")
+        {
+            speedInWater = 0.5f;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -131,6 +137,12 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             canOneJump = true;
             StartCoroutine(OutGround());
+        }
+
+        if (collision.gameObject.tag == "Water")
+        {
+            speedInWater = 1;
+            Debug.Log("Exit");
         }
     }
 
