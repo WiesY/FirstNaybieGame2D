@@ -11874,8 +11874,8 @@ GameObject:
   - component: {fileID: 1040024991}
   - component: {fileID: 1040024993}
   - component: {fileID: 1040024992}
-  m_Layer: 0
-  m_Name: Darkness
+  m_Layer: 4
+  m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
