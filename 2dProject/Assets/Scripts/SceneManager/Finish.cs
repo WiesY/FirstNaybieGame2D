@@ -61,9 +61,9 @@ public class Finish : MonoBehaviour
             Social.LoadAchievements(ach => {
                 foreach (var achiev in ach)
                 {
-                    if (achiev.id == "CgkI0pz-7K4UEAIQAA" && achiev.percentCompleted < 100) // Collect 50 apples
+                    if (achiev.id == "CgkI0pz-7K4UEAIQAA" && achiev.percentCompleted < 100 && InfoAboutApplication.CountTakenFruits[0] <= 50) // Collect 50 apples
                     {
-                        Social.ReportProgress("CgkI0pz-7K4UEAIQAA", 100 / 50 * InfoAboutApplication.CountTakenFruits[0], (bool success) => { });
+                        Social.ReportProgress("CgkI0pz-7K4UEAIQAA", 100, (bool success) => { });
                     }
                 }
             });

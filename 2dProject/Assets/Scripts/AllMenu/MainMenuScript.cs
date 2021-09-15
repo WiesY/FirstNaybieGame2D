@@ -18,17 +18,10 @@ public class MainMenuScript : MonoBehaviour
 
     public void OnQuitButton() // Кнопка ВЫХОД
     {
-        GoogleServices.OpenSavedGame(true);
-
-        // Application.Quit();
+        Application.Quit();
     }
 
-    public void OnQuitButton5()
-    {
-        GoogleServices.OpenSavedGame(false);
-    }
-
-    public void OnQuitButton7()
+    public void OnShowAchiev()
     {
         Social.ShowAchievementsUI();
     }

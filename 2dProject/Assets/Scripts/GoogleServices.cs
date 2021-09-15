@@ -60,7 +60,7 @@ public class GoogleServices : MonoBehaviour
         {
             
         }
-        OpenSavedGame("TestSaveAndLoadAppssssssssssssssssssddddddddd");
+        OpenSavedGame("SaveAndLoadApps");
     }
 
     private static void OpenSavedGame(string filename)
