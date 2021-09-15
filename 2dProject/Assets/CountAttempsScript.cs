@@ -9,6 +9,6 @@ public class CountAttempsScript : MonoBehaviour
     private void Awake()
     {
         InfoAboutApplication.CountAttempsOnLevels[indexLevel]++;
-        GetComponent<TextMeshProUGUI>().text = $"Attemp {InfoAboutApplication.CountAttempsOnLevels[indexLevel]}";
+        GetComponent<TextMeshProUGUI>().text = $"Attempt {InfoAboutApplication.CountAttempsOnLevels[indexLevel]}";
     }
 }
