@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D playerRigidbody;
     private Animator playerAnimator;
-    // private Joystick joystick;
+    private Joystick joystick;
 
     private float movement;
     private bool facingRight = true;
@@ -30,47 +30,47 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
     }
 
-    //private void Start()
-    //{
-    //    joystick = transform.parent.GetComponent<SetCharacterScript>().joystick;
-    //}
-
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            Jump();
-        }
+        joystick = transform.parent.GetComponent<SetCharacterScript>().joystick;
     }
+
+    //private void Update()
+    //{
+    //    if (Input.GetKey(KeyCode.W))
+    //    {
+    //        Jump();
+    //    }
+    //}
 
     private void FixedUpdate()
     {
-        movement = Input.GetAxis("Horizontal") * playerSpeed; // Keyboard move(desktop)
-        //if (joystick.Horizontal > 0.1f) // Joystick move(telephone)
-        //{
-        //    movement = playerSpeed;
-        //}
-        //else if (joystick.Horizontal < -0.1f)
-        //{
-        //    movement = -playerSpeed;
-        //}
-        //else
-        //{
-        //    movement = 0;
-        //}
+        //movement = Input.GetAxis("Horizontal") * playerSpeed; // Keyboard move(desktop)
+        if (joystick.Horizontal > 0.1f) // Joystick move(telephone)
+        {
+            movement = playerSpeed;
+        }
+        else if (joystick.Horizontal < -0.1f)
+        {
+            movement = -playerSpeed;
+        }
+        else
+        {
+            movement = 0;
+        }
 
-        //if (leftMove) // Buttons move(telephone)
-        //{
-        //    movement = -playerSpeed;
-        //}
-        //else if (rightMove)
-        //{
-        //    movement = playerSpeed;
-        //}
-        //else
-        //{
-        //    movement = 0;
-        //}
+        if (leftMove) // Buttons move(telephone)
+        {
+            movement = -playerSpeed;
+        }
+        else if (rightMove)
+        {
+            movement = playerSpeed;
+        }
+        else
+        {
+            movement = 0;
+        }
 
         playerRigidbody.velocity = new Vector2(movement * speedInWater, playerRigidbody.velocity.y * speedInWater);
 
