@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D playerRigidbody;
     private Animator playerAnimator;
-    // private Joystick joystick;
+    private Joystick joystick;
 
     private float movement;
     private bool facingRight = true;
@@ -30,18 +30,18 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
     }
 
-    //private void Start()
-    //{
-    //    joystick = transform.parent.GetComponent<SetCharacterScript>().joystick;
-    //}
-
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            Jump();
-        }
+        joystick = transform.parent.GetComponent<SetCharacterScript>().joystick;
     }
+
+    //private void Update()
+    //{
+    //    if (Input.GetKey(KeyCode.W))
+    //    {
+    //        Jump();
+    //    }
+    //}
 
     private void FixedUpdate()
     {
