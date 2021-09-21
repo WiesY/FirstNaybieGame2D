@@ -13936,11 +13936,11 @@ PrefabInstance:
     - target: {fileID: 1663607301038910144, guid: 23a673c65c305c74084fe18b9ecc3999, type: 3}
       propertyPath: finishMenu
       value: 
-      objectReference: {fileID: 1603052025}
+      objectReference: {fileID: 1176010601}
     - target: {fileID: 1663607301038910144, guid: 23a673c65c305c74084fe18b9ecc3999, type: 3}
       propertyPath: pauseButton
       value: 
-      objectReference: {fileID: 307427656}
+      objectReference: {fileID: 493182942}
     - target: {fileID: 1663607301038910144, guid: 23a673c65c305c74084fe18b9ecc3999, type: 3}
       propertyPath: numberLevelsOfIsland
       value: 1

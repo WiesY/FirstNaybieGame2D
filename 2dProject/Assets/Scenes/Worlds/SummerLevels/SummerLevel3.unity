@@ -12529,7 +12529,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501873392}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 120.1568, y: -53.8485, z: 1}
+  m_LocalPosition: {x: 135.3, y: -58.4, z: 1}
   m_LocalScale: {x: 7.7416162, y: 2.5806434, z: 0.39855}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13954,14 +13954,14 @@ PrefabInstance:
     - target: {fileID: 1663607301038910144, guid: 23a673c65c305c74084fe18b9ecc3999, type: 3}
       propertyPath: finishMenu
       value: 
-      objectReference: {fileID: 1603052025}
+      objectReference: {fileID: 609513064}
     - target: {fileID: 1663607301038910144, guid: 23a673c65c305c74084fe18b9ecc3999, type: 3}
       propertyPath: pauseButton
       value: 
-      objectReference: {fileID: 307427656}
+      objectReference: {fileID: 1617286057}
     - target: {fileID: 1663607301038910144, guid: 23a673c65c305c74084fe18b9ecc3999, type: 3}
       propertyPath: numberLevelsOfIsland
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3917978487477921471, guid: 23a673c65c305c74084fe18b9ecc3999, type: 3}
       propertyPath: m_Name
@@ -36663,7 +36663,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -49366,7 +49366,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: edbf2f282f3feb940b6238d4d339ada4, type: 3}
   - {fileID: 21300000, guid: 320f4eb52e227b446830a1f6fd691fca, type: 3}
   - {fileID: 21300000, guid: 4872bd1108769a946a6acb68dc156fcf, type: 3}
-  mainCharacter: {fileID: 0}
+  mainCharacter: {fileID: 1316695407}
 --- !u!114 &1768560744
 MonoBehaviour:
   m_ObjectHideFlags: 0
